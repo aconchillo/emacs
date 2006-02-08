@@ -20,7 +20,7 @@
 (setq c-default-style "gnu")
 
 ;; Margin
-(add-to-list 'load-path (expand-file-name "margin-mode/" emacs-packages-dir))
+(add-to-list 'load-path (expand-file-name "margin-mode/" emacs-init-dir))
 (require 'margin)
 (setq margin-column 78)
 (add-hook 'c-mode-common-hook 'margin-mode)
