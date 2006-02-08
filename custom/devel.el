@@ -30,7 +30,7 @@
 (require 'compile)
 
 ;; SCM
-(add-to-list 'load-path (expand-file-name "xtla/" emacs-packages-dir))
+(add-to-list 'load-path (expand-file-name "xtla/lisp" emacs-packages-dir))
 (require 'xtla-autoloads)
 
 ;; Doxymacs
