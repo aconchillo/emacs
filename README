@@ -1,0 +1,23 @@
+
+Installation
+------------
+
+ * Copy emacs.el to ~/.emacs
+ * Copy directories to ~/Library/Emacs
+ * Create ~/Library/Emacs/elisp directory
+ * Add next packages to ~/Library/Emacs/elisp:
+       * skels:
+       	 - Checkout repository
+	   darcs get http://hacks-galore.org/jao/darcs/skels
+       * doxymacs:
+       	 - Download
+	   http://sourceforge.net/project/showfiles.php?group_id=23584&release_id=332524
+	 - Decompress to doxymacs/
+       * margin-mode:
+       * xtla:
+       	 - Download
+	   http://download.gna.org/xtla-el/xtla-1.2.tar.gz
+	 - Decompress to xtla/
+	 - Execute
+	   ./configure --with-other-dirs=/Applications/Emacs.app/Contents/Resources/share/emacs/22.0.50/lisp/
+	   make
