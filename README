@@ -18,5 +18,5 @@ Installation
 	   http://download.gna.org/xtla-el/xtla-1.2.tar.gz
 	 - Decompress to xtla/
 	 - Execute
-	   ./configure --with-other-dirs=/Applications/Emacs.app/Contents/Resources/share/emacs/22.0.50/lisp/
+	   ./configure --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 	   make
