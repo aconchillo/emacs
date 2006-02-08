@@ -30,11 +30,11 @@
 (require 'compile)
 
 ;; SCM
-(add-to-list 'load-path (expand-file-name "xtla-1.1/" emacs-packages-dir))
+(add-to-list 'load-path (expand-file-name "xtla/" emacs-packages-dir))
 (require 'xtla-autoloads)
 
 ;; Doxymacs
-(add-to-list 'load-path (expand-file-name "doxymacs/" emacs-packages-dir))
+(add-to-list 'load-path (expand-file-name "doxymacs/no-autoconf/" emacs-packages-dir))
 (require 'doxymacs)
 
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
