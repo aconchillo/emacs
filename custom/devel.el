@@ -20,7 +20,7 @@
 (setq c-default-style "gnu")
 
 ;; Margin
-(add-to-list 'load-path (expand-file-name "margin-mode/" emacs-init-dir))
+(add-to-list 'load-path (expand-file-name "margin-mode/" emacs-packages-dir))
 (require 'margin)
 (setq margin-column 78)
 (add-hook 'c-mode-common-hook 'margin-mode)
@@ -34,7 +34,7 @@
 (require 'xtla-autoloads)
 
 ;; Doxymacs
-(add-to-list 'load-path (expand-file-name "doxymacs/no-autoconf/" emacs-packages-dir))
+(add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
 (require 'doxymacs)
 
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
@@ -42,5 +42,12 @@
   (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
       (doxymacs-font-lock)))
 (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
+
+;; ELIB
+(add-to-list 'load-path (expand-file-name "elib" emacs-packages-dir))
+
+;; CEDET
+(add-to-list 'load-path (expand-file-name "cedet/common" emacs-packages-dir))
+(load-file (expand-file-name "cedet/common/cedet.el" emacs-packages-dir))
 
 ;;; devel.el ends here

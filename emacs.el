@@ -32,7 +32,7 @@
 (init-load-file "devel")          ;; General development
 (init-load-file "edit")           ;; Edit/Typing customisations
 (init-load-file "func")           ;; Lisp functions
-;(init-load-file "java")           ;; Java development
+(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
 ;(init-load-file "macavity")       ;; MacAvity
 (init-load-file "skels")          ;; File skeletons

@@ -9,11 +9,34 @@ Installation
        * skels:
        	 - Checkout repository
 	   darcs get http://hacks-galore.org/jao/darcs/skels
-       * doxymacs:
+       * margin-mode:
+         - Download
+           http://www.xanadb.com/margin.el
+         - Copy margin.el to margin-mode/
+       * elib-1.0:
+         - Download
+           http://jdee.sunsite.dk/elib-1.0.tar.gz
+         - Decompress to elib/
+         - Execute
+           EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+       * cedet-1.0beta3:
+         - Download
+           http://prdownloads.sourceforge.net/cedet/cedet-1.0beta3b.tar.gz?download
+         - Decompress to cedet/
+         - Execute
+           EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+       * jde-2.3.5:
+         - Download
+           http://jdee.sunsite.dk/jde-latest.tar.gz
+         - Decompress to jde/
+       * doxymacs-1.6.0:
        	 - Download
-	   http://sourceforge.net/project/showfiles.php?group_id=23584&release_id=332524
-	 - Decompress to doxymacs/
-       * xtla:
+           http://prdownloads.sourceforge.net/doxymacs/doxymacs-1.6.0.tar.gz?download
+         - Decompress to doxymacs/
+         - Execute
+           EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs ./configure
+           make
+       * xtla-1.2:
        	 - Download
 	   http://download.gna.org/xtla-el/xtla-1.2.tar.gz
 	 - Decompress to xtla/
