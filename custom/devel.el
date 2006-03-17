@@ -50,4 +50,6 @@
 (add-to-list 'load-path (expand-file-name "cedet/common" emacs-packages-dir))
 (load-file (expand-file-name "cedet/common/cedet.el" emacs-packages-dir))
 
+(setq semanticdb-default-save-directory (expand-file-name "~/.emacs.d/semantic"))
+
 ;;; devel.el ends here

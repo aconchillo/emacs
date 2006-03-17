@@ -46,14 +46,29 @@
       '((vertical-scroll-bars . nil)
         (horizontal-scroll-bars . nil)
         (top . 35)
-        (left . 30)
-        (width . 130)
-        (height . 42)))
+        (left . 25)
+        (width . 90)
+        (height . 42)
+	(background-color . "grey25")
+	(background-mode . dark)
+	(border-color . "Grey")
+	(cursor-color . "Grey")
+	(foreground-color . "beige")))
 
 ;; Speedbar
 (setq speedbar-use-images nil)
+(setq speedbar-frame-parameters
+      (quote
+       ((minibuffer)
+	(width . 40)
+	(border-width . 0)
+	(menu-bar-lines . 0)
+	(tool-bar-lines . 0)
+	(unsplittable . t)
+	(left-fringe . 0))))
 
-;; Switch buffer imrpoved
+
+;; Switch buffer improved
 (require 'iswitchb)
 (iswitchb-default-keybindings)
 

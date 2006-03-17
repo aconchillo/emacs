@@ -4,9 +4,8 @@
 ;;(pc-selection-mode)
 
 ;; Key bindings
-(global-set-key [f1] 'menu-bar-mode)
 (global-set-key "\C-co" 'ff-find-other-file)
-(global-set-key [f3] 'speedbar-get-focus)
+(global-set-key "\C-cs" 'speedbar-get-focus)
 (global-set-key "\C-cc" 'compile)
 (global-set-key "\C-cp" 'previous-error)
 (global-set-key "\C-cn" 'next-error)
