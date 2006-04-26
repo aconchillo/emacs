@@ -13,22 +13,23 @@ Installation
          - Download
            http://www.xanadb.com/margin.el
          - Copy margin.el to margin-mode/
-       * elib-1.0:
-         - Download
-           http://jdee.sunsite.dk/elib-1.0.tar.gz
-         - Decompress to elib/
-         - Execute
-           EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
-       * cedet-1.0beta3:
-         - Download
-           http://prdownloads.sourceforge.net/cedet/cedet-1.0beta3b.tar.gz?download
-         - Decompress to cedet/
-         - Execute
-           EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
-       * jde-2.3.5:
-         - Download
-           http://jdee.sunsite.dk/jde-latest.tar.gz
-         - Decompress to jde/
+       * JDE:
+           * elib-1.0:
+             - Download
+               http://jdee.sunsite.dk/elib-1.0.tar.gz
+             - Decompress to elib/
+             - Execute
+               EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+           * cedet-1.0beta3:
+             - Download
+               http://prdownloads.sourceforge.net/cedet/cedet-1.0beta3b.tar.gz?download
+             - Decompress to cedet/
+             - Execute
+               EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
+           * jde-2.3.5:
+             - Download
+               http://jdee.sunsite.dk/jde-latest.tar.gz
+             - Decompress to jde/
        * doxymacs-1.6.0:
        	 - Download
            http://prdownloads.sourceforge.net/doxymacs/doxymacs-1.6.0.tar.gz?download
