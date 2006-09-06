@@ -1,6 +1,8 @@
 ;;; edit.el --- Setup editing environment
 
 ;; Text editing
+(setq default-major-mode 'text-mode)
+
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; Scroll only one line when move past bottom of screen
@@ -11,13 +13,18 @@
 
 ;; Kill whole line (kills return too)
 (setq kill-whole-line t)
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
 ;; Convert tabs to spaces
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 (setq indent-tabs-width 4)
+
+;; Delete trailing whitespaces
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
 ;; Update copyright notice automagically
 (add-hook 'write-file-hooks 'copyright-update)
+
+;; Automatically reload files after they've been modified
+(global-auto-revert-mode 1)
 
 ;;; edit.el ends here

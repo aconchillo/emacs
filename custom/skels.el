@@ -4,6 +4,7 @@
 
 (load "init-skel")
 
+;; set configuration variables
 (setq jao-company-name "")
 (setq jao-copyright-file "")
 (setq jao-cpp-root-namespace "")

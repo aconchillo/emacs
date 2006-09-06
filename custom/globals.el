@@ -25,7 +25,8 @@
 (menu-bar-mode -1)
 
 ;; Disables tool bar
-(tool-bar-mode -1)
+(if window-system
+    (tool-bar-mode -1))
 
 ;; Disable blinking cursor
 (blink-cursor-mode -1)
@@ -46,8 +47,8 @@
       '((vertical-scroll-bars . nil)
         (horizontal-scroll-bars . nil)
         (top . 35)
-        (left . 25)
-        (width . 90)
+        (left . 20)
+        (width . 96)
         (height . 42)
 	(background-color . "grey25")
 	(background-mode . dark)
@@ -60,7 +61,7 @@
 (setq speedbar-frame-parameters
       (quote
        ((minibuffer)
-	(width . 40)
+	(width . 35)
 	(border-width . 0)
 	(menu-bar-lines . 0)
 	(tool-bar-lines . 0)

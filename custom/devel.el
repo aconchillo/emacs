@@ -32,6 +32,7 @@
 ;; SCM
 (add-to-list 'load-path (expand-file-name "xtla/lisp" emacs-packages-dir))
 (require 'xtla-autoloads)
+(setq tla-arch-branch 'baz)
 
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
@@ -42,14 +43,5 @@
   (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
       (doxymacs-font-lock)))
 (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
-
-;; ELIB
-(add-to-list 'load-path (expand-file-name "elib" emacs-packages-dir))
-
-;; CEDET
-(add-to-list 'load-path (expand-file-name "cedet/common" emacs-packages-dir))
-(load-file (expand-file-name "cedet/common/cedet.el" emacs-packages-dir))
-
-(setq semanticdb-default-save-directory (expand-file-name "~/.emacs.d/semantic"))
 
 ;;; devel.el ends here
