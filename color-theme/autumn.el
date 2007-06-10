@@ -278,6 +278,7 @@
      (semantic-unmatched-syntax-face ((t (:underline "red"))))
      (show-paren-match-face ((t (:background "light slate blue" :foreground "white"))))
      (show-paren-mismatch-face ((t (:background "red" :foreground "white"))))
+     (slime-repl-inputed-output-face ((t (:foreground "beige"))))
      (speedbar-button-face ((t (:foreground "seashell2"))))
      (speedbar-directory-face ((t (:foreground "seashell3"))))
      (speedbar-file-face ((t (:foreground "seashell4"))))

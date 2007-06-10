@@ -9,7 +9,7 @@
 (global-set-key "\C-cc" 'compile)
 (global-set-key "\C-cp" 'previous-error)
 (global-set-key "\C-cn" 'next-error)
-;(global-set-key "\C-\\." 'dabbrev-expand)
+;(global-set-key "\C-." 'dabbrev-expand)
 (global-set-key "\M-i" 'indent-region)
 
 ;; More key bindings

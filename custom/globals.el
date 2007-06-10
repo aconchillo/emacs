@@ -11,6 +11,10 @@
 (add-to-list 'backup-directory-alist
              `("." . ,(expand-file-name "~/.emacs.d/backups/")))
 
+;; Setup fink info directories
+(require 'info)
+(setq Info-directory-list (cons (expand-file-name "/sw/share/info") Info-directory-list))
+
 ;; Battery
 (display-battery-mode 1)
 
@@ -48,7 +52,7 @@
         (horizontal-scroll-bars . nil)
         (top . 35)
         (left . 20)
-        (width . 96)
+        (width . 135)
         (height . 42)
 	(background-color . "grey25")
 	(background-mode . dark)

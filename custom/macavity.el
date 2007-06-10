@@ -1,7 +1,7 @@
 ;;; macavity.el --- Setup MacAvity development environment
 
 ;;; Put the directory containing ma-objc.el and require it
-(add-to-list 'load-path (expand-file-name "macavity/lisp" emacs-init-dir))
+(add-to-list 'load-path (expand-file-name "macavity/lisp" emacs-packages-dir))
 
 (require 'ma-objc)
 
