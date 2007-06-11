@@ -3,8 +3,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(jde-ant-enable-find t)
- '(jde-ant-read-target t))
+)
 
 ;; Path variables
 (defconst emacs-init-dir  (expand-file-name "~/Library/Emacs/")
@@ -37,7 +36,7 @@
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "lisp")            ;; LISP
 (init-load-file "macavity")       ;; MacAvity
-(init-load-file "muse")           ;; Emaacs Muse Mode
+(init-load-file "muse")           ;; Emacs Muse Mode
 ;(init-load-file "skels")          ;; File skeletons
 (init-load-file "sgml")           ;; SGML stuff
 (init-load-file "tex")            ;; TeX initialization
@@ -48,4 +47,4 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+)

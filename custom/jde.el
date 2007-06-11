@@ -14,6 +14,10 @@
 	     auto-mode-alist)))
   (require 'jde))
 
+;; Configuration
+(setq jde-ant-enable-find t)
+(setq jde-ant-read-target t)
+
 ;; Sets the basic indentation for Java source files to two spaces.
 (defun my-jde-mode-hook ()
   (setq c-basic-offset 4))
