@@ -34,7 +34,11 @@
         ("scew"
          ("~/Documents/Wiki/scew"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/scew"))))
+         (:base "my-xhtml" :path "~/Work/www/scew"))
+        ("weps"
+         ("~/Documents/Wiki/weps"
+          :default "index")
+         (:base "my-xhtml" :path "~/Work/www/weps"))))
 
 ;; HTML publishing
 
