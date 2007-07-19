@@ -13,6 +13,11 @@
 (muse-derive-style "my-xhtml" "xhtml"
                    :footer (expand-file-name "muse/muse-footer-web.html"
                                              init-lisp-dir))
+(muse-derive-style "uendu-xhtml" "xhtml"
+                   :header (expand-file-name "muse/uendu-header-web.html"
+                                             init-lisp-dir)
+                   :footer (expand-file-name "muse/uendu-footer-web.html"
+                                             init-lisp-dir))
 
 (setq muse-project-alist
       '(("web"
@@ -35,6 +40,14 @@
          ("~/Documents/Wiki/scew"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/scew"))
+        ("uendu_home"
+         ("~/Documents/Wiki/uendu/home"
+          :default "index")
+         (:base "uendu-xhtml" :path "~/Work/uendu/www/home"))
+        ("uendu_labs"
+         ("~/Documents/Wiki/uendu/labs"
+          :default "index")
+         (:base "uendu-xhtml" :path "~/Work/uendu/www/labs"))
         ("weps"
          ("~/Documents/Wiki/weps"
           :default "index")
