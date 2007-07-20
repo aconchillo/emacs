@@ -41,13 +41,9 @@
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/scew"))
         ("uendu_home"
-         ("~/Documents/Wiki/uendu/home"
+         ("~/Work/uendu/www/home_wiki"
           :default "index")
-         (:base "uendu-xhtml" :path "~/Work/uendu/www/home"))
-        ("uendu_labs"
-         ("~/Documents/Wiki/uendu/labs"
-          :default "index")
-         (:base "uendu-xhtml" :path "~/Work/uendu/www/labs"))
+         (:base "uendu-xhtml" :path "~/Work/uendu/www/home_html"))
         ("weps"
          ("~/Documents/Wiki/weps"
           :default "index")
