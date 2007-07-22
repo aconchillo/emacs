@@ -11,12 +11,12 @@
 
 ;; Modify base styles
 (muse-derive-style "my-xhtml" "xhtml"
-                   :footer (expand-file-name "muse/muse-footer-web.html"
+                   :footer (expand-file-name "muse/aleix-footer.html"
                                              init-lisp-dir))
 (muse-derive-style "uendu-xhtml" "xhtml"
-                   :header (expand-file-name "muse/uendu-header-web.html"
+                   :header (expand-file-name "muse/uendu-header.html"
                                              init-lisp-dir)
-                   :footer (expand-file-name "muse/uendu-footer-web.html"
+                   :footer (expand-file-name "muse/uendu-footer.html"
                                              init-lisp-dir))
 
 (setq muse-project-alist
