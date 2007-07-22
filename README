@@ -2,7 +2,7 @@
 Installation
 ------------
 
- * Copy emacs.el to ~/.emacs
+ * Copy dot-emacs.el to ~/.emacs
  * Copy directories to ~/Library/Emacs
  * Create ~/Library/Emacs/elisp directory
  * Add next packages to ~/Library/Emacs/elisp:
@@ -30,9 +30,9 @@ Installation
              - Download
                http://jdee.sunsite.dk/jde-latest.tar.gz
              - Decompress to jde/
-       * doxymacs-1.6.0:
+       * doxymacs-1.8.0:
        	 - Download
-           http://prdownloads.sourceforge.net/doxymacs/doxymacs-1.6.0.tar.gz?download
+           http://prdownloads.sourceforge.net/doxymacs/doxymacs-1.8.0.tar.gz?download
          - Decompress to doxymacs/
          - Execute
            EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs ./configure
