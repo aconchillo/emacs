@@ -33,11 +33,10 @@
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "globals")        ;; Global initializations
 (init-load-file "keys")           ;; Key settings
-;(init-load-file "jde")            ;; Java Development Environment
-(init-load-file "lisp")            ;; LISP
-(init-load-file "macavity")       ;; MacAvity
+(init-load-file "jde")            ;; Java Development Environment
+(init-load-file "lisp")           ;; LISP
 (init-load-file "muse")           ;; Emacs Muse Mode
-;(init-load-file "skels")          ;; File skeletons
+(init-load-file "skels")          ;; File skeletons
 (init-load-file "sgml")           ;; SGML stuff
 (init-load-file "tex")            ;; TeX initialization
 
