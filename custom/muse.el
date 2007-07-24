@@ -12,12 +12,8 @@
 ;; Modify base styles
 (muse-derive-style "my-xhtml" "xhtml"
                    :footer (expand-file-name "muse/aleix-footer.html"
-                                             init-lisp-dir))
-(muse-derive-style "uendu-xhtml" "xhtml"
-                   :header (expand-file-name "muse/uendu-header.html"
                                              init-lisp-dir)
-                   :footer (expand-file-name "muse/uendu-footer.html"
-                                             init-lisp-dir))
+                   :style "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
 
 (setq muse-project-alist
       '(("web"
@@ -40,19 +36,12 @@
          ("~/Documents/Wiki/scew"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/scew"))
-        ("uendu_home"
-         ("~/Work/uendu/www/home_wiki"
-          :default "index")
-         (:base "uendu-xhtml" :path "~/Work/uendu/www/home_html"))
         ("weps"
          ("~/Documents/Wiki/weps"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/weps"))))
 
 ;; HTML publishing
-
-(setq muse-xhtml-style-sheet
-      "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
 
 (defvar aleix/muse-fsf-link
   (concat "<a href=\"http://www.fsf.org/register_form?referrer=360\">"
