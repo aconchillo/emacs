@@ -35,7 +35,7 @@
 ;; Disable blinking cursor
 (blink-cursor-mode -1)
 
-;; Diable sound
+;; Disable sound
 (setq visible-bell t)
 
 ;; Show closing parenthesis
@@ -48,9 +48,7 @@
 
 ;; Settings for any frame
 (setq default-frame-alist
-      '((vertical-scroll-bars . nil)
-        (horizontal-scroll-bars . nil)
-        (top . 35)
+      '((top . 35)
         (left . 20)
         (width . 135)
         (height . 42)
