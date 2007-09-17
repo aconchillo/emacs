@@ -73,7 +73,7 @@
 
 ;; Switch buffer improved
 (require 'iswitchb)
-(iswitchb-default-keybindings)
+(iswitchb-mode 1)
 
 ;; Mouse Wheel
 (defun up-slightly () (interactive) (scroll-up 5))
