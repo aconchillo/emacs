@@ -30,9 +30,8 @@
 (require 'compile)
 
 ;; SCM
-(add-to-list 'load-path (expand-file-name "xtla/lisp" emacs-packages-dir))
-(require 'xtla-autoloads)
-(setq tla-arch-branch 'baz)
+(add-to-list 'load-path (expand-file-name "dvc/lisp" emacs-packages-dir))
+(require 'dvc-autoloads)
 
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))

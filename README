@@ -37,10 +37,10 @@ Installation
          - Execute
            EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs ./configure
            make
-       * xtla-1.2:
+       * DVC:
        	 - Download
-	   http://download.gna.org/xtla-el/xtla-1.2.tar.gz
-	 - Decompress to xtla/
+	   http://download.gna.org/dvc/download/dvc-snapshot.tar.gz
+	 - Decompress to dvc/
 	 - Execute
 	   ./configure --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 	   make
