@@ -13,7 +13,7 @@
 (muse-derive-style "my-xhtml" "xhtml"
                    :footer (expand-file-name "muse/aleix-footer.html"
                                              init-lisp-dir)
-                   :style "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
+                   :style-sheet "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
 
 (setq muse-project-alist
       '(("web"
@@ -28,6 +28,10 @@
          ("~/Documents/Wiki/dockland"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/dockland"))
+        ("mkprom-erc32"
+         ("~/Documents/Wiki/mkprom-erc32"
+          :default "index")
+         (:base "my-xhtml" :path "~/Sites/mkprom-erc32"))
         ("playground"
          ("~/Documents/Wiki/playground"
           :default "index")
@@ -41,7 +45,7 @@
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/weps"))))
 
-;; HTML publishing
+;; Specific functions and variables for HTML publishing
 
 (defvar aleix/muse-fsf-link
   (concat "<a href=\"http://www.fsf.org/register_form?referrer=360\">"
