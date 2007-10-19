@@ -17,19 +17,13 @@
 ;; Configuration
 (setq jde-ant-enable-find t)
 (setq jde-ant-read-target t)
+(setq jde-compiler (quote ("javac" "")))
 
 ;; Sets the basic indentation for Java source files to two spaces.
 (defun my-jde-mode-hook ()
   (setq c-basic-offset 4))
 
 (add-hook 'jde-mode-hook 'my-jde-mode-hook)
-
-;; Environment
-(setq jde-jdk-registry
-      (quote (("1.5.0" . "/System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home"))))
-
-(setq jde-java-environment-variables
-      (quote ("1.5.0" "/System/Library/Frameworks/JavaVM.framework/Home")))
 
 ;; ELIB
 (add-to-list 'load-path (expand-file-name "elib" emacs-packages-dir))
