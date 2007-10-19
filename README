@@ -17,23 +17,23 @@ Installation
            * elib-1.0:
              - Download
                http://jdee.sunsite.dk/elib-1.0.tar.gz
-             - Decompress to elib/
+             - Link to "elib"
              - Execute
                EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
-           * cedet-1.0beta3:
+           * cedet-1.0pre4:
              - Download
-               http://prdownloads.sourceforge.net/cedet/cedet-1.0beta3b.tar.gz?download
-             - Decompress to cedet/
+               http://prdownloads.sourceforge.net/cedet/cedet-1.0pre4.tar.gz?download
+             - Link to "cedet"
              - Execute
                EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs make
-           * jde-2.3.5:
+           * jde-2.3.5.1:
              - Download
                http://jdee.sunsite.dk/jde-latest.tar.gz
-             - Decompress to jde/
+             - Link to "jde"
        * doxymacs-1.8.0:
        	 - Download
            http://prdownloads.sourceforge.net/doxymacs/doxymacs-1.8.0.tar.gz?download
-         - Decompress to doxymacs/
+         - Link to "doxymacs"
          - Execute
            EMACS=/Applications/Emacs.app/Contents/MacOS/Emacs ./configure
            make
