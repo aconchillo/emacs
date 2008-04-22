@@ -6,7 +6,7 @@
 )
 
 ;; Path variables
-(defconst emacs-init-dir  (expand-file-name "~/Library/Emacs/")
+(defconst emacs-init-dir  (expand-file-name "~/etc/emacs/")
   "User init directory")
 
 (defconst init-lisp-dir (expand-file-name "custom/" emacs-init-dir)
@@ -27,18 +27,24 @@
 (add-to-list 'load-path emacs-packages-dir)
 
 ;; Load modules
+;(init-load-file "bbdb")           ;; BigBrother Database
 (init-load-file "colors")         ;; Emacs color themes
 (init-load-file "devel")          ;; General development
 (init-load-file "edit")           ;; Edit/Typing customisations
+;(init-load-file "emms")           ;; Emacs MultiMedia System
+(init-load-file "erc")            ;; ERC IRC Client
+;(init-load-file "eshell")         ;; Emacs Shell
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "globals")        ;; Global initializations
+;(init-load-file "gnus")           ;; Gnus News/Mail Client
+;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
-(init-load-file "jde")            ;; Java Development Environment
-(init-load-file "lisp")           ;; LISP
-(init-load-file "muse")           ;; Emacs Muse Mode
-(init-load-file "skels")          ;; File skeletons
+;(init-load-file "lisp")           ;; LISP
+;(init-load-file "muse")           ;; Emacs Muse Mode
 (init-load-file "sgml")           ;; SGML stuff
+(init-load-file "skels")          ;; File skeletons
 (init-load-file "tex")            ;; TeX initialization
+(init-load-file "www")            ;; Web related stuff
 
 ;; color faces
 (custom-set-faces

@@ -48,15 +48,12 @@
 
 ;; Settings for any frame
 (setq default-frame-alist
-      '((top . 35)
+      '((vertical-scroll-bars . nil)
+        (horizontal-scroll-bars . nil)
+        (top . 35)
         (left . 20)
         (width . 135)
-        (height . 42)
-	(background-color . "grey25")
-	(background-mode . dark)
-	(border-color . "Grey")
-	(cursor-color . "Grey")
-	(foreground-color . "beige")))
+        (height . 42)))
 
 ;; Speedbar
 (setq speedbar-use-images nil)
@@ -69,7 +66,6 @@
 	(tool-bar-lines . 0)
 	(unsplittable . t)
 	(left-fringe . 0))))
-
 
 ;; Switch buffer improved
 (require 'iswitchb)

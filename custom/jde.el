@@ -22,7 +22,6 @@
 ;; Sets the basic indentation for Java source files to two spaces.
 (defun my-jde-mode-hook ()
   (setq c-basic-offset 4))
-
 (add-hook 'jde-mode-hook 'my-jde-mode-hook)
 
 ;; ELIB
@@ -33,5 +32,14 @@
 (load-file (expand-file-name "cedet/common/cedet.el" emacs-packages-dir))
 
 (setq semanticdb-default-save-directory (expand-file-name "~/.emacs.d/semantic"))
+
+;; JDE key bindings
+(add-hook 'jde-mode-hook
+          '(lambda ()
+             (define-key jde-mode-map [f5] 'jde-ant-build)
+             (define-key jde-mode-map [f6] 'jde-gen-class-buffer)
+             (define-key jde-mode-map [f11] 'jde-import-organize)
+             (define-key jde-mode-map [f12] 'jde-import-kill-extra-imports)
+             ))
 
 ;;; jde.el ends here

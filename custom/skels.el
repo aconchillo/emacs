@@ -9,4 +9,6 @@
 (setq jao-copyright-file "")
 (setq jao-cpp-root-namespace "")
 
+(jao-skel-lisa-activate)
+
 ;;; skels.el ends here

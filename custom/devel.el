@@ -25,13 +25,17 @@
 (setq margin-column 78)
 (add-hook 'c-mode-common-hook 'margin-mode)
 
+;; Ensuring tabs are spaces and using 2 spaces for offset
+(setq indent-tabs-mode nil)
+(setq c-basic-offset 2)
+
 ;; Automatically scroll compilation buffer
 (setq compilation-scroll-output t)
 (require 'compile)
 
 ;; SCM
-(add-to-list 'load-path (expand-file-name "dvc/lisp" emacs-packages-dir))
-(require 'dvc-autoloads)
+;(add-to-list 'load-path (expand-file-name "dvc/lisp" emacs-packages-dir))
+;(require 'dvc-autoloads)
 
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))

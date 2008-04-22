@@ -1,7 +1,7 @@
 ;;; keys.el --- Setup key bindings
 
-;; Windows style selection keys
-;;(pc-selection-mode)
+;; Keyboard input method
+(setq default-input-method "catalan-prefix")
 
 ;; Key bindings
 (global-set-key "\C-co" 'ff-find-other-file)
