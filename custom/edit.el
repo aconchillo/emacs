@@ -27,4 +27,10 @@
 ;; Automatically reload files after they've been modified
 (global-auto-revert-mode 1)
 
+;; Spell checking for text mode
+;; (dolist (hook '(text-mode-hook))
+;;   (add-hook hook (lambda () (flyspell-mode 1))))
+;; (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+;;   (add-hook hook (lambda () (flyspell-mode -1))))
+
 ;;; edit.el ends here

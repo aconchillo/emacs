@@ -16,34 +16,34 @@
                    :style-sheet "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
 
 (setq muse-project-alist
-      '(("web"
+      '(("home"
          ("~/Documents/Wiki/personal"
-          :default "home")
-         (:base "my-xhtml" :path "~/Sites"))
+          :default "index")
+         (:base "my-xhtml" :path "~/Sites/personal"))
         ("bitpacket"
          ("~/Documents/Wiki/bitpacket"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/BitPacket"))
+         (:base "my-xhtml" :path "~/Sites/personal/BitPacket"))
         ("dockland"
          ("~/Documents/Wiki/dockland"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/dockland"))
+         (:base "my-xhtml" :path "~/Sites/projects/dockland"))
         ("mkprom-erc32"
          ("~/Documents/Wiki/mkprom-erc32"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/mkprom-erc32"))
+         (:base "my-xhtml" :path "~/Sites/personal/mkprom-erc32"))
         ("playground"
          ("~/Documents/Wiki/playground"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/playground"))
+         (:base "my-xhtml" :path "~/Sites/projects/playground"))
         ("scew"
          ("~/Documents/Wiki/scew"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/scew"))
+         (:base "my-xhtml" :path "~/Sites/projects/scew"))
         ("weps"
          ("~/Documents/Wiki/weps"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/weps"))))
+         (:base "my-xhtml" :path "~/Sites/projects/weps"))))
 
 ;; Specific functions and variables for HTML publishing
 
@@ -51,6 +51,26 @@
   (concat "<a href=\"http://www.fsf.org/register_form?referrer=360\">"
           "<img src=\"./images/referrer.png\" alt=\"[FSF Associate Member]\" width=\"88\" height=\"31\"/>"
           "</a>"))
+
+(defvar aleix/muse-analytics-alist
+  '(("home" . "UA-2964502-1")
+    ("bitpacket" . "UA-2964502-1")
+    ("mkprom-erc32" . "UA-2964502-1")
+    ("scew" . "UA-2964502-2")))
+
+(defun aleix/muse-analytics (project)
+  (cdr (assoc project aleix/muse-analytics-alist)))
+
+(defun aleix/muse-analytics-html (project)
+  (setq account (aleix/muse-analytics project))
+  (if account
+      (concat
+       "<script src=\"http://www.google-analytics.com/urchin.js\" type=\"text/javascript\">\n"
+       "  </script>\n"
+       "  <script type=\"text/javascript\">\n"
+       "    _uacct = \"" account "\";\n"
+       "    urchinTracker();\n"
+       "  </script>")))
 
 (defun aleix/muse-timestamp ()
   (let ((atts (and buffer-file-name (file-attributes buffer-file-name))))
