@@ -30,8 +30,8 @@
 (setq c-basic-offset 2)
 
 ;; Automatically scroll compilation buffer
-(setq compilation-scroll-output t)
 (require 'compile)
+(setq compilation-scroll-output t)
 
 ;; SCM
 ;(add-to-list 'load-path (expand-file-name "dvc/lisp" emacs-packages-dir))
