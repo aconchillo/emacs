@@ -1,8 +1,14 @@
 ;;; edit.el --- Setup editing environment
 
+;; Change dictionary program to GNU Aspell
+(setq-default ispell-program-name "aspell")
+
 ;; Text editing
 (setq default-major-mode 'text-mode)
 
+;; Automatically use text mode unless stated otherwise
+(add-hook 'text-mode-hook 'text-mode-hook-identify)
+;; Automatically break lines
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; Scroll only one line when move past bottom of screen
