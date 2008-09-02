@@ -2,7 +2,7 @@
 
 (add-to-list 'load-path (expand-file-name "skels" emacs-packages-dir))
 
-(load "init-skel")
+(require 'all-skels)
 
 ;; set configuration variables
 (setq jao-company-name "")
