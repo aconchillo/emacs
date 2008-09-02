@@ -16,34 +16,34 @@
                    :style-sheet "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
 
 (setq muse-project-alist
-      '(("home"
-         ("~/Documents/Wiki/personal"
-          :default "index")
-         (:base "my-xhtml" :path "~/Sites/personal"))
+      '(("web"
+         ("~/Documents/muse/personal"
+          :default "home")
+         (:base "my-xhtml" :path "~/Work/www/personal"))
         ("bitpacket"
-         ("~/Documents/Wiki/bitpacket"
+         ("~/Documents/muse/bitpacket"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/personal/BitPacket"))
+         (:base "my-xhtml" :path "~/Work/www/personal/BitPacket"))
         ("dockland"
-         ("~/Documents/Wiki/dockland"
+         ("~/Documents/muse/dockland"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/projects/dockland"))
+         (:base "my-xhtml" :path "~/Work/www/dockland"))
         ("mkprom-erc32"
-         ("~/Documents/Wiki/mkprom-erc32"
+         ("~/Documents/muse/mkprom-erc32"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/personal/mkprom-erc32"))
+         (:base "my-xhtml" :path "~/Work/www/personal/mkprom-erc32"))
         ("playground"
-         ("~/Documents/Wiki/playground"
+         ("~/Documents/muse/playground"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/projects/playground"))
+         (:base "my-xhtml" :path "~/Work/www/playground"))
         ("scew"
-         ("~/Documents/Wiki/scew"
+         ("~/Documents/muse/scew"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/projects/scew"))
+         (:base "my-xhtml" :path "~/Work/www/scew"))
         ("weps"
-         ("~/Documents/Wiki/weps"
+         ("~/Documents/muse/weps"
           :default "index")
-         (:base "my-xhtml" :path "~/Sites/projects/weps"))))
+         (:base "my-xhtml" :path "~/Work/www/weps"))))
 
 ;; Specific functions and variables for HTML publishing
 

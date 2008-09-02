@@ -6,7 +6,7 @@
 )
 
 ;; Path variables
-(defconst emacs-init-dir  (expand-file-name "~/etc/emacs/")
+(defconst emacs-init-dir (expand-file-name "~/etc/emacs/")
   "User init directory")
 
 (defconst init-lisp-dir (expand-file-name "custom/" emacs-init-dir)
@@ -40,7 +40,7 @@
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
 ;(init-load-file "lisp")           ;; LISP
-;(init-load-file "muse")           ;; Emacs Muse Mode
+(init-load-file "muse")           ;; Emacs Muse Mode
 (init-load-file "sgml")           ;; SGML stuff
 (init-load-file "skels")          ;; File skeletons
 (init-load-file "tex")            ;; TeX initialization
