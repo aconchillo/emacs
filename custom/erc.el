@@ -2,6 +2,9 @@
 
 (require 'erc)
 
+;; Enable services (e.g. NickServ)
+(erc-services-mode 1)
+
 ;; User information
 (setq erc-nick (quote ("aleix" "aleix_" "aleix__")))
 (setq erc-user-full-name user-full-name)
@@ -23,7 +26,6 @@
 
 (acf-erc-connect erc-bitlbee "localhost" 6667 "aleix")
 (acf-erc-connect erc-freenode "irc.freenode.net" 6667 "aleix")
-(acf-erc-connect erc-oftc "irc.oftc.net" 6667 "aleix")
 
 ;; Do not prompt for password
 (setq erc-prompt-for-password nil)
@@ -33,6 +35,9 @@
 
 ;; New private messages
 (setq erc-auto-query (quote bury))
+
+;; Interpret mIRC-style color commands in IRC chats
+(setq erc-interpret-mirc-color t)
 
 ;; ERC hook
 (defun my-erc-mode-hook ()
@@ -93,7 +98,7 @@
 (setq erc-dcc-block-size 8192)
 
 ;; DCC directory
-(setq erc-dcc-get-default-directory "~/etc/downloads")
+(setq erc-dcc-get-default-directory "~/Downloads")
 
 ;; DCC fixed available ports
 (setq erc-dcc-port-range (quote (18000 . 18002)))
@@ -123,11 +128,10 @@
 ;; Autojoin channels
 (setq erc-autojoin-channels-alist
       (quote
-       (("freenode.net" "#python2" "#scheme")
-        ("oftc.net" "#uuu"))))
+       (("freenode.net" "#openmoko-cdevel"))))
 
 ;; Notify lists
-(setq erc-notify-list (quote ("apatxet" "jao" "lluis")))
+(setq erc-notify-list (quote ("jao")))
 
 ;; Define ERC command (/NP) to display current song name
 (defun erc-cmd-NP (&rest ignore)
