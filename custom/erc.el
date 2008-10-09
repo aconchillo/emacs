@@ -128,7 +128,7 @@
 ;; Autojoin channels
 (setq erc-autojoin-channels-alist
       (quote
-       (("freenode.net" "#openmoko-cdevel"))))
+       (("freenode.net" "#scheme"))))
 
 ;; Notify lists
 (setq erc-notify-list (quote ("jao")))

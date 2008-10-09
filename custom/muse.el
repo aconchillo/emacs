@@ -11,37 +11,36 @@
 
 ;; Modify base styles
 (muse-derive-style "my-xhtml" "xhtml"
-                   :footer (expand-file-name "muse/aleix-footer.html"
-                                             init-lisp-dir)
+                   :footer (expand-file-name "muse/aleix-footer.html" init-lisp-dir)
                    :style-sheet "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
 
 (setq muse-project-alist
-      '(("web"
-         ("~/Documents/muse/personal"
+      '(("home"
+         ("~/Documents/Wiki/personal"
           :default "home")
          (:base "my-xhtml" :path "~/Work/www/personal"))
         ("bitpacket"
-         ("~/Documents/muse/bitpacket"
+         ("~/Documents/Wiki/bitpacket"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/personal/BitPacket"))
         ("dockland"
-         ("~/Documents/muse/dockland"
+         ("~/Documents/Wiki/dockland"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/dockland"))
         ("mkprom-erc32"
-         ("~/Documents/muse/mkprom-erc32"
+         ("~/Documents/Wiki/mkprom-erc32"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/personal/mkprom-erc32"))
         ("playground"
-         ("~/Documents/muse/playground"
+         ("~/Documents/Wiki/playground"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/playground"))
         ("scew"
-         ("~/Documents/muse/scew"
+         ("~/Documents/Wiki/scew"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/scew"))
         ("weps"
-         ("~/Documents/muse/weps"
+         ("~/Documents/Wiki/weps"
           :default "index")
          (:base "my-xhtml" :path "~/Work/www/weps"))))
 
