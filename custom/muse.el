@@ -64,12 +64,14 @@
   (setq account (aleix/muse-analytics project))
   (if account
       (concat
-       "<script src=\"http://www.google-analytics.com/urchin.js\" type=\"text/javascript\">\n"
-       "  </script>\n"
-       "  <script type=\"text/javascript\">\n"
-       "    _uacct = \"" account "\";\n"
-       "    urchinTracker();\n"
-       "  </script>")))
+       "<script type=\"text/javascript\">\n"
+       "  var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
+       "  document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
+       "</script>\n"
+       "<script type=\"text/javascript\">\n"
+       "  var pageTracker = _gat._getTracker(\"" account "\");\n"
+       "  pageTracker._trackPageview();\n"
+       "</script>\n")))
 
 (defun aleix/muse-timestamp ()
   (let ((atts (and buffer-file-name (file-attributes buffer-file-name))))

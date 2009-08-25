@@ -1,19 +1,19 @@
 ;;; globals.el --- Setup general environment
 
 ;; Initialize Emacs server
-(server-start)
+;(server-start)
 
 ;; User variables
 (setq user-full-name "Aleix Conchillo Flaque")
-(setq user-mail-address "aleix@member.fsf.org")
+(setq user-mail-address "aconchillo@ice.csic.es")
 
 ;; Setup file backups directory
 (add-to-list 'backup-directory-alist
              `("." . ,(expand-file-name "~/.emacs.d/backups/")))
 
 ;; Setup fink info directories
-(require 'info)
-(setq Info-directory-list (cons (expand-file-name "/sw/share/info") Info-directory-list))
+;;(require 'info)
+;;(setq Info-directory-list (cons (expand-file-name "/sw/share/info") Info-directory-list))
 
 ;; Battery
 (display-battery-mode 1)
