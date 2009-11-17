@@ -35,6 +35,7 @@
 (init-load-file "erc")            ;; ERC IRC Client
 ;(init-load-file "eshell")         ;; Emacs Shell
 (init-load-file "func")           ;; Lisp functions
+(init-load-file "geiser")         ;; Scheme (geiser) initializations
 (init-load-file "globals")        ;; Global initializations
 ;(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "jde")            ;; Java Development Environment
