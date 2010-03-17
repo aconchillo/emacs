@@ -13,4 +13,7 @@
 
 (setq geiser-default-implementation 'guile)
 
+;; Automatically enable company mode for Scheme
+(add-hook 'scheme-mode-hook (lambda () (company-mode +1)))
+
 ;;; geiser.el ends here
