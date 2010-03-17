@@ -22,7 +22,7 @@
         ("bitpacket"
          ("~/Documents/Wiki/bitpacket"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/personal/BitPacket"))
+         (:base "my-xhtml" :path "~/Work/www/bitpacket"))
         ("dockland"
          ("~/Documents/Wiki/dockland"
           :default "index")
