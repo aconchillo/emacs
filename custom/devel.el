@@ -32,9 +32,9 @@
 (require 'compile)
 (setq compilation-scroll-output t)
 
-;; SCM
-;(add-to-list 'load-path (expand-file-name "dvc/lisp" emacs-packages-dir))
-;(require 'dvc-autoloads)
+;; Company mode "complete anything"
+(add-to-list 'load-path (expand-file-name "company" emacs-packages-dir))
+(autoload 'company-mode "company" nil t)
 
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
