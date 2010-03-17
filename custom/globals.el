@@ -71,6 +71,10 @@
 (require 'iswitchb)
 (iswitchb-mode 1)
 
+;; Secure Remote Editing
+(require 'tramp)
+(setq tramp-default-method "scp")
+
 ;; Mouse Wheel
 (defun up-slightly () (interactive) (scroll-up 5))
 (defun down-slightly () (interactive) (scroll-down 5))
