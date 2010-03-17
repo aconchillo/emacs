@@ -32,7 +32,7 @@
 (init-load-file "devel")          ;; General development
 (init-load-file "edit")           ;; Edit/Typing customisations
 ;(init-load-file "emms")           ;; Emacs MultiMedia System
-(init-load-file "erc")            ;; ERC IRC Client
+;(init-load-file "erc")            ;; ERC IRC Client
 ;(init-load-file "eshell")         ;; Emacs Shell
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "geiser")         ;; Scheme (geiser) initializations
