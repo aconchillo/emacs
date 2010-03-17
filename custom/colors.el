@@ -8,7 +8,9 @@
 ;; User defined colors
 (add-to-list 'load-path (expand-file-name "color-theme/" emacs-init-dir))
 
-(load "autumn")
-(color-theme-autumn)
+;(load "autumn")
+;(color-theme-autumn)
+
+(color-theme-bharadwaj)
 
 ;;; colors.el ends here
