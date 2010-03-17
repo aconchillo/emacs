@@ -9,8 +9,8 @@
 (add-hook 'scheme-mode-hook (lambda () (paredit-mode +1)))
 
 ;; Geiser
-(load-file (expand-file-name "geiser/build/elisp/geiser.elc" emacs-packages-dir))
+(load-file (expand-file-name "geiser/elisp/geiser.el" emacs-packages-dir))
 
-(require 'geiser-install)
+(setq geiser-default-implementation 'guile)
 
 ;;; geiser.el ends here
