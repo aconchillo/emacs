@@ -3,7 +3,8 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/Work/org/scew.org" "~/Work/org/work-ice.org"))))
+ '(org-agenda-files (quote ("~/Work/org/scew.org" "~/Work/org/work-ice.org")))
+ '(org-archive-default-command (quote org-archive-to-archive-sibling)))
 
 ;; Path variables
 (defconst emacs-init-dir (expand-file-name "~/etc/emacs/")
@@ -37,6 +38,7 @@
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "geiser")         ;; Scheme (geiser) initializations
 (init-load-file "globals")        ;; Global initializations
+;(init-load-file "google-maps")    ;; Google Maps
 ;(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
@@ -44,6 +46,7 @@
 (init-load-file "muse")           ;; Emacs Muse Mode
 (init-load-file "octave")         ;; Octave
 (init-load-file "org")            ;; Org
+(init-load-file "python")         ;; Python
 (init-load-file "sgml")           ;; SGML stuff
 (init-load-file "skels")          ;; File skeletons
 (init-load-file "tex")            ;; TeX initialization

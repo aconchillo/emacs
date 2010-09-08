@@ -32,13 +32,17 @@
 (require 'compile)
 (setq compilation-scroll-output t)
 
-;; Company mode "complete anything"
+;; Company mode "complete anything" (use autoload to load your backend)
 (add-to-list 'load-path (expand-file-name "company" emacs-packages-dir))
 (autoload 'company-mode "company" nil t)
 
-;; Doxymacs
-(add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
-(require 'doxymacs)
+;; yasnippet (already loaded in Debian)
+;(require 'yasnippet)
+;(yas/initialize)
+
+;; Doxymacs (already loaded in Debian)
+;(add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
+;(require 'doxymacs)
 
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
 (defun my-doxymacs-font-lock-hook ()
