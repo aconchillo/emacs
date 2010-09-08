@@ -19,4 +19,7 @@
                             ("\\.pdf\\'" . default)
                             ("\\.xls\\'" . default))))
 
+(setq org-agenda-files (quote ("~/Work/org/scew.org" "~/Work/org/work-ice.org")))
+(setq org-archive-default-command (quote org-archive-to-archive-sibling))
+
 ;;; org.el ends here
