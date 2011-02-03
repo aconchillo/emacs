@@ -2,8 +2,25 @@
 
 (require 'gnus)
 
+;; Do not check new groups
+(setq gnus-check-new-newsgroups nil)
+(setq gnus-select-method '(nnnil ""))
+
 ;; Define how Gnus is to fetch news
 (setq gnus-secondary-select-methods '())
+
+(add-to-list 'gnus-secondary-select-methods
+             '(nnimap "gmail"
+                      (nnimap-address "imap.gmail.com")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)
+                      (nnimap-authinfo-file "~/.authinfo")
+                      (nnir-search-engine imap)))
+
+(setq nnimap-search-uids-not-since-is-evil nil)
+
+(setq nnmail-expiry-wait 'immediate)
+(setq nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
 
 ;; SMTP (authentication is done in ~/.authinfo)
 (setq message-send-mail-function 'smtpmail-send-it
@@ -19,7 +36,6 @@
 (setq gnus-use-article-prefetch t)
 
 (setq gnus-save-killed-list nil)
-(setq gnus-check-new-newsgroups nil)
 
 ;; gnus agent
 (setq gnus-agent t)
@@ -92,19 +108,6 @@
 ;;; say how Gnus is to store the mail: we use nnml groups.
 (require 'nnir nil t)
 (setq nnir-search-engine 'imap)
-
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "gmail"
-                      (nnimap-address "imap.gmail.com")
-                      (nnimap-server-port 993)
-                      (nnimap-stream ssl)
-                      (nnimap-authinfo-file "~/.authinfo")
-                      (nnir-search-engine imap)))
-
-(setq nnimap-search-uids-not-since-is-evil nil)
-
-(setq nnmail-expiry-wait 'immediate)
-(setq nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
 
 ;;;; pgg: gpg mails
 (require 'pgg)
