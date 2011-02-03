@@ -10,39 +10,42 @@
 (add-hook 'find-file-hooks 'muse-mode-maybe)
 
 ;; Modify base styles
-(muse-derive-style "my-xhtml" "xhtml"
-                   :footer (expand-file-name "muse/aleix-footer.html" init-lisp-dir)
-                   :style-sheet "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/general.css\" />")
+(muse-derive-style "personal-xhtml" "xhtml"
+                   :header (expand-file-name "muse/aleix-header.html" init-lisp-dir)
+                   :footer (expand-file-name "muse/aleix-footer.html" init-lisp-dir))
+(muse-derive-style "project-xhtml" "xhtml"
+                   :header (expand-file-name "muse/project-header.html" init-lisp-dir)
+                   :footer (expand-file-name "muse/aleix-footer.html" init-lisp-dir))
 
 (setq muse-project-alist
       '(("home"
          ("~/Documents/Wiki/personal"
           :default "home")
-         (:base "my-xhtml" :path "~/Work/www/personal"))
+         (:base "personal-xhtml" :path "~/Work/www/personal"))
         ("bitpacket"
          ("~/Documents/Wiki/bitpacket"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/bitpacket"))
+         (:base "project-xhtml" :path "~/Work/www/bitpacket"))
         ("dockland"
          ("~/Documents/Wiki/dockland"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/dockland"))
+         (:base "project-xhtml" :path "~/Work/www/dockland"))
         ("mkprom-erc32"
          ("~/Documents/Wiki/mkprom-erc32"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/personal/mkprom-erc32"))
+         (:base "project-xhtml" :path "~/Work/www/personal/mkprom-erc32"))
         ("playground"
          ("~/Documents/Wiki/playground"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/playground"))
+         (:base "project-xhtml" :path "~/Work/www/playground"))
         ("scew"
          ("~/Documents/Wiki/scew"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/scew"))
+         (:base "project-xhtml" :path "~/Work/www/scew"))
         ("weps"
          ("~/Documents/Wiki/weps"
           :default "index")
-         (:base "my-xhtml" :path "~/Work/www/weps"))))
+         (:base "project-xhtml" :path "~/Work/www/weps"))))
 
 ;; Specific functions and variables for HTML publishing
 
@@ -76,8 +79,9 @@
 (defun aleix/muse-timestamp ()
   (let ((atts (and buffer-file-name (file-attributes buffer-file-name))))
     (concat
-     "<span class=\"footdate\">Updated: "
-     (format-time-string "%Y-%m-%d" (if atts (nth 5 atts) nil)) "</span>")))
+     "<span id=\"footdate\">Updated: "
+     (format-time-string "%Y-%m-%d" (if atts (nth 5 atts) nil)) 
+     "</span>")))
 
 (defun aleix/muse-make-link (link text)
   (concat "<a href=\"" link "\">" text "</a>"))
