@@ -6,8 +6,8 @@
 
 ;; set configuration variables
 (setq jao-company-name "")
-(setq jao-copyright-file "")
-(setq jao-cpp-root-namespace "")
+;(setq jao-copyright-file "")
+;(setq jao-cpp-root-namespace "")
 
 (jao-skel-lisa-activate)
 
