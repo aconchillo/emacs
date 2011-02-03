@@ -27,23 +27,23 @@
 (add-to-list 'load-path emacs-packages-dir)
 
 ;; Load modules
-;(init-load-file "bbdb")           ;; BigBrother Database
+(init-load-file "bbdb")           ;; BigBrother Database
 (init-load-file "colors")         ;; Emacs color themes
 (init-load-file "devel")          ;; General development
 (init-load-file "edit")           ;; Edit/Typing customisations
 ;(init-load-file "emms")           ;; Emacs MultiMedia System
-;(init-load-file "erc")            ;; ERC IRC Client
+(init-load-file "erc")            ;; ERC IRC Client
 ;(init-load-file "eshell")         ;; Emacs Shell
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "geiser")         ;; Scheme (geiser) initializations
 (init-load-file "globals")        ;; Global initializations
 ;(init-load-file "google-maps")    ;; Google Maps
-;(init-load-file "gnus")           ;; Gnus News/Mail Client
+(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
 ;(init-load-file "lisp")           ;; LISP
 (init-load-file "muse")           ;; Emacs Muse Mode
-(init-load-file "octave")         ;; Octave
+;(init-load-file "octave")         ;; Octave
 (init-load-file "org")            ;; Org
 (init-load-file "python")         ;; Python
 (init-load-file "sgml")           ;; SGML stuff
