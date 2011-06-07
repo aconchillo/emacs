@@ -11,8 +11,6 @@
 ;; Geiser
 (load-file (expand-file-name "geiser/elisp/geiser.el" emacs-packages-dir))
 
-(setq geiser-default-implementation 'guile)
-
 ;; Automatically enable company mode for Scheme
 (add-hook 'scheme-mode-hook (lambda () (company-mode +1)))
 
