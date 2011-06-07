@@ -7,7 +7,7 @@
         ("\\.hh$" (".cc" ".C"))
         ("\\.c$" (".h"))
         ("\\.h$" (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".m"))
-        ("\\.C$" (".H" ".hh" ".h"))
+        ("\\.C$" (".h" ".hh" ".H"))
         ("\\.H$" (".C" ".CC"))
         ("\\.CC$" (".HH" ".H" ".hh" ".h"))
         ("\\.HH$" (".CC"))
@@ -18,15 +18,28 @@
 ;; Coding style
 (setq c-default-style "gnu")
 
-;; Margin
-(add-to-list 'load-path (expand-file-name "margin-mode/" emacs-packages-dir))
-(require 'margin)
-(setq margin-column 78)
-(add-hook 'c-mode-common-hook 'margin-mode)
-
 ;; Ensuring tabs are spaces and using 2 spaces for offset
 (setq indent-tabs-mode nil)
 (setq c-basic-offset 2)
+
+;; Margin
+(add-to-list 'load-path (expand-file-name "margin-mode/" emacs-packages-dir))
+(require 'margin)
+(setq margin-column 72)
+
+;(add-hook 'c-mode-common-hook 'margin-mode)
+(define-globalized-minor-mode global-margin-mode margin-mode (lambda () (margin-mode t)))
+(global-margin-mode t)
+
+;; Fill Column Indicator
+(add-to-list 'load-path (expand-file-name "fill-column-indicator/" emacs-packages-dir))
+(require 'fill-column-indicator)
+(setq fci-style 'rule)
+(setq fci-rule-width 1)
+
+;(add-hook 'c-mode-common-hook 'fci-mode)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode t)))
+(global-fci-mode t)
 
 ;; Automatically scroll compilation buffer
 (require 'compile)
@@ -35,6 +48,11 @@
 ;; Company mode "complete anything" (use autoload to load your backend)
 (add-to-list 'load-path (expand-file-name "company" emacs-packages-dir))
 (autoload 'company-mode "company" nil t)
+(add-hook 'c-mode-common-hook 'company-mode)
+
+;; It's Magit!
+(add-to-list 'load-path (expand-file-name "magit" emacs-packages-dir))
+(require 'magit)
 
 ;; yasnippet (already loaded in Debian)
 ;(require 'yasnippet)
@@ -42,7 +60,7 @@
 
 ;; Doxymacs (already loaded in Debian)
 ;(add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
-;(require 'doxymacs)
+(require 'doxymacs)
 
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
 (defun my-doxymacs-font-lock-hook ()
