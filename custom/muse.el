@@ -80,7 +80,7 @@
   (let ((atts (and buffer-file-name (file-attributes buffer-file-name))))
     (concat
      "<span id=\"footdate\">Updated: "
-     (format-time-string "%Y-%m-%d" (if atts (nth 5 atts) nil)) 
+     (format-time-string "%Y-%m-%d" (if atts (nth 5 atts) nil))
      "</span>")))
 
 (defun aleix/muse-make-link (link text)
