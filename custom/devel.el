@@ -27,9 +27,11 @@
 (require 'margin)
 (setq margin-column 72)
 
-;(add-hook 'c-mode-common-hook 'margin-mode)
-(define-globalized-minor-mode global-margin-mode margin-mode (lambda () (margin-mode t)))
-(global-margin-mode t)
+;(define-globalized-minor-mode global-margin-mode margin-mode (lambda () (margin-mode t)))
+;(global-margin-mode t)
+
+(add-hook 'c-mode-common-hook 'margin-mode)
+(add-hook 'emacs-lisp-mode-hook 'margin-mode)
 
 ;; Fill Column Indicator
 (add-to-list 'load-path (expand-file-name "fill-column-indicator/" emacs-packages-dir))
@@ -37,9 +39,11 @@
 (setq fci-style 'rule)
 (setq fci-rule-width 1)
 
-;(add-hook 'c-mode-common-hook 'fci-mode)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode t)))
-(global-fci-mode t)
+;(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode t)))
+;(global-fci-mode t)
+
+(add-hook 'c-mode-common-hook 'fci-mode)
+(add-hook 'emacs-lisp-mode-hook 'fci-mode)
 
 ;; Automatically scroll compilation buffer
 (require 'compile)
@@ -60,12 +64,12 @@
 
 ;; Doxymacs (already loaded in Debian)
 ;(add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
-(require 'doxymacs)
+;(require 'doxymacs)
 
-(add-hook 'c-mode-common-hook 'doxymacs-mode)
-(defun my-doxymacs-font-lock-hook ()
-  (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
-      (doxymacs-font-lock)))
-(add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
+;(add-hook 'c-mode-common-hook 'doxymacs-mode)
+;(defun my-doxymacs-font-lock-hook ()
+;  (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
+;      (doxymacs-font-lock)))
+;(add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
 
 ;;; devel.el ends here
