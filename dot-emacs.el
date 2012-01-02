@@ -1,8 +1,8 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
 )
 
 ;; Path variables
@@ -42,7 +42,8 @@
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
 ;(init-load-file "lisp")           ;; LISP
-(init-load-file "muse")           ;; Emacs Muse Mode
+;(init-load-file "muse")           ;; Emacs Muse Mode
+(init-load-file "oblong")         ;; Oblong environment
 ;(init-load-file "octave")         ;; Octave
 (init-load-file "org")            ;; Org
 ;(init-load-file "python")         ;; Python
@@ -53,8 +54,8 @@
 
 ;; color faces
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
 )
