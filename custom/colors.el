@@ -1,18 +1,9 @@
 ;;; colors.el --- Setup Emacs color theme
 
-(require 'color-theme)
+;; Treat pumba as a safe theme
+(setq custom-safe-themes (quote ("85298aefde7415fbbee7a509e2ab30a6e4478130" default)))
 
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-hober)))
-
-;; User defined colors
-(add-to-list 'load-path (expand-file-name "color-theme/" emacs-init-dir))
-
-;(load "autumn")
-;(color-theme-autumn)
-
-(color-theme-bharadwaj)
+;; Theme
+(load-theme 'pumba)
 
 ;;; colors.el ends here
