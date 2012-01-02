@@ -27,6 +27,9 @@
 (acf-erc-connect erc-bitlbee "localhost" 6667 "aleix")
 (acf-erc-connect erc-freenode "irc.freenode.net" 6667 "aleix")
 
+;; When lines are wrapped (fill module needed)
+(setq erc-fill-column fill-column)
+
 ;; Do not prompt for password
 (setq erc-prompt-for-password nil)
 
@@ -36,7 +39,8 @@
 ;; New private messages
 (setq erc-auto-query (quote bury))
 
-;; Interpret mIRC-style color commands in IRC chats
+;; Interpret mIRC-style color commands in IRC chats (need irccolors
+;; module).
 (setq erc-interpret-mirc-color t)
 
 ;; ERC hook
@@ -89,9 +93,6 @@
                    ;; Put the mark meaning this part was rendered by emacs-w3m.
                    'mm-inline-text-html-with-w3m t))))))))
 
-;; Pretty print mIRC colors
-(setq erc-interpret-mirc-color t)
-
 ;; DCC settings
 
 ;; DCC Block size transfer
@@ -105,7 +106,8 @@
 
 ;; Initialises following ERC modules
 (setq erc-modules
-      '(autojoin completion netsplit notify stamp track))
+      '(autojoin completion fill irccontrols
+                 netsplit notify stamp track))
 
 (erc-update-modules)
 
@@ -128,7 +130,7 @@
 ;; Autojoin channels
 (setq erc-autojoin-channels-alist
       (quote
-       (("freenode.net" "#guile" "#scheme"))))
+       (("freenode.net" "#gstreamer" "#guile"))))
 
 ;; Notify lists
 (setq erc-notify-list (quote ("jao")))
