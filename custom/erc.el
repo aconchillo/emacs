@@ -130,7 +130,7 @@
 ;; Autojoin channels
 (setq erc-autojoin-channels-alist
       (quote
-       (("freenode.net" "#gstreamer" "#guile"))))
+       (("freenode.net" "#geiser" "#gstreamer" "#guile"))))
 
 ;; Notify lists
 (setq erc-notify-list (quote ("jao")))
