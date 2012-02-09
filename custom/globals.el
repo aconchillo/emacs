@@ -5,7 +5,7 @@
 
 ;; User variables
 (setq user-full-name "Aleix Conchillo Flaque")
-(setq user-mail-address "aconchillo@ieec.cat")
+(setq user-mail-address "aconchillo@gmail.com")
 
 ;; Setup file backups directory
 (add-to-list 'backup-directory-alist
