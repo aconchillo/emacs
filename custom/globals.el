@@ -25,8 +25,8 @@
 ;(display-battery-mode 1)
 
 ;; Show time
-;; (display-time)
-(setq display-time-24hr-format t)
+;(display-time)
+;(setq display-time-24hr-format f)
 
 ;; Column number
 (column-number-mode 1)
