@@ -7,20 +7,16 @@
 (setq gnus-select-method '(nnnil ""))
 
 ;; Define how Gnus is to fetch news
-(setq gnus-secondary-select-methods '())
+(setq gnus-select-method
+      '(nnimap "Mail"
+	       (nnimap-address "localhost")
+	       (nnimap-stream network)
+	       (nnimap-authenticator login)))
 
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "gmail"
-                      (nnimap-address "imap.gmail.com")
-                      (nnimap-server-port 993)
-                      (nnimap-stream ssl)
-                      (nnimap-authinfo-file "~/.authinfo")
-                      (nnir-search-engine imap)))
+;(setq nnimap-search-uids-not-since-is-evil nil)
 
-(setq nnimap-search-uids-not-since-is-evil nil)
-
-(setq nnmail-expiry-wait 'immediate)
-(setq nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+;(setq nnmail-expiry-wait 'immediate)
+;(setq nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
 
 ;; SMTP (authentication is done in ~/.authinfo)
 (setq message-send-mail-function 'smtpmail-send-it
@@ -110,16 +106,16 @@
 (setq nnir-search-engine 'imap)
 
 ;;;; pgg: gpg mails
-(require 'pgg)
-;; verify/decrypt only if mml knows about the protocl used
-(setq mm-verify-option 'known)
-(setq mm-decrypt-option 'known)
+;; (require 'pgg)
+;; ;; verify/decrypt only if mml knows about the protocl used
+;; (setq mm-verify-option 'known)
+;; (setq mm-decrypt-option 'known)
 
-(setq mml2015-use 'pgg
-      pgg-scheme 'gpg
-      pgg-default-scheme 'gpg
-      pgg-default-user-id "5343A3EC"
-      pgg-cache-passphrase t
-      pgg-passphrase-cache-expiry 100000)
+;; (setq mml2015-use 'pgg
+;;       pgg-scheme 'gpg
+;;       pgg-default-scheme 'gpg
+;;       pgg-default-user-id "5343A3EC"
+;;       pgg-cache-passphrase t
+;;       pgg-passphrase-cache-expiry 100000)
 
 ;;; gnus.el ends here
