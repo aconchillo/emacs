@@ -34,8 +34,6 @@
 (add-hook 'emacs-lisp-mode-hook 'margin-mode)
 
 ;; Fill Column Indicator
-(add-to-list 'load-path (expand-file-name "fill-column-indicator/" emacs-packages-dir))
-(require 'fill-column-indicator)
 (setq fci-style 'rule)
 (setq fci-rule-width 1)
 
@@ -50,13 +48,8 @@
 (setq compilation-scroll-output t)
 
 ;; Company mode "complete anything" (use autoload to load your backend)
-(add-to-list 'load-path (expand-file-name "company" emacs-packages-dir))
 (autoload 'company-mode "company" nil t)
 (add-hook 'c-mode-common-hook 'company-mode)
-
-;; It's Magit!
-(add-to-list 'load-path (expand-file-name "magit" emacs-packages-dir))
-(require 'magit)
 
 ;; yasnippet (already loaded in Debian)
 ;(require 'yasnippet)

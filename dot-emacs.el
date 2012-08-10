@@ -3,7 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ )
 
 ;; Path variables
 (defconst emacs-init-dir (expand-file-name "~/etc/emacs/")
@@ -27,6 +27,10 @@
 (add-to-list 'load-path emacs-packages-dir)
 
 ;; Load modules
+
+;; This needs to be the first one as it loads installed packages.
+(init-load-file "packages")       ;; Emacs Package Management
+
 ;(init-load-file "bbdb")           ;; BigBrother Database
 (init-load-file "colors")         ;; Emacs color themes
 (init-load-file "devel")          ;; General development
@@ -38,14 +42,14 @@
 (init-load-file "geiser")         ;; Scheme (geiser) initializations
 (init-load-file "globals")        ;; Global initializations
 ;(init-load-file "google-maps")    ;; Google Maps
-(init-load-file "gnus")           ;; Gnus News/Mail Client
+;(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
 ;(init-load-file "lisp")           ;; LISP
 ;(init-load-file "muse")           ;; Emacs Muse Mode
-(init-load-file "oblong")         ;; Oblong environment
 ;(init-load-file "octave")         ;; Octave
 (init-load-file "org")            ;; Org
+(init-load-file "oblong")         ;; Oblong environment
 ;(init-load-file "python")         ;; Python
 (init-load-file "sgml")           ;; SGML stuff
 ;(init-load-file "skels")          ;; File skeletons
@@ -58,4 +62,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ )

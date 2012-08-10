@@ -10,7 +10,6 @@
 
 ;; Geiser
 (load-file (expand-file-name "geiser/elisp/geiser.el" emacs-packages-dir))
-
 (setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
 
 ;; Automatically enable company mode for Scheme
