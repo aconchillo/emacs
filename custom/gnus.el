@@ -4,7 +4,6 @@
 
 ;; Do not check new groups
 (setq gnus-check-new-newsgroups nil)
-(setq gnus-select-method '(nnnil ""))
 
 ;; Define how Gnus is to fetch news
 (setq gnus-select-method
@@ -15,13 +14,12 @@
 
 ;(setq nnimap-search-uids-not-since-is-evil nil)
 
-;(setq nnmail-expiry-wait 'immediate)
+(setq nnmail-expiry-wait 'immediate)
 ;(setq nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
 
 ;; SMTP (authentication is done in ~/.authinfo)
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      ;smtpmail-auth-credentials '(("smtp.gmail.com" 587 "login@gmail.com" nil))
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587)
