@@ -31,6 +31,7 @@
 ;(global-margin-mode t)
 
 (add-hook 'c-mode-common-hook 'margin-mode)
+(add-hook 'python-mode-hook 'margin-mode)
 (add-hook 'emacs-lisp-mode-hook 'margin-mode)
 
 ;; Fill Column Indicator
@@ -41,6 +42,7 @@
 ;(global-fci-mode t)
 
 (add-hook 'c-mode-common-hook 'fci-mode)
+(add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'emacs-lisp-mode-hook 'fci-mode)
 
 ;; Automatically scroll compilation buffer
