@@ -1,27 +1,32 @@
 ;;; oblong.el ---  Oblong tools environment
 
-(oblong-c-add-source-dir "/home/aleix/src/yovo/")
-(oblong-c-add-source-dir "/home/aleix/src/streaming-appliance/")
-(oblong-c-add-source-dir "/home/aleix/src/rtsp-viddle-server/")
-(oblong-c-add-source-dir "/home/aleix/src/gumbo/")
+;; Setup yobuild directory
+(setq oblong-yobuild-dir "/opt/oblong/deps")
 
-;; automatically insert oblong skels
+;; Oblong's C/C++ mode
+(oblong-c-add-source-dir "/home/aleix/src/yovo/")
+(oblong-c-add-source-dir "/home/aleix/src/mezzanine/")
+(oblong-c-add-source-dir "/home/aleix/src/video/pool-rtsp-media-server/")
+(oblong-c-add-source-dir "/home/aleix/src/video/rtsp-viddle-server/")
+(oblong-c-add-source-dir "/home/aleix/src/video/streaming-appliance/")
+(oblong-c-add-source-dir "/home/aleix/src/video/libFlow/")
+
+;; Automatically insert oblong skels
 (require 'autoinsert)
 (setq auto-insert t)
 (add-hook 'find-file-hooks 'auto-insert)
 (setq auto-insert-directory "~/.autoinsert/")
 (setq auto-insert-query t)
 
-;; use using directive
+;; Use using directive
 (setq oblong-c-skels-using-namespace-in-cpp t)
 
 ;; Tell geiser to use system guile with libPlasma environment.
 ;; It avoids having to "make install" yovo.
-;(setq geiser-guile-binary '("~/src/yovo/libPlasma/guile/env" "guile"))
-;(setq geiser-guile-binary '("/opt/oblong/deps/bin/guile"))
 ;(setq geiser-guile-binary '("~/src/yovo/libPlasma/guile/env"
-;                            "/opt/oblong/deps-64-8/bin/guile"))
+;                            "/opt/oblong/deps/bin/guile"))
 
+;; Update comments with Oblong style.
 (defun update-yovo-comments ()
    "Updates /// style comments to /*."
    (interactive)
