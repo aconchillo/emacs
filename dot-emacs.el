@@ -39,9 +39,7 @@
 (init-load-file "erc")            ;; ERC IRC Client
 ;(init-load-file "eshell")         ;; Emacs Shell
 (init-load-file "func")           ;; Lisp functions
-(init-load-file "geiser")         ;; Scheme (geiser) initializations
 (init-load-file "globals")        ;; Global initializations
-;(init-load-file "google-maps")    ;; Google Maps
 ;(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
@@ -51,6 +49,7 @@
 (init-load-file "org")            ;; Org
 (init-load-file "oblong")         ;; Oblong environment
 ;(init-load-file "python")         ;; Python
+(init-load-file "scheme")         ;; Scheme (geiser) initializations
 (init-load-file "sgml")           ;; SGML stuff
 ;(init-load-file "skels")          ;; File skeletons
 (init-load-file "tex")            ;; TeX initialization
