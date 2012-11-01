@@ -47,7 +47,6 @@
 ;(init-load-file "muse")           ;; Emacs Muse Mode
 ;(init-load-file "octave")         ;; Octave
 (init-load-file "org")            ;; Org
-(init-load-file "oblong")         ;; Oblong environment
 ;(init-load-file "python")         ;; Python
 (init-load-file "scheme")         ;; Scheme (geiser) initializations
 (init-load-file "sgml")           ;; SGML stuff
