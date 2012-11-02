@@ -64,6 +64,8 @@
  '(font-lock-variable-name-face ((t (:background "#242424" :foreground "#f6f3e8"))))
  '(default ((((class color) (min-colors 89)) (:background "#242424" :foreground "#f6f3e8"))))
  '(error ((t (:foreground "#e5786d" :weight bold))))
- '(success ((t (:foreground "#cae682" :weight bold)))))
-
+ '(success ((t (:foreground "#cae682" :weight bold))))
+ '(whitespace-line ((t (:foreground "#44463b" :background "#242424"))))
+ '(whitespace-newline ((t (:foreground "#44463b" :background "#242424"))))
+ '(whitespace-space ((t (:foreground "#44463b" :background "#242424")))))
 (provide-theme 'pumba)
