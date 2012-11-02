@@ -11,22 +11,8 @@
 (add-to-list 'backup-directory-alist
              `("." . ,(expand-file-name "~/.emacs.d/backups/")))
 
-;; Setup fink info directories
-;;(require 'info)
-;;(setq Info-directory-list (cons (expand-file-name "/sw/share/info") Info-directory-list))
-
-;; Ido
-(require 'ido)
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-
 ;; Battery
 ;(display-battery-mode 1)
-
-;; Show time
-;(display-time)
-;(setq display-time-24hr-format f)
 
 ;; Column number
 (column-number-mode 1)
@@ -73,7 +59,13 @@
 	(unsplittable . t)
 	(left-fringe . 0))))
 
-;; Switch buffer improved
+;; Ido
+(require 'ido)
+(ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+
+;; Switch buffer improved (replaced by ido-mode)
 ;(require 'iswitchb)
 ;(iswitchb-mode 1)
 
