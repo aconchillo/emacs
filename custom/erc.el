@@ -30,6 +30,9 @@
 ;; When lines are wrapped (fill module needed)
 (setq erc-fill-column fill-column)
 
+;; Load password file
+(load "~/.ercinfo")
+
 ;; Do not prompt for password
 (setq erc-prompt-for-password nil)
 
@@ -51,8 +54,6 @@
 (add-hook 'erc-mode-hook 'my-erc-mode-hook)
 
 ;; ERC join hook
-(defvar bitlbee-password "mirc1dog")
-
 (defun bitlbee-identify ()
   "If we're on the bitlbee server, send the identify command to the
      #bitlbee channel."
@@ -125,7 +126,7 @@
 ;; NickServ login
 (setq erc-prompt-for-nickserv-password nil)
 (setq erc-nickserv-passwords
-      '((freenode (("aleix" . "mirc1dog")))))
+      `((freenode (("aleix" . ,freenode-password)))))
 
 ;; Autojoin channels
 (setq erc-autojoin-channels-alist
