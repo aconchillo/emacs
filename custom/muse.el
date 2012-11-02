@@ -21,31 +21,31 @@
       '(("home"
          ("~/Documents/Wiki/personal"
           :default "home")
-         (:base "personal-xhtml" :path "~/Work/www/personal"))
+         (:base "personal-xhtml" :path "~/src/www/personal"))
         ("bitpacket"
          ("~/Documents/Wiki/bitpacket"
           :default "index")
-         (:base "project-xhtml" :path "~/Work/www/bitpacket"))
+         (:base "project-xhtml" :path "~/src/www/bitpacket"))
         ("dockland"
          ("~/Documents/Wiki/dockland"
           :default "index")
-         (:base "project-xhtml" :path "~/Work/www/dockland"))
+         (:base "project-xhtml" :path "~/src/www/dockland"))
         ("mkprom-erc32"
          ("~/Documents/Wiki/mkprom-erc32"
           :default "index")
-         (:base "project-xhtml" :path "~/Work/www/personal/mkprom-erc32"))
+         (:base "project-xhtml" :path "~/src/www/personal/mkprom-erc32"))
         ("playground"
          ("~/Documents/Wiki/playground"
           :default "index")
-         (:base "project-xhtml" :path "~/Work/www/playground"))
+         (:base "project-xhtml" :path "~/src/www/playground"))
         ("scew"
          ("~/Documents/Wiki/scew"
           :default "index")
-         (:base "project-xhtml" :path "~/Work/www/scew"))
+         (:base "project-xhtml" :path "~/src/www/scew"))
         ("weps"
          ("~/Documents/Wiki/weps"
           :default "index")
-         (:base "project-xhtml" :path "~/Work/www/weps"))))
+         (:base "project-xhtml" :path "~/src/www/weps"))))
 
 ;; Specific functions and variables for HTML publishing
 
