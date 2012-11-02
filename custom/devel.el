@@ -51,13 +51,21 @@
 
 ;; Company mode "complete anything" (use autoload to load your backend)
 (autoload 'company-mode "company" nil t)
-(add-hook 'c-mode-common-hook 'company-mode)
+
+;(require 'semantic)
+;(semantic-mode t)
+
+;; Enable auto complete for some programming modes
+(require 'auto-complete)
+(add-hook 'c-mode-common-hook 'auto-complete-mode)
+(add-hook 'python-mode-hook 'auto-complete-mode)
+(add-hook 'emacs-lisp-mode-hook 'auto-complete-mode)
 
 ;; yasnippet (already loaded in Debian)
 ;(require 'yasnippet)
 ;(yas/initialize)
 
-;; Doxymacs (already loaded in Debian)
+;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
 (require 'doxymacs)
 
