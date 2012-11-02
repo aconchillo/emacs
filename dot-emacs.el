@@ -41,6 +41,7 @@
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "globals")        ;; Global initializations
 ;(init-load-file "gnus")           ;; Gnus News/Mail Client
+(init-load-file "haskell")        ;; Haskell
 ;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
 ;(init-load-file "lisp")           ;; LISP
