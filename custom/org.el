@@ -37,7 +37,8 @@
 (define-key global-map [(control meta ?r)] 'remember)
 
 (custom-set-variables
- '(org-agenda-files (quote ("~/src/org-mode/oblong.org")))
+ '(org-agenda-files (quote ("~/src/org-mode/")))
+ '(org-agenda-file-regexp "^agenda-.*\\.org")
  '(org-default-notes-file "~/src/org-mode/notes.org")
  '(org-agenda-ndays 7)
  '(org-deadline-warning-days 14)
@@ -67,7 +68,10 @@
  '(org-remember-store-without-prompt t)
  '(org-remember-templates
    (quote (("Notes" ?n "* %u %?" "~/src/org-mode/notes.org" "Notes")
-           ("Oblong" ?o "* TODO %?\n  %u" "~/src/org-mode/oblong.org" "Tasks"))))
+           ("BitPacket" ?b "* TODO %?\n  %u" "~/src/org-mode/agenda-bitpacket.org" "Tasks")
+           ("Guile" ?g "* TODO %?\n  %u" "~/src/org-mode/agenda-guile.org" "Tasks")
+           ("Personal" ?p "* TODO %?\n  %u" "~/src/org-mode/agenda-personal.org" "Tasks")
+           ("Oblong" ?o "* TODO %?\n  %u" "~/src/org-mode/agenda-oblong.org" "Tasks"))))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler))))
 
