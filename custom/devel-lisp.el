@@ -1,4 +1,4 @@
-;;; lisp.el --- Setup LISP environment
+;;; devel-lisp.el --- Setup LISP environment
 
 ;; ParEdit
 (mapc (lambda (mode)
@@ -12,4 +12,4 @@
 (require 'slime)
 (slime-setup)
 
-;;; lisp.el ends here
+;;; devel-lisp.el ends here

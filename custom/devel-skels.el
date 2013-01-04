@@ -1,4 +1,4 @@
-;;; skels.el --- Setup file skeletons
+;;; devel-skels.el --- Setup file skeletons
 
 (add-to-list 'load-path (expand-file-name "skels" emacs-packages-dir))
 
@@ -11,4 +11,4 @@
 
 (jao-skel-lisa-activate)
 
-;;; skels.el ends here
+;;; devel-skels.el ends here

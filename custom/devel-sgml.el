@@ -1,4 +1,4 @@
-;;; sgml.el --- Setup SGML environment
+;;; devel-sgml.el --- Setup SGML environment
 
 ;; Don't complain when document does not have a doctype.
 (setq sgml-warn-about-undefined-entities nil)
@@ -10,4 +10,4 @@
 
 (add-hook 'sgml-mode-hook 'go-bind-markup-menu-to-mouse3)
 
-;;; sgml.el ends here
+;;; devel-sgml.el ends here

@@ -1,4 +1,4 @@
-;;; octave.el ---  Setup Octave environment
+;;; devel-octave.el ---  Setup Octave environment
 
 ;; Set octave for .m files
 ;; (setq auto-mode-alist
@@ -9,4 +9,4 @@
             (abbrev-mode 1)
             (auto-fill-mode 1)))
 
-;;; octave.el ends here
+;;; devel-octave.el ends here

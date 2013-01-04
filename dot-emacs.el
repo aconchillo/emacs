@@ -26,34 +26,41 @@
 ;; Load paths (order matters)
 (add-to-list 'load-path emacs-packages-dir)
 
-;; Load modules
+;; We load CEDET before loading the built-in one.
+(init-load-file "devel-cedet")    ;; CEDET development environment
 
-;; This needs to be the first one as it loads installed packages.
-(init-load-file "packages")       ;; Emacs Package Management
+;; Load all packages (built-in and installed)
+(package-initialize)
 
-;(init-load-file "bbdb")           ;; BigBrother Database
+;; General setup
 (init-load-file "colors")         ;; Emacs color themes
-(init-load-file "devel")          ;; General development
 (init-load-file "edit")           ;; Edit/Typing customisations
-;(init-load-file "emms")           ;; Emacs MultiMedia System
-(init-load-file "erc")            ;; ERC IRC Client
-;(init-load-file "eshell")         ;; Emacs Shell
+(init-load-file "elpa")           ;; Emacs Package Management
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "globals")        ;; Global initializations
-;(init-load-file "gnus")           ;; Gnus News/Mail Client
-(init-load-file "haskell")        ;; Haskell
-;(init-load-file "jde")            ;; Java Development Environment
 (init-load-file "keys")           ;; Key settings
-;(init-load-file "lisp")           ;; LISP
-;(init-load-file "muse")           ;; Emacs Muse Mode
-;(init-load-file "octave")         ;; Octave
-(init-load-file "org")            ;; Org
-;(init-load-file "python")         ;; Python
-(init-load-file "scheme")         ;; Scheme (geiser) initializations
-(init-load-file "sgml")           ;; SGML stuff
-;(init-load-file "skels")          ;; File skeletons
-(init-load-file "tex")            ;; TeX initialization
 (init-load-file "www")            ;; Web related stuff
+
+;; Development
+(init-load-file "devel")          ;; General development
+(init-load-file "devel-scheme")   ;; Scheme (geiser) initializations
+;(init-load-file "devel-haskell")  ;; Haskell
+;(init-load-file "devel-java")     ;; Java Development Environment
+;(init-load-file "devel-lisp")     ;; LISP
+;(init-load-file "devel-octave")   ;; Octave
+;(init-load-file "devel-python")   ;; Python
+;(init-load-file "devel-skels")    ;; File skeletons
+;(init-load-file "devel-sgml")     ;; SGML stuff
+
+;; Specific modes
+(init-load-file "erc")            ;; ERC IRC Client
+(init-load-file "muse")           ;; Emacs Muse Mode
+(init-load-file "org")            ;; Org
+(init-load-file "tex")            ;; TeX initialization
+;(init-load-file "bbdb")           ;; BigBrother Database
+;(init-load-file "gnus")           ;; Gnus News/Mail Client
+;(init-load-file "emms")           ;; Emacs MultiMedia System
+;(init-load-file "eshell")         ;; Emacs Shell
 
 ;; color faces
 (custom-set-faces

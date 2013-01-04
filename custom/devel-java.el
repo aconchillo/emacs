@@ -1,4 +1,4 @@
-;;; jde.el --- Java Development Environment
+;;; devel-java.el --- Java Development Environment
 
 (add-to-list 'load-path (expand-file-name "jde/lisp" emacs-packages-dir))
 
@@ -27,12 +27,6 @@
 ;; ELIB
 (add-to-list 'load-path (expand-file-name "elib" emacs-packages-dir))
 
-;; CEDET
-(add-to-list 'load-path (expand-file-name "cedet/common" emacs-packages-dir))
-(load-file (expand-file-name "cedet/common/cedet.el" emacs-packages-dir))
-
-(setq semanticdb-default-save-directory (expand-file-name "~/.emacs.d/semantic"))
-
 ;; JDE key bindings
 (add-hook 'jde-mode-hook
           '(lambda ()
@@ -42,4 +36,4 @@
              (define-key jde-mode-map [f12] 'jde-import-kill-extra-imports)
              ))
 
-;;; jde.el ends here
+;;; devel-java.el ends here
