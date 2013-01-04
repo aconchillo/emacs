@@ -43,6 +43,7 @@
 
 ;; Development
 (init-load-file "devel")          ;; General development
+(init-load-file "devel-cc")       ;; C/C++
 (init-load-file "devel-scheme")   ;; Scheme (geiser) initializations
 ;(init-load-file "devel-haskell")  ;; Haskell
 ;(init-load-file "devel-java")     ;; Java Development Environment
