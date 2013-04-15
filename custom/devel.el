@@ -16,9 +16,6 @@
 ;; (setq fci-style 'rule)
 ;; (setq fci-rule-width 1)
 
-;; Company mode "complete anything" (use autoload to load your backend)
-(autoload 'company-mode "company" nil t)
-
 ;; Enable auto complete. auto-complete-config has some extra sources
 ;; (e.g. semantic).
 (require 'auto-complete)
