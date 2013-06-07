@@ -30,11 +30,7 @@
      (define-key org-agenda-mode-map "\C-p" 'previous-line)
      (define-key org-agenda-keymap "\C-p" 'previous-line)))
 
-(require 'remember)
-
-(add-hook 'remember-mode-hook 'org-remember-apply-template)
-
-(define-key global-map [(control meta ?r)] 'remember)
+(define-key global-map [(control meta ?r)] 'org-capture)
 
 (custom-set-variables
  '(org-agenda-files (quote ("~/src/org-mode/"
@@ -67,15 +63,16 @@
                 (org-agenda-skip-entry-if (quote scheduled) (quote deadline)
                                           (quote regexp) "\n]+>")))
              (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
- '(org-remember-store-without-prompt t)
- '(org-remember-templates
-   (quote (("Notes" ?n "* %u %?" "~/src/org-mode/notes.org" "Notes")
-           ("BitPacket" ?b "* TODO %?\n  %u" "~/src/org-mode/agenda-bitpacket.org" "Tasks")
-           ("Guile" ?g "* TODO %?\n  %u" "~/src/org-mode/agenda-guile.org" "Tasks")
-           ("Personal" ?p "* TODO %?\n  %u" "~/src/org-mode/agenda-personal.org" "Tasks")
-           ("Oblong" ?o "* TODO %?\n  %u" "~/src/org-mode/oblong/agenda-oblong.org" "Tasks"))))
- '(remember-annotation-functions (quote (org-remember-annotation)))
- '(remember-handler-functions (quote (org-remember-handler))))
+ '(org-capture-templates
+   (quote (("n" "Notes" entry (file+headline "~/src/org-mode/notes.org" "Notes") "* %u %?")
+           ("b" "BitPacket" entry (file+headline "~/src/org-mode/agenda-bitpacket.org" "Tasks")
+            "* TODO %?\n  %u")
+           ("g" "Guile" entry (file+headline "~/src/org-mode/agenda-guile.org" "Tasks")
+            "* TODO %?\n  %u")
+           ("p" "Personal" entry (file+headline "~/src/org-mode/agenda-personal.org" "Tasks")
+            "* TODO %?\n  %u")
+           ("o" "Oblong" entry (file+headline "~/src/org-mode/oblong/agenda-oblong.org" "Tasks")
+            "* TODO %?\n  %u")))))
 
 ;; Agenda notifications
 ;; from http://emacs-fu.blogspot.com/2009/11/showing-pop-ups.html
