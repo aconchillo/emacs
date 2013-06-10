@@ -36,7 +36,7 @@
  '(org-agenda-files (quote ("~/src/org-mode/"
                             "~/src/org-mode/ice/"
                             "~/src/org-mode/oblong/")))
- '(org-agenda-file-regexp "^agenda-.*\\.org")
+ '(org-agenda-file-regexp "^agenda-.*\\.org$")
  '(org-default-notes-file "~/src/org-mode/notes.org")
  '(org-agenda-ndays 7)
  '(org-deadline-warning-days 14)
