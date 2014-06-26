@@ -27,7 +27,7 @@
 (add-to-list 'load-path emacs-packages-dir)
 
 ;; We load CEDET before loading the built-in one.
-(init-load-file "devel-cedet")    ;; CEDET development environment
+;;(init-load-file "devel-cedet")    ;; CEDET development environment
 
 ;; Load all packages (built-in and installed)
 (package-initialize)
@@ -45,6 +45,7 @@
 (init-load-file "devel")          ;; General development
 (init-load-file "devel-cc")       ;; C/C++
 (init-load-file "devel-scheme")   ;; Scheme (geiser) initializations
+(init-load-file "devel-oblong")   ;; Oblong
 ;(init-load-file "devel-haskell")  ;; Haskell
 ;(init-load-file "devel-java")     ;; Java Development Environment
 ;(init-load-file "devel-lisp")     ;; LISP
