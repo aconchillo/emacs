@@ -12,4 +12,7 @@
 ;; Fix HTTP1/1.1 problems
 (setq url-http-attempt-keepalives nil)
 
+;; Paradox GitHub token
+(setq paradox-github-token "c4a9a92557755b14cf463998560ce55ebd7974d6")
+
 ;;; packages.el ends here
