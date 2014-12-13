@@ -30,7 +30,6 @@
 ;;(init-load-file "devel-cedet")    ;; CEDET development environment
 
 ;; Load all packages (built-in and installed)
-(setq package-enable-at-startup nil)
 (package-initialize)
 
 ;; General setup
