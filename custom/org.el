@@ -33,6 +33,7 @@
 (define-key global-map [(control meta ?r)] 'org-capture)
 
 (custom-set-variables
+ '(org-completion-use-ido t)
  '(org-agenda-files (quote ("~/src/org-mode/"
                             "~/src/org-mode/ice/"
                             "~/src/org-mode/oblong/")))
