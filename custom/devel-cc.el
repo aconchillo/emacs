@@ -24,6 +24,9 @@
 ;; Colorful background if we reach limit
 (add-hook 'c-mode-common-hook 'margin-mode)
 
+;; Set tab width to 2
+(add-hook 'c-mode-common-hook (lambda () (setq tab-width 2)))
+
 ;; Show a thin line in right margin
 ;; (add-hook 'c-mode-common-hook 'fci-mode)
 
