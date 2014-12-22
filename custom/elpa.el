@@ -14,5 +14,6 @@
 
 ;; Paradox GitHub token
 (setq paradox-github-token "c4a9a92557755b14cf463998560ce55ebd7974d6")
+(setq paradox-automatically-star t)
 
 ;;; packages.el ends here
