@@ -3,6 +3,12 @@
 ;; Keyboard input method
 (setq default-input-method "catalan-prefix")
 
+;; OS X
+(setq mac-option-key-is-meta nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
+
 ;; Key bindings
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 (global-set-key (kbd "C-c s") 'speedbar-get-focus)
