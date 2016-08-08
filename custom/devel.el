@@ -21,6 +21,9 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
+;; Magit
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
 (require 'doxymacs)
