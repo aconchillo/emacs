@@ -27,26 +27,18 @@
 ;; Set tab width to 2
 (add-hook 'c-mode-common-hook (lambda () (setq tab-width 2)))
 
+;; Find tags!
+(add-hook 'c-mode-common-hook 'ggtags-mode)
+
 ;; Show a thin line in right margin
 ;; (add-hook 'c-mode-common-hook 'fci-mode)
 
 ;; Specify auto-complete sources
-(defun my-ac-cc-mode ()
-  (auto-complete-mode t)
-  (add-to-list 'ac-sources 'ac-source-gtags)
-  (add-to-list 'ac-sources 'ac-source-semantic))
+;; (defun my-ac-cc-mode ()
+;;   (auto-complete-mode t)
+;;   (add-to-list 'ac-sources 'ac-source-gtags)
+;;   (add-to-list 'ac-sources 'ac-source-semantic))
 
-(add-hook 'c-mode-common-hook 'my-ac-cc-mode)
+;; (add-hook 'c-mode-common-hook 'my-ac-cc-mode)
 
-;; Enable GNU Global mode. We use the newer version 3.7 provided by
-;; global 6.2.8.
-(add-to-list 'load-path (expand-file-name "gtags/" emacs-packages-dir))
-
-(setq gtags-suggested-key-mapping t)
-(setq gtags-disable-pushy-mouse-mapping t)
-
-(require 'gtags)
-
-(add-hook 'c-mode-common-hook 'gtags-mode)
-
-;;; devel.el ends here
+;; devel.el ends here

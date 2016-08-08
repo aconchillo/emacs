@@ -13,15 +13,10 @@
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 (global-set-key (kbd "C-c s") 'speedbar-get-focus)
 (global-set-key (kbd "C-c c") 'compile)
-(global-set-key (kbd "C-c p") 'previous-error)
-(global-set-key (kbd "C-c n") 'next-error)
 (global-set-key (kbd "C-c .") 'dabbrev-expand)
 (global-set-key (kbd "M-i") 'indent-region)
-(global-set-key (kbd "M-n") 'end-of-defun)
-(global-set-key (kbd "M-p") 'beginning-of-defun)
-(global-set-key (kbd "M-.") 'gtags-find-tag)
-(global-set-key (kbd "M-,") 'gtags-find-rtag)
-(global-set-key (kbd "M-*") 'gtags-pop-stack)
+(global-set-key (kbd "M-p") 'previous-error)
+(global-set-key (kbd "M-n") 'next-error)
 
 ;; More key bindings
 (global-set-key (kbd "M-g") 'goto-line)
