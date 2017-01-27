@@ -17,14 +17,14 @@ echo "Checking for .emacs ..."
 if ! test -f $HOME/.emacs
 then
     echo "Creating $HOME/.emacs ..."
-    ln -s etc/emacs/dot-emacs.el $HOME/.emacs
+    ln -s $PWD/dot-emacs.el $HOME/.emacs
 fi
 
 echo "Checking for .ercinfo ..."
 if ! test -f $HOME/.ercinfo
 then
     echo "Creating $HOME/.ercinfo ..."
-    ln -s etc/emacs/dot-ercinfo.el $HOME/.ercinfo
+    ln -s $PWD/dot-ercinfo.el $HOME/.ercinfo
 fi
 
 echo
