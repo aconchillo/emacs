@@ -1,4 +1,4 @@
-;;; devel-go.el --- Setup development environment for C/C++
+;;; devel-go.el --- Setup development environment for Go
 
 ;; Format before save
 (add-hook 'before-save-hook 'gofmt-before-save)

@@ -44,9 +44,8 @@
 ;; Development
 (init-load-file "devel")          ;; General development
 (init-load-file "devel-cc")       ;; C/C++
-(init-load-file "devel-go")       ;; Go
 (init-load-file "devel-scheme")   ;; Scheme (geiser) initializations
-(init-load-file "devel-oblong")   ;; Oblong
+;(init-load-file "devel-go")       ;; Go
 ;(init-load-file "devel-haskell")  ;; Haskell
 ;(init-load-file "devel-java")     ;; Java Development Environment
 ;(init-load-file "devel-lisp")     ;; LISP
@@ -57,13 +56,13 @@
 
 ;; Specific modes
 (init-load-file "erc")            ;; ERC IRC Client
-(init-load-file "muse")           ;; Emacs Muse Mode
 (init-load-file "org")            ;; Org
 (init-load-file "tex")            ;; TeX initialization
 ;(init-load-file "bbdb")           ;; BigBrother Database
 ;(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "emms")           ;; Emacs MultiMedia System
 ;(init-load-file "eshell")         ;; Emacs Shell
+;(init-load-file "muse")           ;; Emacs Muse Mode
 
 ;; color faces
 (custom-set-faces
