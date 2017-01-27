@@ -8,7 +8,8 @@
                                  "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328"
                                  default)))
 
-;; Theme
-(load-theme 'sanityinc-solarized-dark)
+;; Use a colarized terminal and don't load any theme for now.
+;(load-theme 'pumba)
+;(load-theme 'sanityinc-solarized-dark)
 
 ;;; colors.el ends here
