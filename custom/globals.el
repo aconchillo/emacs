@@ -1,7 +1,7 @@
 ;;; globals.el --- Setup general environment
 
 ;; Initialize Emacs server
-;(server-start)
+(server-start)
 
 ;; User variables
 (setq user-full-name "Aleix Conchillo Flaque")
