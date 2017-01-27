@@ -1,0 +1,1 @@
+(setq freenode-password "xxxxxxxx")
