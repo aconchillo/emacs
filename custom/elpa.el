@@ -13,7 +13,7 @@
 (setq url-http-attempt-keepalives nil)
 
 ;; Paradox GitHub token
-(setq paradox-github-token "sometoken")
+(setq paradox-github-token t)
 (setq paradox-automatically-star nil)
 
 ;;; packages.el ends here
