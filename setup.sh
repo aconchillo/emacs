@@ -6,11 +6,15 @@ install_emacs_packages()
 
     ./emacs-pkg-install.sh \
         auto-complete \
-        color-theme-sanityinc-solarized \
+        company \
         flx-ido \
+        geiser \
+        icicles \
+        lacarte \
         magit \
         markdown-mode \
         muse \
+        paredit \
         paradox \
         projectile \
         smex \
