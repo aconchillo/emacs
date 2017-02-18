@@ -7,8 +7,10 @@ install_emacs_packages()
     ./emacs-pkg-install.sh \
         auto-complete \
         company \
+        company-go \
         flx-ido \
         geiser \
+        go-mode \
         icicles \
         lacarte \
         magit \
