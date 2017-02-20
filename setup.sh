@@ -20,6 +20,7 @@ install_emacs_packages()
         paradox \
         projectile \
         smex \
+        yaml-mode \
         #
 }
 
