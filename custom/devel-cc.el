@@ -27,18 +27,4 @@
 ;; Set tab width to 2
 (add-hook 'c-mode-common-hook (lambda () (setq tab-width 2)))
 
-;; Find tags!
-(add-hook 'c-mode-common-hook 'ggtags-mode)
-
-;; Show a thin line in right margin
-;; (add-hook 'c-mode-common-hook 'fci-mode)
-
-;; Specify auto-complete sources
-;; (defun my-ac-cc-mode ()
-;;   (auto-complete-mode t)
-;;   (add-to-list 'ac-sources 'ac-source-gtags)
-;;   (add-to-list 'ac-sources 'ac-source-semantic))
-
-;; (add-hook 'c-mode-common-hook 'my-ac-cc-mode)
-
 ;; devel.el ends here

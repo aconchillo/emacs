@@ -19,6 +19,7 @@ install_emacs_packages()
         paredit \
         paradox \
         projectile \
+        rtags \
         smex \
         yaml-mode \
         #
