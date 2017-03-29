@@ -6,6 +6,7 @@ install_emacs_packages()
 
     ./emacs-pkg-install.sh \
         auto-complete \
+        clang-format \
         company \
         company-go \
         flx-ido \
