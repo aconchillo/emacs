@@ -5,6 +5,7 @@ install_emacs_packages()
     echo "Installing Emacs packages ..."
 
     ./emacs-pkg-install.sh \
+        ack \
         auto-complete \
         clang-format \
         company \
