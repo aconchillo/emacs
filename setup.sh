@@ -14,6 +14,8 @@ install_emacs_packages()
         geiser \
         go-mode \
         icicles \
+        js2-mode \
+        json-mode \
         lacarte \
         magit \
         markdown-mode \
