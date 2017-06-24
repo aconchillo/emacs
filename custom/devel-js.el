@@ -2,6 +2,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
 
 ;; Set tab width to 2
 (setq js-indent-level 2)
