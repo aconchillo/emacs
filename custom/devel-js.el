@@ -6,6 +6,9 @@
 ;; Set tab width to 2
 (setq js-indent-level 2)
 
+;; Set css tab width to 2
+(setq css-indent-offset 2)
+
 ;;(mmm-add-classes
 ;; '((vue-js
 ;;    :submode js2-mode
