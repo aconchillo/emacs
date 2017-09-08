@@ -17,6 +17,7 @@ install_emacs_packages()
         js2-mode \
         json-mode \
         lacarte \
+        lua-mode \
         magit \
         markdown-mode \
         muse \
