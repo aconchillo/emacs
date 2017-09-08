@@ -26,6 +26,7 @@ install_emacs_packages()
         projectile \
         rtags \
         smex \
+        tide \
         vue-mode \
         yaml-mode \
         #
