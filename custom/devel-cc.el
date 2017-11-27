@@ -27,4 +27,15 @@
 ;; Set tab width to 2
 (add-hook 'c-mode-common-hook (lambda () (setq tab-width 2)))
 
+;; Autocompletion
+(add-hook 'c-mode-common-hook 'company-mode)
+
+;; More setup
+(defun my-c-mode-hook ()
+  (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)
+  (local-set-key (kbd "M-,") 'rtags-find-references-at-point)
+  (local-set-key (kbd "M-[") 'rtags-location-stack-back)
+  (local-set-key (kbd "M-]") 'rtags-location-stack-forward))
+(add-hook 'c-mode-common-hook 'my-c-mode-hook)
+
 ;; devel.el ends here
