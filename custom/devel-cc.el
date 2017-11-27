@@ -21,9 +21,6 @@
 ;; Ensure 2 spaces for offset
 (setq c-basic-offset 2)
 
-;; Colorful background if we reach limit
-(add-hook 'c-mode-common-hook 'margin-mode)
-
 ;; Autocompletion
 (add-hook 'c-mode-common-hook 'company-mode)
 

@@ -6,7 +6,6 @@ install_emacs_packages()
 
     ./emacs-pkg-install.sh \
         ack \
-        auto-complete \
         clang-format \
         company \
         company-go \
