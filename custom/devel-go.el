@@ -10,7 +10,7 @@
   ;; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
   ;; Go back
-  (local-set-key (kbd "M-[") 'pop-tag-mark)
+  (local-set-key (kbd "M-*") 'pop-tag-mark)
   ;; Auto-completion
   (set (make-local-variable 'company-backends) '(company-go))
   (company-mode))

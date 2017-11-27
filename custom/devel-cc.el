@@ -24,18 +24,27 @@
 ;; Colorful background if we reach limit
 (add-hook 'c-mode-common-hook 'margin-mode)
 
-;; Set tab width to 2
-(add-hook 'c-mode-common-hook (lambda () (setq tab-width 2)))
-
 ;; Autocompletion
 (add-hook 'c-mode-common-hook 'company-mode)
 
 ;; More setup
 (defun my-c-mode-hook ()
+  ;; Key bindings
   (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)
   (local-set-key (kbd "M-,") 'rtags-find-references-at-point)
-  (local-set-key (kbd "M-[") 'rtags-location-stack-back)
+  (local-set-key (kbd "M-*") 'rtags-location-stack-back)
   (local-set-key (kbd "M-]") 'rtags-location-stack-forward))
 (add-hook 'c-mode-common-hook 'my-c-mode-hook)
+
+;; Doxymacs
+(add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
+(require 'doxymacs)
+
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
+
+(defun my-doxymacs-font-lock-hook ()
+  (if (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
+      (doxymacs-font-lock)))
+(add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
 
 ;; devel.el ends here
