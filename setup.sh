@@ -11,7 +11,9 @@ install_emacs_packages()
         company-go \
         flx-ido \
         geiser \
+        go-guru \
         go-mode \
+        go-rename \
         icicles \
         js2-mode \
         json-mode \
