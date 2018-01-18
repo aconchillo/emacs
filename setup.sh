@@ -37,14 +37,14 @@ install_dependencies()
 {
     echo "Cloning missing dependencies ..."
 
-    if ! test -d elisp/doxymacs
+    if ! test -f elisp/doxymacs/lisp/doxymacs.el
     then
         echo "Cloning doxymacs ..."
         curdir=$(pwd)
-        mkdir elisp/doxymacs
-        curl -L https://downloads.sourceforge.net/project/doxymacs/doxymacs/1.8.0/doxymacs-1.8.0.tar.gz | tar zx -C elisp/doxymacs --strip-components 1
+        mkdir -p elisp/doxymacs
+        curl -s -L https://downloads.sourceforge.net/project/doxymacs/doxymacs/1.8.0/doxymacs-1.8.0.tar.gz | tar zx -C elisp/doxymacs --strip-components 1
         cd elisp/doxymacs
-        ./configure 2&> /dev/null
+        ./configure > /dev/null
         cd $curdir
     fi
 }
@@ -55,14 +55,14 @@ install_startup_files()
     if ! test -f $HOME/.emacs
     then
         echo "Creating $HOME/.emacs ..."
-        ln -s $PWD/dot-emacs.el $HOME/.emacs
+        ln -sf $PWD/dot-emacs.el $HOME/.emacs
     fi
 
     echo "Checking for .ercinfo ..."
     if ! test -f $HOME/.ercinfo
     then
         echo "Creating $HOME/.ercinfo ..."
-        ln -s $PWD/dot-ercinfo.el $HOME/.ercinfo
+        ln -sf $PWD/dot-ercinfo.el $HOME/.ercinfo
     fi
 }
 
