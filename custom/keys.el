@@ -11,9 +11,8 @@
 
 ;; Key bindings
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
-(global-set-key (kbd "C-c s") 'speedbar-get-focus)
 (global-set-key (kbd "C-c c") 'compile)
-(global-set-key (kbd "C-c C-c") 'recompile)
+(global-set-key (kbd "C-c r") 'recompile)
 (global-set-key (kbd "C-c .") 'dabbrev-expand)
 (global-set-key (kbd "M-i") 'indent-region)
 (global-set-key (kbd "M-p") 'previous-error)
