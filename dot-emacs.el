@@ -6,7 +6,7 @@
  )
 
 ;; Path variables
-(defconst emacs-init-dir (expand-file-name "~/etc/emacs/")
+(defconst emacs-init-dir (expand-file-name "~/src/emacs/")
   "User init directory")
 
 (defconst init-lisp-dir (expand-file-name "custom/" emacs-init-dir)
@@ -56,9 +56,9 @@
 ;(init-load-file "devel-sgml")     ;; SGML stuff
 
 ;; Specific modes
-(init-load-file "erc")            ;; ERC IRC Client
-(init-load-file "org")            ;; Org
-(init-load-file "tex")            ;; TeX initialization
+;(init-load-file "erc")            ;; ERC IRC Client
+;(init-load-file "org")            ;; Org
+;(init-load-file "tex")            ;; TeX initialization
 ;(init-load-file "bbdb")           ;; BigBrother Database
 ;(init-load-file "gnus")           ;; Gnus News/Mail Client
 ;(init-load-file "emms")           ;; Emacs MultiMedia System
