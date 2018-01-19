@@ -6,7 +6,7 @@
  )
 
 ;; Path variables
-(defconst emacs-init-dir (expand-file-name "~/src/emacs/")
+(defconst emacs-init-dir (expand-file-name "<EMACS_HOME>")
   "User init directory")
 
 (defconst init-lisp-dir (expand-file-name "custom/" emacs-init-dir)

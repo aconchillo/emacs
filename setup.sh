@@ -55,6 +55,7 @@ install_startup_files()
     if ! test -f $HOME/.emacs
     then
         echo "Creating $HOME/.emacs ..."
+        sed "s#<EMACS_HOME>#$PWD#" < dot-emacs.el.in > dot-emacs.el
         ln -sf $PWD/dot-emacs.el $HOME/.emacs
     fi
 
