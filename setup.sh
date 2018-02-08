@@ -9,6 +9,7 @@ install_emacs_packages()
         clang-format \
         company \
         company-go \
+        company-jedi \
         flx-ido \
         geiser \
         go-guru \
@@ -47,6 +48,10 @@ install_dependencies()
         ./configure > /dev/null
         cd $curdir
     fi
+
+    echo "Installing python dependencies ..."
+    pip install virtualenv
+    pip install jedi
 }
 
 install_startup_files()
