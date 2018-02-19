@@ -15,7 +15,6 @@ install_emacs_packages()
         go-guru \
         go-mode \
         go-rename \
-        icicles \
         js2-mode \
         json-mode \
         lacarte \
