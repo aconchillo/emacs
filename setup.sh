@@ -49,8 +49,8 @@ install_dependencies()
     fi
 
     echo "Installing python dependencies ..."
-    pip install --user virtualenv
-    pip install --user jedi
+    pip install virtualenv
+    pip install jedi
 }
 
 install_startup_files()
