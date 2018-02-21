@@ -9,8 +9,8 @@ install_emacs_packages()
         clang-format \
         company \
         company-go \
-        company-jedi \
         flx-ido \
+	elpy \
         geiser \
         go-guru \
         go-mode \
@@ -50,7 +50,11 @@ install_dependencies()
 
     echo "Installing python dependencies ..."
     pip install virtualenv
+    pip install rope
     pip install jedi
+    pip install flake8
+    pip install autopep8
+    pip install yapf
 }
 
 install_startup_files()
