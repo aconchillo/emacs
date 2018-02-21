@@ -49,12 +49,15 @@ install_dependencies()
     fi
 
     echo "Installing python dependencies ..."
-    pip install virtualenv
-    pip install rope
-    pip install jedi
-    pip install flake8
-    pip install autopep8
-    pip install yapf
+    pip3 install virtualenv virtualenvwrapper
+
+    echo
+    echo "***"
+    echo "*** For every project create a new python environment and install these packages:"
+    echo "***"
+    echo "*** $ pip3 rope jedi flake8 autopep8 yapf"
+    echo "***"
+    echo 
 }
 
 install_startup_files()
