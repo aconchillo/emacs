@@ -9,6 +9,8 @@ install_emacs_packages()
         clang-format \
         company \
         company-go \
+        company-lsp \
+        cquery \
         flx-ido \
 	elpy \
         geiser \
@@ -19,12 +21,14 @@ install_emacs_packages()
         json-mode \
         lacarte \
         lua-mode \
+        lsp-cquery \
         magit \
         markdown-mode \
         muse \
         paredit \
         paradox \
         projectile \
+        protobuf-mode \
         rtags \
         smex \
         tide \
@@ -57,7 +61,7 @@ install_dependencies()
     echo "***"
     echo "*** $ pip3 rope jedi flake8 autopep8 yapf"
     echo "***"
-    echo 
+    echo
 }
 
 install_startup_files()

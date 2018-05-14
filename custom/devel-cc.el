@@ -21,17 +21,19 @@
 ;; Ensure 2 spaces for offset
 (setq c-basic-offset 2)
 
-;; Autocompletion
-(add-hook 'c-mode-common-hook 'company-mode)
+;; cquery
+(setq cquery-executable (expand-file-name "~/src/cquery/build/release/bin/cquery"))
 
-;; More setup
-(defun my-c-mode-hook ()
+(defun my-cquery-hook ()
+  (lsp-cquery-enable)
   ;; Key bindings
-  (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)
-  (local-set-key (kbd "M-,") 'rtags-find-references-at-point)
-  (local-set-key (kbd "M-*") 'rtags-location-stack-back)
-  (local-set-key (kbd "M-]") 'rtags-location-stack-forward))
-(add-hook 'c-mode-common-hook 'my-c-mode-hook)
+  (local-set-key (kbd "M-.") 'xref-find-definitions)
+  (local-set-key (kbd "M-,") 'xref-find-references)
+  (local-set-key (kbd "M-*") 'xref-pop-marker-stack)
+  ;; Auto-completion
+  (set (make-local-variable 'company-backends) '(company-lsp))
+  (company-mode))
+(add-hook 'c-mode-common-hook 'my-cquery-hook)
 
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
