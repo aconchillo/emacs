@@ -21,7 +21,6 @@ install_emacs_packages()
         json-mode \
         lacarte \
         lua-mode \
-        lsp-cquery \
         magit \
         markdown-mode \
         muse \
