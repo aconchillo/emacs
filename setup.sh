@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 install_emacs_packages()
 {
@@ -52,28 +52,16 @@ install_dependencies()
     fi
 
     echo "Installing python dependencies ..."
-<<<<<<< HEAD
     pip3 install virtualenv virtualenvwrapper
 
-    echo
-    echo "***"
-    echo "*** For every project create a new python environment and install these packages:"
-    echo "***"
-    echo "*** $ pip3 rope jedi flake8 autopep8 yapf"
-    echo "***"
-    echo
-=======
-    pip install virtualenv
-
     echo "Installing npm dependencies ..."
-    npm i -g javascript-typescript-langserver
-    npm i -g typescript-language-server
+    sudo npm i -g javascript-typescript-langserver
+    sudo npm i -g typescript-language-server
 
     echo "Installing go dependencies ..."
     pushd $GOPATH
     go get -u github.com/sourcegraph/go-langserver
     popd
->>>>>>> cleanup and make use of language server protocol
 }
 
 install_startup_files()
