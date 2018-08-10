@@ -1,5 +1,7 @@
 ;;; devel-go.el --- Setup development environment for Go
 
+(require 'lsp-go)
+
 (defun my-go-mode-hook ()
   ;; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -7,13 +9,14 @@
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet"))
-  ;; Godef jump key binding
-  (local-set-key (kbd "M-.") 'godef-jump)
-  ;; Go back
-  (local-set-key (kbd "M-*") 'pop-tag-mark)
-  ;; Auto-completion
-  (set (make-local-variable 'company-backends) '(company-go))
-  (company-mode))
+  ;; Key bindings
+  (local-set-key (kbd "M-.") 'xref-find-definitions)
+  (local-set-key (kbd "M-,") 'xref-find-references)
+  (local-set-key (kbd "M-*") 'lsp-ui-peek-jump-forward)
+  (local-set-key (kbd "M-]") 'lsp-ui-peek-jump-backward)
+  ;; Completion
+  (company-mode)
+  (lsp-go-enable))
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 

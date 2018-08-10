@@ -3,9 +3,6 @@
 ;; General Scheme mode
 (setq scheme-program-name "guile")
 
-;; ParEdit
-(add-hook 'scheme-mode-hook 'paredit-mode)
-
 ;; Geiser
 (setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
 

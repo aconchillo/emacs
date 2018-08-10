@@ -8,7 +8,6 @@ install_emacs_packages()
         ack \
         clang-format \
         company \
-        company-go \
         company-lsp \
         cquery \
         flx-ido \
@@ -20,6 +19,9 @@ install_emacs_packages()
         js2-mode \
         json-mode \
         lacarte \
+        lsp-go \
+        lsp-javascript-typescript \
+        lsp-mode \
         lua-mode \
         magit \
         markdown-mode \
@@ -28,9 +30,7 @@ install_emacs_packages()
         paradox \
         projectile \
         protobuf-mode \
-        rtags \
         smex \
-        tide \
         vue-mode \
         yaml-mode \
         #
@@ -52,6 +52,7 @@ install_dependencies()
     fi
 
     echo "Installing python dependencies ..."
+<<<<<<< HEAD
     pip3 install virtualenv virtualenvwrapper
 
     echo
@@ -61,6 +62,18 @@ install_dependencies()
     echo "*** $ pip3 rope jedi flake8 autopep8 yapf"
     echo "***"
     echo
+=======
+    pip install virtualenv
+
+    echo "Installing npm dependencies ..."
+    npm i -g javascript-typescript-langserver
+    npm i -g typescript-language-server
+
+    echo "Installing go dependencies ..."
+    pushd $GOPATH
+    go get -u github.com/sourcegraph/go-langserver
+    popd
+>>>>>>> cleanup and make use of language server protocol
 }
 
 install_startup_files()
