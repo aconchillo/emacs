@@ -5,13 +5,11 @@ install_emacs_packages()
     echo "Installing Emacs packages ..."
 
     ./emacs-pkg-install.sh \
-        ack \
         clang-format \
         company \
         company-lsp \
         cquery \
         flx-ido \
-	elpy \
         geiser \
         go-guru \
         go-mode \
@@ -22,6 +20,7 @@ install_emacs_packages()
         lsp-go \
         lsp-javascript-typescript \
         lsp-mode \
+        lsp-python \
         lua-mode \
         magit \
         markdown-mode \
