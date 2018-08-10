@@ -9,7 +9,6 @@ install_emacs_packages()
         company \
         company-lsp \
         cquery \
-        flx-ido \
         geiser \
         go-guru \
         go-mode \

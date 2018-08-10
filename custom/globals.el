@@ -59,18 +59,10 @@
 	(unsplittable . t)
 	(left-fringe . 0))))
 
-;; Ido
-(require 'flx-ido)
+;; ido
 (ido-mode 1)
 (ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
 (setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
-
-;; Switch buffer improved (replaced by ido-mode)
-;(require 'iswitchb)
-;(iswitchb-mode 1)
 
 ;; Projectile
 (projectile-global-mode)
