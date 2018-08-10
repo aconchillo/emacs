@@ -24,7 +24,6 @@
                   :nick ,nick
                   :full-name ,erc-user-full-name)))))
 
-(acf-erc-connect erc-bitlbee "localhost" 6667 "aleix")
 (acf-erc-connect erc-freenode "irc.freenode.net" 6667 "aleix")
 
 ;; When lines are wrapped (fill module needed)
@@ -52,19 +51,6 @@
   (erc-add-scroll-to-bottom))
 
 (add-hook 'erc-mode-hook 'my-erc-mode-hook)
-
-;; ERC join hook
-(defun bitlbee-identify ()
-  "If we're on the bitlbee server, send the identify command to the
-     #bitlbee channel."
-  (when (and (string= "localhost" erc-session-server)
-             (= 6667 erc-session-port)
-             (string= "&bitlbee" (buffer-name)))
-    (progn
-      (erc-message "PRIVMSG" (format "%s set charset %s" (erc-default-target) "utf-8"))
-      (erc-message "PRIVMSG" (format "%s identify %s" (erc-default-target) bitlbee-password)))))
-
-(add-hook 'erc-join-hook 'bitlbee-identify)
 
 ;; Render html messages
 (add-hook 'erc-insert-modify-hook 'maybe-wash-im-with-w3m)
