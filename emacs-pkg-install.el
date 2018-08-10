@@ -12,6 +12,10 @@
 (add-to-list 'package-archives
              '("marmalade" . "https://marmalade-repo.org/packages/") t)
 
+;; Disable security checks so we can download https repos with
+;; self-signed certificate.
+(setq network-security-level 'low)
+
 ;; Fix HTTP1/1.1 problems
 (setq url-http-attempt-keepalives nil)
 
