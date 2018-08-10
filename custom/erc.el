@@ -48,37 +48,9 @@
 ;; ERC hook
 (defun my-erc-mode-hook ()
   "Hook function to run when entering erc mode"
-  (erc-add-scroll-to-bottom))
+  (erc-scrolltobottom-mode))
 
 (add-hook 'erc-mode-hook 'my-erc-mode-hook)
-
-;; Render html messages
-(add-hook 'erc-insert-modify-hook 'maybe-wash-im-with-w3m)
-
-(autoload 'w3m-region "w3m" "Render region using w3m")
-
-(defun maybe-wash-im-with-w3m ()
-  "Wash the current im with emacs-w3m."
-  (save-restriction
-    (with-current-buffer (current-buffer)
-      (let ((case-fold-search t))
-        (goto-char (point-min))
-        (when (re-search-forward "<HTML>.*</HTML>" nil t)
-          (print (match-string 0))
-          (narrow-to-region (match-beginning 0) (match-end 0))
-          (let ((w3m-safe-url-regexp mm-w3m-safe-url-regexp)
-                w3m-force-redisplay)
-            (w3m-region (point-min) (point-max))
-            (goto-char (point-max))
-            (delete-char -2))
-          (when (and mm-inline-text-html-with-w3m-keymap
-                     (boundp 'w3m-minor-mode-map)
-                     w3m-minor-mode-map)
-            (add-text-properties
-             (point-min) (point-max)
-             (list 'keymap w3m-minor-mode-map
-                   ;; Put the mark meaning this part was rendered by emacs-w3m.
-                   'mm-inline-text-html-with-w3m t))))))))
 
 ;; DCC settings
 
@@ -122,9 +94,32 @@
 ;; Notify lists
 (setq erc-notify-list (quote ("jao")))
 
-;; Define ERC command (/NP) to display current song name
-(defun erc-cmd-NP (&rest ignore)
-  (erc-send-message (concat "NP: "
-                            (emms-playlist-current))))
+;; Render html messages
+(add-hook 'erc-insert-modify-hook 'maybe-wash-im-with-w3m)
+
+(autoload 'w3m-region "w3m" "Render region using w3m")
+
+(defun maybe-wash-im-with-w3m ()
+  "Wash the current im with emacs-w3m."
+  (save-restriction
+    (with-current-buffer (current-buffer)
+      (let ((case-fold-search t))
+        (goto-char (point-min))
+        (when (re-search-forward "<HTML>.*</HTML>" nil t)
+          (print (match-string 0))
+          (narrow-to-region (match-beginning 0) (match-end 0))
+          (let ((w3m-safe-url-regexp mm-w3m-safe-url-regexp)
+                w3m-force-redisplay)
+            (w3m-region (point-min) (point-max))
+            (goto-char (point-max))
+            (delete-char -2))
+          (when (and mm-inline-text-html-with-w3m-keymap
+                     (boundp 'w3m-minor-mode-map)
+                     w3m-minor-mode-map)
+            (add-text-properties
+             (point-min) (point-max)
+             (list 'keymap w3m-minor-mode-map
+                   ;; Put the mark meaning this part was rendered by emacs-w3m.
+                   'mm-inline-text-html-with-w3m t))))))))
 
 ;;; erc.el ends here
