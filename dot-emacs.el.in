@@ -53,7 +53,7 @@
 ;(init-load-file "devel-sgml")     ;; SGML stuff
 
 ;; Specific modes
-;(init-load-file "erc")            ;; ERC IRC Client
+(init-load-file "erc")            ;; ERC IRC Client
 ;(init-load-file "org")            ;; Org
 ;(init-load-file "tex")            ;; TeX initialization
 ;(init-load-file "bbdb")           ;; BigBrother Database
