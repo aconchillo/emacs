@@ -28,8 +28,7 @@
   ;; Key bindings
   (local-set-key (kbd "M-.") 'xref-find-definitions)
   (local-set-key (kbd "M-,") 'xref-find-references)
-  (local-set-key (kbd "M-*") 'lsp-ui-peek-jump-forward)
-  (local-set-key (kbd "M-]") 'lsp-ui-peek-jump-backward)
+  (local-set-key (kbd "M-*") 'xref-pop-marker-stack)
   ;; Completion
   (company-mode)
   (lsp-cquery-enable))
