@@ -23,6 +23,7 @@ install_emacs_packages()
         lua-mode \
         magit \
         markdown-mode \
+        meson-mode \
         muse \
         paredit \
         paradox \
