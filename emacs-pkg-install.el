@@ -1,7 +1,7 @@
 ;;
 ;; Install package from command line. Example:
 ;;
-;;   $ emacs --batch --expr "(define pkg-to-install 'smex)" -l emacs-pkg-install.el
+;;   $ emacs --batch --expr "(define pkgs-to-install 'smex)" -l emacs-pkg-install.el
 ;;
 
 (require 'package)

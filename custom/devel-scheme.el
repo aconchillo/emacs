@@ -10,6 +10,6 @@
 (add-hook 'scheme-mode-hook 'paredit-mode)
 
 ;; Automatically enable company mode for Scheme
-(add-hook 'scheme-mode-hook 'auto-complete-mode)
+(add-hook 'scheme-mode-hook 'company-mode)
 
 ;;; devel-scheme.el ends here
