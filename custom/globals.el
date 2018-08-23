@@ -67,6 +67,12 @@
 ;; Projectile
 (projectile-global-mode)
 
+;; Ignore cquery files in projectile
+(add-to-list 'projectile-globally-ignored-directories ".cquery_cached_index")
+
+;; Global key binding for projectile
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 ;; Secure Remote Editing
 (require 'tramp)
 (setq tramp-default-method "scp")
