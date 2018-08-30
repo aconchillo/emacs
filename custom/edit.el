@@ -15,7 +15,7 @@
 (setq scroll-step 1)
 
 ;; Fill column
-(setq-default fill-column 80)
+(setq-default fill-column 78)
 
 ;; Kill whole line (kills return too)
 (setq kill-whole-line t)
