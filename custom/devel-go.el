@@ -1,7 +1,5 @@
 ;;; devel-go.el --- Setup development environment for Go
 
-(require 'lsp-go)
-
 (defun my-go-mode-hook ()
   ;; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -14,9 +12,9 @@
   (local-set-key (kbd "M-,") 'xref-find-references)
   (local-set-key (kbd "M-*") 'xref-pop-marker-stack)
   ;; Completion
-  (company-mode)
-  (lsp-go-enable))
+  (company-mode))
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+(add-hook 'go-mode-hook 'lsp)
 
 ;;; devel-go.el ends here

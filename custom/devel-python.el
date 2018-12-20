@@ -1,11 +1,7 @@
 ;;; devel-python.el ---  Setup Python environment
 
-(require 'lsp-python)
-
-(defun my-python-mode-hook ()
-  (lsp-python-enable))
-
-(add-hook 'python-mode-hook 'my-python-mode-hook)
+;; Setup LSP for python
+(add-hook 'python-mode-hook 'lsp)
 
 ;; Interactive shell
 (setq python-shell-interpreter "python3")

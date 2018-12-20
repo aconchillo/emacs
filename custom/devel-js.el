@@ -6,13 +6,13 @@
 
 ;; Set tab width to 2
 (setq js-indent-level 2)
+(setq typescript-indent-level 2)
 
 ;; Set css tab width to 2
 (setq css-indent-offset 2)
 
 ;; JS/TS Language Server
-(require 'lsp-javascript-typescript)
-(add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
-(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable)
+(add-hook 'js2-mode-hook 'lsp)
+(add-hook 'typescript-mode-hook 'lsp)
 
 ;;; devel-js.el ends here

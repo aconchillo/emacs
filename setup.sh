@@ -16,10 +16,7 @@ install_emacs_packages()
         js2-mode \
         json-mode \
         lacarte \
-        lsp-go \
-        lsp-javascript-typescript \
         lsp-mode \
-        lsp-python \
         lua-mode \
         magit \
         markdown-mode \

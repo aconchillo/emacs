@@ -30,10 +30,11 @@
   (local-set-key (kbd "M-,") 'xref-find-references)
   (local-set-key (kbd "M-*") 'xref-pop-marker-stack)
   ;; Completion
-  (company-mode)
-  (lsp-cquery-enable))
+  (company-mode))
 (add-hook 'c-mode-common-hook 'my-c-mode-hook)
 (add-hook 'c++-mode-common-hook 'my-c-mode-hook)
+(add-hook 'c-mode-common-hook 'lsp)
+(add-hook 'c++-mode-common-hook 'lsp)
 
 ;; Doxymacs
 (add-to-list 'load-path (expand-file-name "doxymacs/lisp/" emacs-packages-dir))
