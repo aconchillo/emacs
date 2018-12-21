@@ -27,6 +27,7 @@ install_emacs_packages()
         projectile \
         protobuf-mode \
         smex \
+        typescript-mode \
         vue-mode \
         yaml-mode \
         #
