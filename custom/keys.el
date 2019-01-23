@@ -18,6 +18,11 @@
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "M-n") 'next-error)
 
+;; Development keys
+(global-set-key (kbd "M-.") 'xref-find-definitions)
+(global-set-key (kbd "M-,") 'xref-find-references)
+(global-set-key (kbd "M-*") 'xref-pop-marker-stack)
+
 ;; More key bindings
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-c d") 'insert-date)

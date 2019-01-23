@@ -24,15 +24,8 @@
 ;; More setup
 (require 'cquery)
 
-(defun my-c-mode-hook ()
-  ;; Key bindings
-  (local-set-key (kbd "M-.") 'xref-find-definitions)
-  (local-set-key (kbd "M-,") 'xref-find-references)
-  (local-set-key (kbd "M-*") 'xref-pop-marker-stack)
-  ;; Completion
-  (company-mode))
-(add-hook 'c-mode-common-hook 'my-c-mode-hook)
-(add-hook 'c++-mode-common-hook 'my-c-mode-hook)
+(add-hook 'c-mode-common-hook 'company-mode)
+(add-hook 'c++-mode-common-hook 'company-mode)
 (add-hook 'c-mode-common-hook 'lsp)
 (add-hook 'c++-mode-common-hook 'lsp)
 

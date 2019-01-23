@@ -7,10 +7,6 @@
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet"))
-  ;; Key bindings
-  (local-set-key (kbd "M-.") 'xref-find-definitions)
-  (local-set-key (kbd "M-,") 'xref-find-references)
-  (local-set-key (kbd "M-*") 'xref-pop-marker-stack)
   ;; Completion
   (company-mode))
 
