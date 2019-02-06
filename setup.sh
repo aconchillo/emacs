@@ -9,6 +9,7 @@ install_emacs_packages()
         company \
         company-lsp \
         cquery \
+        flycheck \
         geiser \
         go-guru \
         go-mode \
@@ -17,6 +18,7 @@ install_emacs_packages()
         json-mode \
         lacarte \
         lsp-mode \
+        lsp-ui \
         lua-mode \
         magit \
         markdown-mode \

@@ -4,6 +4,12 @@
 (require 'lsp)
 (require 'lsp-clients)
 
+;; Prefer Flycheck over Flymake
+(setq lsp-prefer-flymake nil)
+
+;; Flycheck settings
+(setq flycheck-highlighting-mode nil)
+
 ;; Ensure tabs are spaces
 (setq indent-tabs-mode nil)
 
