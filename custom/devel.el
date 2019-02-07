@@ -7,8 +7,8 @@
 ;; Prefer Flycheck over Flymake
 (setq lsp-prefer-flymake nil)
 
-;; Flycheck settings
-(setq flycheck-highlighting-mode nil)
+;; Don't show sidelines
+(setq lsp-ui-sideline-enable nil)
 
 ;; Ensure tabs are spaces
 (setq indent-tabs-mode nil)
