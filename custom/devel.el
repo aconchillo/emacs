@@ -20,4 +20,7 @@
 ;; Company
 (setq company-tooltip-align-annotations t)
 
+;; Fix for https://github.com/tigersoldier/company-lsp/issues/79
+(setq company-lsp-cache-candidates t)
+
 ;;; devel.el ends here
