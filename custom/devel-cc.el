@@ -24,8 +24,6 @@
 ;; More setup
 (require 'cquery)
 
-(add-hook 'c-mode-common-hook 'company-mode)
-(add-hook 'c++-mode-common-hook 'company-mode)
 (add-hook 'c-mode-common-hook 'lsp)
 (add-hook 'c++-mode-common-hook 'lsp)
 
