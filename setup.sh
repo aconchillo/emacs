@@ -50,16 +50,13 @@ install_dependencies()
         cd $curdir
     fi
 
-    echo "Installing python dependencies ..."
-    pip3 install virtualenv virtualenvwrapper
-
     echo "Installing npm dependencies ..."
-    sudo npm i -g javascript-typescript-langserver
+    sudo npm i -g typescript
     sudo npm i -g typescript-language-server
 
     echo "Installing go dependencies ..."
     pushd $GOPATH
-    go get -u github.com/sourcegraph/go-langserver
+    go get -u github.com/saibing/bingo
     popd
 }
 
