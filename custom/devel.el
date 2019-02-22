@@ -18,7 +18,6 @@
 (setq compilation-scroll-output t)
 
 ;; Company
-(setq company-tooltip-align-annotations t
-      company-transformers nil)
+(setq company-tooltip-align-annotations t)
 
 ;;; devel.el ends here
