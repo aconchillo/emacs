@@ -31,6 +31,7 @@ install_emacs_packages()
         typescript-mode \
         vue-mode \
         yaml-mode \
+        yasnippet \
         #
 }
 
