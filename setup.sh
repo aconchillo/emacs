@@ -16,7 +16,6 @@ install_emacs_packages()
         go-rename \
         js2-mode \
         json-mode \
-        lacarte \
         lsp-mode \
         lsp-ui \
         lua-mode \
