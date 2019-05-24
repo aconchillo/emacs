@@ -50,9 +50,12 @@ install_dependencies()
         cd $curdir
     fi
 
+    echo "Installing python dependencies ..."
+    pip3 install python-language-server
+
     echo "Installing npm dependencies ..."
-    sudo npm i -g typescript
-    sudo npm i -g typescript-language-server
+    npm i -g typescript
+    npm i -g typescript-language-server
 
     echo "Installing go dependencies ..."
     pushd $GOPATH
