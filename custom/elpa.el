@@ -1,7 +1,8 @@
 ;;; packages.el --- Setup package management
 
 ;; Load packages first thing!
-(package-initialize)
+(if (version< emacs-version "27.0")
+    (package-initialize))
 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
