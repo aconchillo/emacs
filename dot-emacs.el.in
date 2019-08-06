@@ -29,9 +29,6 @@
 ;; Load packages first!
 (init-load-file "elpa")           ;; Emacs Package Management
 
-;; We load CEDET before loading the built-in one.
-;;(init-load-file "devel-cedet")    ;; CEDET development environment
-
 ;; General setup
 (init-load-file "colors")         ;; Emacs color themes
 (init-load-file "edit")           ;; Edit/Typing customisations
