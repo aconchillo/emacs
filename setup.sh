@@ -29,7 +29,6 @@ install_emacs_packages()
         protobuf-mode \
         smex \
         typescript-mode \
-        vue-mode \
         yaml-mode \
         yasnippet \
         #
