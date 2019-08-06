@@ -26,13 +26,15 @@
 ;; Load paths (order matters)
 (add-to-list 'load-path emacs-packages-dir)
 
+;; Load packages first!
+(init-load-file "elpa")           ;; Emacs Package Management
+
 ;; We load CEDET before loading the built-in one.
 ;;(init-load-file "devel-cedet")    ;; CEDET development environment
 
 ;; General setup
 (init-load-file "colors")         ;; Emacs color themes
 (init-load-file "edit")           ;; Edit/Typing customisations
-(init-load-file "elpa")           ;; Emacs Package Management
 (init-load-file "func")           ;; Lisp functions
 (init-load-file "globals")        ;; Global initializations
 (init-load-file "keys")           ;; Key settings

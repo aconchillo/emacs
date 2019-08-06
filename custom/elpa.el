@@ -1,5 +1,8 @@
 ;;; packages.el --- Setup package management
 
+;; Load packages first thing!
+(package-initialize)
+
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
