@@ -34,7 +34,6 @@
 (show-paren-mode 1)
 
 ;; Enable syntax-highlighting.
-(require 'font-lock)
 (global-font-lock-mode 1)
 (setq font-lock-maximum-size nil)
 
@@ -65,7 +64,7 @@
 (setq ido-enable-flex-matching t)
 
 ;; Projectile
-(projectile-global-mode)
+(projectile-mode)
 
 ;; Ignore cquery files in projectile
 (add-to-list 'projectile-globally-ignored-directories ".cquery_cached_index")
