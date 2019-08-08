@@ -24,6 +24,9 @@
 (setq-default indent-tabs-mode nil)
 (setq indent-tabs-width 4)
 
+;; Don't replace unix/dos endings
+(setq inhibit-eol-conversion t)
+
 ;; Delete trailing whitespaces
 (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
