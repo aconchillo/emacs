@@ -12,7 +12,6 @@ install_emacs_packages()
         flycheck \
         geiser \
         go-guru \
-        go-mode \
         go-rename \
         js2-mode \
         json-mode \
