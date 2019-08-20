@@ -75,8 +75,9 @@ install_startup_files()
     if ! test -f $HOME/.ercinfo
     then
         echo "Creating $HOME/.ercinfo ..."
-        cp -f $PWD/dot-ercinfo.el $HOME/.ercinfo
-        chmod 600 $HOME/.ercinfo
+        cp -f $PWD/dot-ercinfo.el.in $PWD/dot-ercinfo.el
+        chmod 600 $PWD/dot-ercinfo.el
+        ln -sf $PWD/dot-ercinfo.el $HOME/.ercinfo
     fi
 }
 
