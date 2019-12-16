@@ -1,39 +1,10 @@
 ;;; devel-java.el --- Java Development Environment
 
-(add-to-list 'load-path (expand-file-name "jde/lisp" emacs-packages-dir))
+(require 'lsp-java-boot)
 
-;; Defer JDE loading
-(setq defer-loading-jde t)
-
-(if defer-loading-jde
-    (progn
-      (autoload 'jde-mode "jde" "JDE mode." t)
-      (setq auto-mode-alist
-	    (append
-	     '(("\\.java\\'" . jde-mode))
-	     auto-mode-alist)))
-  (require 'jde))
-
-;; Configuration
-(setq jde-ant-enable-find t)
-(setq jde-ant-read-target t)
-(setq jde-compiler (quote ("javac" "")))
-
-;; Sets the basic indentation for Java source files to two spaces.
-(defun my-jde-mode-hook ()
-  (setq c-basic-offset 4))
-(add-hook 'jde-mode-hook 'my-jde-mode-hook)
-
-;; ELIB
-(add-to-list 'load-path (expand-file-name "elib" emacs-packages-dir))
-
-;; JDE key bindings
-(add-hook 'jde-mode-hook
-          '(lambda ()
-             (define-key jde-mode-map [f5] 'jde-ant-build)
-             (define-key jde-mode-map [f6] 'jde-gen-class-buffer)
-             (define-key jde-mode-map [f11] 'jde-import-organize)
-             (define-key jde-mode-map [f12] 'jde-import-kill-extra-imports)
-             ))
+(add-hook 'lsp-mode-hook #'lsp-lens-mode)
+(add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+(add-hook 'java-mode-hook
+          (lambda () (setq c-basic-offset 4)))
 
 ;;; devel-java.el ends here

@@ -11,7 +11,6 @@ install_emacs_packages()
         cquery \
         flycheck \
         geiser \
-        go-guru \
         go-rename \
         js2-mode \
         json-mode \
@@ -24,10 +23,12 @@ install_emacs_packages()
         muse \
         paredit \
         paradox \
+        php-mode \
         projectile \
         protobuf-mode \
         smex \
         typescript-mode \
+        vue-mode \
         yaml-mode \
         yasnippet \
         #
