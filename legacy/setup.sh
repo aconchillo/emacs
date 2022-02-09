@@ -8,26 +8,40 @@ install_emacs_packages()
         clang-format \
         company \
         company-lsp \
+        consult \
+        consult-flycheck \
         cquery \
+        docker-compose-mode \
         flycheck \
         geiser \
+        geiser-guile \
+        gitlab-ci-mode \
         go-rename \
+        google-c-style \
+        graphql-mode \
         js2-mode \
         json-mode \
         lsp-mode \
         lsp-ui \
+        lsp-treemacs \
         lua-mode \
         magit \
         markdown-mode \
         meson-mode \
         muse \
+        osx-clipboard \
         paredit \
         paradox \
         php-mode \
         projectile \
         protobuf-mode \
-        smex \
+        ripgrep \
+        selectrum \
+        selectrum-prescient \
         terraform-mode \
+        treemacs \
+        treemacs-magit \
+        treemacs-projectile \
         typescript-mode \
         vue-mode \
         yaml-mode \

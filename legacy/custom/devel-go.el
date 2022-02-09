@@ -1,5 +1,7 @@
 ;;; devel-go.el --- Setup development environment for Go
 
+(setq gofmt-command "goimports")
+
 (defun my-go-mode-hook ()
   ;; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)

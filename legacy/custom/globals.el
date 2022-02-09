@@ -11,6 +11,11 @@
 (add-to-list 'backup-directory-alist
              `("." . ,(expand-file-name "~/.emacs.d/backups/")))
 
+;; Disable native compilation warnings
+(setq warning-suppress-types '((comp)))
+
+(dashboard-setup-startup-hook)
+
 ;; Battery
 ;(display-battery-mode 1)
 
@@ -37,6 +42,21 @@
 (global-font-lock-mode 1)
 (setq font-lock-maximum-size nil)
 
+;; Copy to clipboard on macOS
+(when (eq system-type 'darwin)
+
+  ;; default Latin font (e.g. Consolas)
+  (set-face-attribute 'default nil :family "MesloLGS NF")
+
+  ;; default font size (point * 10)
+  ;;
+  ;; WARNING!  Depending on the default font,
+  ;; if the size is not supported very well, the frame will be clipped
+  ;; so that the beginning of the buffer may not be visible correctly.
+  (set-face-attribute 'default nil :height 155)
+
+  (osx-clipboard-mode +1))
+
 ;; Settings for any frame
 (setq default-frame-alist
       '((vertical-scroll-bars . nil)
@@ -46,22 +66,17 @@
         (width . 135)
         (height . 42)))
 
-;; Speedbar
-(setq speedbar-use-images nil)
-(setq speedbar-frame-parameters
-      (quote
-       ((minibuffer)
-	(width . 35)
-	(border-width . 0)
-	(menu-bar-lines . 0)
-	(tool-bar-lines . 0)
-	(unsplittable . t)
-	(left-fringe . 0))))
+;; vterm
+(setq vterm-timer-delay 0.01)
 
-;; ido
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
+;; selectrum
+(selectrum-mode +1)
+(selectrum-prescient-mode +1)
+(prescient-persist-mode +1)
+(setq prescient-filter-method '(literal regexp initialism))
+
+;; Company mode in all buffers
+(add-hook 'after-init-hook 'corfu-global-mode)
 
 ;; Projectile
 (projectile-mode)
@@ -71,6 +86,11 @@
 
 ;; Global key binding for projectile
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; ANSI Colors
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
+(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
 
 ;; Secure Remote Editing
 (require 'tramp)

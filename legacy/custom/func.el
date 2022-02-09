@@ -5,6 +5,11 @@
   (interactive)
   (insert (format-time-string "%a %b %d, %Y %H:%M")))
 
+(defun insert-uuid()
+  "Insert UUID at point."
+  (interactive)
+  (insert (downcase (uuidgen-4))))
+
 (defun fc-eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
