@@ -376,6 +376,29 @@
         completion-category-defaults nil
         completion-category-overrides '((file (styles . (partial-completion))))))
 
+(use-package org
+  :ensure t
+  :bind (("\C-cl" . org-store-link)
+         ("\C-ca" . org-agenda)
+         :map global-map
+         ([(control meta ?r)] . org-capture))
+  :custom
+  ((org-completion-use-ido t)
+   (org-log-done 'time)
+   (org-agenda-files (list "~/src/org/"))
+   (org-agenda-file-regexp "^agenda-.*\\.org$")
+   (org-default-notes-file "~/src/org/notes.org")
+   (org-agenda-ndays 7)
+   (org-deadline-warning-days 14)
+   (org-agenda-show-all-dates t)
+   (org-agenda-skip-deadline-if-done t)
+   (org-agenda-skip-scheduled-if-done t)
+   (org-agenda-start-on-weekday nil)
+   (org-reverse-note-order t)
+   (org-capture-templates
+    '(("b" "BillPay" entry (file+headline "~/src/org/agenda-billpay.org" "Tasks") "* TODO %?\n  CREATED: %U")
+      ("p" "Paymentus" entry (file+headline "~/src/org/agenda-paymentus.org" "Tasks") "* TODO %?\n  CREATED: %U")))))
+
 (use-package orglink
   :hook (vterm-mode . orglink-mode))
 
