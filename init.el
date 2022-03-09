@@ -95,6 +95,9 @@
   ;; Change dictionary program to GNU Aspell
   (setq-default ispell-program-name "aspell")
 
+  (add-to-list 'backup-directory-alist
+               `("." . ,(expand-file-name "~/.emacs.d/backups/")))
+
   ;; Text editing
   (setq default-major-mode 'text-mode)
 
