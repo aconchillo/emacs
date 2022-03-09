@@ -417,7 +417,7 @@
 (use-package paredit
   :hook
   ((emacs-lisp-mode . paredit-mode)
-   (scheme-mode-hook . paredit-mode)))
+   (scheme-mode . paredit-mode)))
 
 (use-package projectile
   :ensure t
