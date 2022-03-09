@@ -433,6 +433,8 @@
 (use-package ripgrep
   :ensure t)
 
+(use-package rustic)
+
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
   :init
