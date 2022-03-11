@@ -293,6 +293,7 @@
 
 (use-package lsp-mode
   ;;:hook ((dap-server-log-mode-hook . my-colorized-log-buffer))
+  :hook ((kotlin-mode . lsp-deferred))
   :commands (lsp lsp-deferred)
   :config
   ;; LSP file watch
