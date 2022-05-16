@@ -33,24 +33,28 @@
    ((eq major-mode 'dap-server-log-mode)
     (ansi-color-apply-on-region (point-min) (point-max)))))
 
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+
+(package-initialize)
+
 (use-package emacs
-  :bind
-  ("C-c o" . ff-find-other-file)
-  ("C-c c" . compile)
-  ("C-c r" . recompile)
-  ("C-c ." . dabbrev-expand)
-  ("M-i" . indent-region)
-  ("M-p" . previous-error)
-  ("M-n" . next-error)
-  ("C-0" . text-scale-adjust)
-  ("C-+" . text-scale-increase)
-  ("C--" . text-scale-decrease)
-  ("C-c u" . insert-uuid)
-  ("C-c d" . insert-date)
-  ("C-c e" . fc-eval-and-replace)
-  ("C-x C-b" . electric-buffer-list)
-  ("<mouse-4>" . scroll-down-line)
-  ("<mouse-5>" . scroll-up-line)
+  :bind (("C-c o" . ff-find-other-file)
+         ("C-c c" . compile)
+         ("C-c r" . recompile)
+         ("C-c ." . dabbrev-expand)
+         ("M-i" . indent-region)
+         ("M-p" . previous-error)
+         ("M-n" . next-error)
+         ("C-0" . text-scale-adjust)
+         ("C-+" . text-scale-increase)
+         ("C--" . text-scale-decrease)
+         ("C-c u" . insert-uuid)
+         ("C-c d" . insert-date)
+         ("C-c e" . fc-eval-and-replace)
+         ("C-x C-b" . electric-buffer-list)
+         ("<mouse-4>" . scroll-down-line)
+         ("<mouse-5>" . scroll-up-line))
   :init
   ;; Auto insert
   (auto-insert-mode t)
@@ -87,9 +91,6 @@
   (setq warning-suppress-types '((comp)))
   ;; Secure Remote Editing
   (setq tramp-default-method "scp")
-  (add-to-list 'package-archives
-               '("melpa" . "https://melpa.org/packages/") t)
-  (package-initialize)
   ;; Fix HTTP1/1.1 problems
   (setq url-http-attempt-keepalives nil)
   ;; Change dictionary program to GNU Aspell
