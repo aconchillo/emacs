@@ -245,14 +245,16 @@
   (setq consult-project-root-function #'projectile-project-root))
 
 (use-package corfu
+  :ensure t
   :custom
   ;; Enable auto completion and configure quitting
   (corfu-auto t)
   (corfu-quit-no-match t)
   :init
-  (corfu-global-mode))
+  (global-corfu-mode))
 
 (use-package dap-mode
+  :ensure t
   :after lsp-mode
   :init
   (dap-auto-configure-mode))
