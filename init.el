@@ -141,7 +141,9 @@
 
   (set-face-attribute 'default nil :family "MesloLGS NF")
 
-  (set-face-attribute 'default nil :height 155)
+  (when (eq system-type 'darwin)
+    (set-face-attribute 'default nil :family "MesloLGS NF")
+    (set-face-attribute 'default nil :height 155))
 
   ;; Recommended settings for LSP to work better.
   ;; See https://emacs-lsp.github.io/lsp-mode/page/performance/
