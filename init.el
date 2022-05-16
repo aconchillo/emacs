@@ -1,6 +1,7 @@
 ;;; init.el --- Emacs Configuration
 
-(defconst emacs-init-dir (expand-file-name "/Users/aleix/src/emacs")
+(defconst emacs-init-dir (expand-file-name
+                          (concat (getenv "HOME") "/src/emacs"))
   "User init directory")
 
 (defconst init-lisp-dir (expand-file-name "custom/" emacs-init-dir)
