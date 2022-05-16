@@ -171,6 +171,7 @@
   )
 
 (use-package ansi-color
+  :ensure t
   :hook ((shell-mode . ansi-color-for-comint-mode-on)
          (compilation-mode . ansi-color-for-comint-mode-on))
   :config
@@ -255,6 +256,7 @@
   (global-corfu-mode))
 
 (use-package dap-mode
+  :hook (dap-server-log-mode . my-colorized-log-buffer)
   :ensure t
   :after lsp-mode
   :init
@@ -277,6 +279,7 @@
   (dashboard-setup-startup-hook))
 
 (use-package geiser
+  :ensure t
   :defer t
   :config
   ;; General Scheme mode
@@ -286,18 +289,28 @@
   (setq geiser-repl-current-project-function 'projectile-project-root))
 
 (use-package graphql-mode
+  :ensure t
   :mode "\\.graphqls\\'")
 
 (use-package go-mode
+  :ensure t
   :mode "\\.go\\'")
 
 (use-package go-rename
+  :ensure t
   :after go)
 
 (use-package flycheck
+  :ensure t
   :after lsp)
 
+(use-package js2-mode
+  :ensure t
+  :hook (js2-mode . lsp-deferred)
+  :mode ("\\.js\\'" "\\.jsx\\'"))
+
 (use-package kind-icon
+  :ensure t
   :after corfu
   :custom
   (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
@@ -305,9 +318,11 @@
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 (use-package lsp-mode
-  ;;:hook ((dap-server-log-mode-hook . my-colorized-log-buffer))
-  :hook ((kotlin-mode . lsp-deferred))
+  :ensure t
   :commands (lsp lsp-deferred)
+  :hook ((c-mode . lsp-deferred)
+         (c++-mode . lsp-deferred))
+  :bind ("M-*" . lsp-goto-implementation)
   :config
   ;; LSP file watch
   (setq lsp-file-watch-threshold 3000)
@@ -327,17 +342,19 @@
   (push dir lsp-file-watch-ignored-directories)))
 
 (use-package lsp-java
-  :hook (java-mode . lsp-deferred)
-  :bind-keymap
-  ("C-c j b" . lsp-java-build-project)
-  ("C-c j m" . dap-java-run-test-method)
-  ("C-c j c" . dap-java-run-test-class)
+  :ensure t
+  :hook ((java-mode . lsp-deferred)
+         ;; (before-save lsp-organize-imports) ;; Only if google-java-format disabled
+         )
+  :bind (("C-c j b" . lsp-java-build-project)
+         ("C-c j m" . dap-java-run-test-method)
+         ("C-c j c" . dap-java-run-test-class))
   :config
   ;; Gradle version we use in most projects
   (setq lsp-java-import-gradle-version "6.8.3")
   (setq lsp-java-import-gradle-wrapper-enabled nil)
   ;; Eclipse JDT Language Server
-  (setq lsp-java-jdt-download-url "https://download.eclipse.org/jdtls/milestones/1.8.0/jdt-language-server-1.8.0-202201261434.tar.gz")
+  (setq lsp-java-jdt-download-url "https://download.eclipse.org/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz")
   ;; This is so Lombok works, otherwise java can't find definitions.
   (setq path-to-lombok (expand-file-name "~/.emacs.d/lsp-extras/lombok-1.18.12.jar"))
 
@@ -349,39 +366,50 @@
 
   ;; Fixing a modeline issue (only terminal).
   ;; See https://github.com/emacs-lsp/lsp-java/issues/276
-  ;(setq lsp-modeline-code-actions-segments '(count))
+  (when (not (display-graphic-p))
+    (setq lsp-modeline-code-actions-segments '(count)))
 
   ;; Format code automatically
   (setq google-java-format-executable "/usr/local/bin/google-java-format")
   (add-to-list 'load-path (expand-file-name "google-java-format/" emacs-packages-dir))
   (require 'google-java-format)
+
+  ;; Only if google-java-format is disabled.
   ;; (setq lsp-java-save-actions-organize-imports t)
-  ;; (add-hook 'before-save-hook 'lsp-organize-imports)
 )
 
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp-deferred))))  ; or lsp
+
 (use-package lsp-ui
-  :commands lsp-ui-mode
-  :bind
-  ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-  ([remap xref-find-references] . lsp-ui-peek-find-references)
-  ("M-*" . lsp-goto-implementation)
+  :ensure t
+  :bind (([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+         ([remap xref-find-references] . lsp-ui-peek-find-references))
   :config
   ;; Don't show sidelines
   (setq lsp-ui-sideline-enable nil))
 
 (use-package lsp-treemacs
+  :ensure t
   :after treemacs lsp-mode
-  :bind
-  ("C-x t" . treemacs-select-window)
+  :bind ("C-x t" . treemacs-select-window)
   :config
   ;; Synchronize lsp-mode and treemacs
   (setq lsp-treemacs-sync-mode 1))
 
 (use-package marginalia
+  :ensure t
   :init
   (marginalia-mode))
 
+(use-package ob-restclient
+  :ensure t)
+
 (use-package orderless
+  :ensure t
   :init
   ;; Configure a custom style dispatcher (see the Consult wiki)
   ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
@@ -410,10 +438,14 @@
    (org-agenda-start-on-weekday nil)
    (org-reverse-note-order t)
    (org-capture-templates
-    '(("b" "BillPay" entry (file+headline "~/src/org/agenda-billpay.org" "Tasks") "* TODO %?\n  CREATED: %U")
-      ("p" "Paymentus" entry (file+headline "~/src/org/agenda-paymentus.org" "Tasks") "* TODO %?\n  CREATED: %U")))))
+    '(("d" "Daily" entry (file+headline "~/src/org/agenda-daily.org" "Tasks") "* TODO %?\n  CREATED: %U"))))
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((shell . t))))
 
 (use-package orglink
+  :ensure t
   :hook (vterm-mode . orglink-mode))
 
 (use-package osx-clipboard
@@ -422,6 +454,7 @@
   (osx-clipboard-mode 1))
 
 (use-package paradox
+  :ensure t
   :defer t
   :config
   ;; Paradox GitHub token
@@ -429,9 +462,13 @@
   (setq paradox-automatically-star nil))
 
 (use-package paredit
+  :ensure t
   :hook
   ((emacs-lisp-mode . paredit-mode)
    (scheme-mode . paredit-mode)))
+
+(use-package prettier
+  :ensure t)
 
 (use-package projectile
   :ensure t
@@ -444,31 +481,41 @@
   ;; Ignore cquery files in projectile
   (add-to-list 'projectile-globally-ignored-directories ".cquery_cached_index"))
 
+(use-package restclient
+  :ensure t)
+
 (use-package ripgrep
   :ensure t)
 
-(use-package rustic)
+(use-package rustic
+  :ensure t)
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
+  :ensure t
   :init
   (savehist-mode))
 
 (use-package treemacs
+  :ensure t
   :defer t)
 
 (use-package treemacs-magit
+  :ensure t
   :after treemacs)
 
 (use-package treemacs-projectile
+  :ensure t
   :after treemacs projectile)
 
 (use-package typescript-mode
+  :ensure t
   :hook (typescript-mode . lsp-deferred)
-  :mode "\\.ts\\'")
+  :mode ("\\.ts\\'" "\\.tsx\\'"))
 
 ;; Enable vertico
 (use-package vertico
+  :ensure t
   :init
   (vertico-mode)
   ;; Different scroll margin
@@ -490,51 +537,27 @@
   (setq vterm-timer-delay 0.01))
 
 (use-package yasnippet
+  :ensure t
   :init
   (yas-global-mode 1))
 
-(use-package docker-compose-mode :defer t)
-(use-package gitlab-ci-mode :defer t)
-(use-package js2-mode :defer t)
-(use-package json-mode :defer t)
-(use-package magit :defer t)
-(use-package markdown-mode :defer t)
-(use-package php-mode :defer t)
-(use-package protobuf-mode :defer t)
-(use-package terraform-mode :defer t)
-(use-package yaml-mode :defer t)
+(use-package async :ensure t :defer t)
+(use-package docker-compose-mode :ensure t :defer t)
+(use-package gitlab-ci-mode :ensure t :defer t)
+(use-package json-mode :ensure t :defer t)
+(use-package magit :ensure t :defer t)
+(use-package markdown-mode :ensure t :defer t)
+(use-package protobuf-mode :ensure t :defer t)
+(use-package terraform-mode :ensure t :defer t)
+(use-package yaml-mode :ensure t :defer t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(marginalia all-the-icons-dired all-the-icons-completion all-the-icons kind-icon orderless vertico orglink zenburn-theme yasnippet xterm-color vue-html-mode vterm verb uuidgen use-package-ensure-system-package typescript-mode treemacs-projectile treemacs-magit terraform-mode ssass-mode sql-indent spacemacs-theme solarized-theme smex selectrum-prescient ripgrep protobuf-mode php-mode paredit paradox osx-clipboard muse mmm-mode material-theme lua-mode lsp-ui lsp-java kotlin-mode json-reformat json-mode js2-mode groovy-mode graphql-mode google-c-style go-rename go-guru gnu-elpa-keyring-update gitlab-ci-mode geiser-guile forge edit-indirect dockerfile-mode docker-compose-mode dashboard cquery corfu consult-flycheck color-theme-sanityinc-solarized clang-format cider async))
- '(safe-local-variable-values
-   '((eval progn
-           (add-to-list 'auto-insert-alist
-                        '((java-mode . "Java")
-                          nil "/*
-" " * This software is the confidential and proprietary information of SnapPays
-" " * Mobile, Inc. (d/b/a Papaya Payments), and may not be used, reproduced,
-" " * modified, distributed, publicly displayed or otherwise disclosed without
-" " * the express written consent of SnapPays Mobile, Inc.
-" " *
-" " * This software is a work of authorship by SnapPays Mobile, Inc. and
-" " * protected by the copyright laws of the United States and foreign
-" " * jurisdictions.
-" " *
-" " * Copyright (C) 2020+ SnapPays Mobile, Inc. All rights reserved.
-" " *
-" " */
-")))
-     (TeX-master . "guile.texi")
-     (eval progn
-           (google-set-c-style)
-           (google-make-newline-indent)
-           (add-hook 'before-save-hook 'google-java-format-buffer))
-     (lsp-java-format-enabled))))
+)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
