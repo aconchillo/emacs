@@ -366,7 +366,7 @@
 
   ;; Fixing a modeline issue (only terminal).
   ;; See https://github.com/emacs-lsp/lsp-java/issues/276
-  (when (not (display-graphic-p))
+  (unless (window-system)
     (setq lsp-modeline-code-actions-segments '(count)))
 
   ;; Format code automatically
