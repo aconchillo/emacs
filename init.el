@@ -288,6 +288,10 @@
   (setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
   (setq geiser-repl-current-project-function 'projectile-project-root))
 
+(use-package geiser-guile
+  :ensure t
+  :after geiser)
+
 (use-package graphql-mode
   :ensure t
   :mode "\\.graphqls\\'")
