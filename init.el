@@ -1,5 +1,16 @@
 ;;; init.el --- Emacs Configuration
 
+(require 'package)
+
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+
+(package-initialize)
+
+(package-install 'use-package)
+
+(require 'use-package)
+
 (defconst emacs-init-dir (expand-file-name
                           (concat (getenv "HOME") "/src/emacs"))
   "User init directory")
