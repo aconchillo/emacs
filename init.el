@@ -149,11 +149,12 @@
   ;; Update copyright notice automagically
   (add-hook 'write-file-hooks 'copyright-update)
 
-  (set-face-attribute 'default nil :family "MesloLGS NF")
-
-  (when (eq system-type 'darwin)
-    (set-face-attribute 'default nil :family "MesloLGS NF")
-    (set-face-attribute 'default nil :height 155))
+  (pcase system-type
+    ('darwin
+     (set-face-attribute 'default nil :family "Monaco")
+     (set-face-attribute 'default nil :height 140))
+    ('linux
+     (set-face-attribute 'default nil :family "MesloLGS NF")))
 
   ;; Recommended settings for LSP to work better.
   ;; See https://emacs-lsp.github.io/lsp-mode/page/performance/
