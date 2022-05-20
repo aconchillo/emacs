@@ -545,6 +545,7 @@
   )
 
 (use-package vterm
+  :ensure t
   :defer t
   :config
   (setq vterm-timer-delay 0.01))
