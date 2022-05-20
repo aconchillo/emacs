@@ -153,8 +153,9 @@
     ('darwin
      (set-face-attribute 'default nil :family "Monaco")
      (set-face-attribute 'default nil :height 140))
-    ('linux
-     (set-face-attribute 'default nil :family "MesloLGS NF")))
+    ('gnu/linux
+     (set-face-attribute 'default nil :family "MesloLGS NF")
+     (set-face-attribute 'default nil :height 130)))
 
   ;; Recommended settings for LSP to work better.
   ;; See https://emacs-lsp.github.io/lsp-mode/page/performance/
