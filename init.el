@@ -45,10 +45,8 @@
    ((eq major-mode 'dap-server-log-mode)
     (ansi-color-apply-on-region (point-min) (point-max)))))
 
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-
-(package-initialize)
+(use-package solarized-theme
+  :ensure t)
 
 (use-package emacs
   :bind (("C-c o" . ff-find-other-file)
