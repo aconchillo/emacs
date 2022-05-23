@@ -201,11 +201,6 @@
   :ensure t
   :hook (dired-mode . all-the-icons-dired-mode))
 
-(use-package direnv
-  :ensure t
-  :config
-  (direnv-mode))
-
 (use-package consult
   :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
@@ -288,6 +283,15 @@
                           (registers . 5)))
   :config
   (dashboard-setup-startup-hook))
+
+(use-package direnv
+  :ensure t
+  :config
+  (direnv-mode))
+
+(use-package forge
+  :ensure t
+  :after magit)
 
 (use-package geiser
   :ensure t
