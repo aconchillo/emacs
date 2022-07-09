@@ -201,6 +201,36 @@
   :ensure t
   :hook (dired-mode . all-the-icons-dired-mode))
 
+(defun blamer-callback-show-commit-diff (commit-info)
+  (interactive)
+  (let ((commit-hash (plist-get commit-info :commit-hash)))
+    (when commit-hash
+      (magit-show-commit commit-hash))))
+
+(defun blamer-callback-open-remote (commit-info)
+  (interactive)
+  (let ((commit-hash (plist-get commit-info :commit-hash)))
+    (when commit-hash
+      (message commit-hash)
+      (forge-browse-commit commit-hash))))
+
+(use-package blamer
+  :ensure t
+  :bind (("C-c b" . global-blamer-mode)
+         ("C-c i" . blamer-show-posframe-commit-info)
+         ("C-c v" . blamer-callback-show-commit-diff))
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  (blamer-smart-background-p nil)
+  (blamer-bindings '())
+  :custom-face
+  (blamer-face ((t :foreground "#7a88cf"
+                   :background nil
+                   :height 110
+                   :italic t))))
+
 (use-package consult
   :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
