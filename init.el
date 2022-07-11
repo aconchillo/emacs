@@ -217,14 +217,14 @@
 (use-package blamer
   :ensure t
   :bind (("C-c b" . global-blamer-mode)
-         ("C-c i" . blamer-show-posframe-commit-info)
-         ("C-c v" . blamer-callback-show-commit-diff))
-  :defer 20
+         ("C-c i" . blamer-show-posframe-commit-info))
+  :defer t
   :custom
   (blamer-idle-time 0.3)
   (blamer-min-offset 70)
   (blamer-smart-background-p nil)
-  (blamer-bindings '())
+  (blamer-bindings '(("<mouse-1>" . blamer-callback-open-remote)
+                     ("<mouse-3>" . blamer-callback-show-commit-diff)))
   :custom-face
   (blamer-face ((t :foreground "#7a88cf"
                    :background nil
