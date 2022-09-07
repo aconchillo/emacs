@@ -231,6 +231,10 @@
                    :height 110
                    :italic t))))
 
+(use-package cmake-mode
+  :ensure t
+  :defer t)
+
 (use-package consult
   :ensure t
   ;; Replace bindings. Lazily loaded due by `use-package'.
