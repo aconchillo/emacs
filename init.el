@@ -323,6 +323,10 @@
   :config
   (direnv-mode))
 
+(use-package dockerfile-mode
+  :ensure t
+  :defer t)
+
 (use-package forge
   :ensure t
   :after magit)
