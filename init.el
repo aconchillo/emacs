@@ -347,10 +347,12 @@
 
 (use-package graphql-mode
   :ensure t
+  :defer t
   :mode "\\.graphqls\\'")
 
 (use-package go-mode
   :ensure t
+  :hook (go-mode . lsp-deferred)
   :mode "\\.go\\'")
 
 (use-package go-rename
@@ -551,7 +553,8 @@
   :ensure t)
 
 (use-package rustic
-  :ensure t)
+  :ensure t
+  :hook (rust-mode . lsp-deferred))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
