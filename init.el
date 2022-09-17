@@ -381,7 +381,7 @@
   :commands (lsp lsp-deferred)
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred))
-  :bind ("M-*" . lsp-goto-implementation)
+  :bind ("M-*" . lsp-find-definition)
   :config
   ;; LSP file watch
   (setq lsp-file-watch-threshold 3000)
