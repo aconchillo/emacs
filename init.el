@@ -151,8 +151,8 @@
 
   (pcase system-type
     ('darwin
-     (set-face-attribute 'default nil :family "Monaco")
-     (set-face-attribute 'default nil :height 140))
+     (set-face-attribute 'default nil :family "MesloLGS NF")
+     (set-face-attribute 'default nil :height 155))
     ('gnu/linux
      (set-face-attribute 'default nil :family "MesloLGS NF")
      (set-face-attribute 'default nil :height 130)))
