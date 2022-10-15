@@ -296,16 +296,6 @@
   :init
   (global-corfu-mode))
 
-(use-package dap-mode
-  :hook (dap-server-log-mode . my-colorized-log-buffer)
-  :ensure t
-  :after lsp-mode
-  :init
-  (dap-auto-configure-mode))
-
-(use-package dap-java
-  :defer t)
-
 (use-package dashboard
   :ensure t
   :init
@@ -332,6 +322,11 @@
   :ensure t
   :after magit)
 
+(use-package eglot
+  :ensure t
+  :defer t
+  :bind (:map eglot-mode-map ("M-." . xref-find-definitions)))
+
 (use-package geiser
   :ensure t
   :defer t
@@ -352,20 +347,16 @@
 
 (use-package go-mode
   :ensure t
-  :hook (go-mode . lsp-deferred)
+  :hook (go-mode . eglot-ensure)
   :mode "\\.go\\'")
 
 (use-package go-rename
   :ensure t
   :after go)
 
-(use-package flycheck
-  :ensure t
-  :after lsp)
-
 (use-package js2-mode
   :ensure t
-  :hook (js2-mode . lsp-deferred)
+  :hook (js2-mode . eglot-ensure)
   :mode ("\\.js\\'" "\\.jsx\\'"))
 
 (use-package kind-icon
@@ -375,89 +366,6 @@
   (kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
-
-(use-package lsp-mode
-  :ensure t
-  :commands (lsp lsp-deferred)
-  :hook ((c-mode . lsp-deferred)
-         (c++-mode . lsp-deferred))
-  :bind ("M-*" . lsp-find-definition)
-  :config
-  ;; LSP file watch
-  (setq lsp-file-watch-threshold 3000)
-  ;; Prefer Flycheck over Flymake
-  (setq lsp-prefer-flymake nil)
-  ;; This is the default provider but let's set it anyways.
-  (setq lsp-completion-provider :none)
-  ;; Files and directories LSP should not watch.
-  (dolist (dir '(
-                 "[/\\\\]\\.gradle\\'"
-                 "[/\\\\]bin\\'"
-                 "[/\\\\]build\\'"
-                 "[/\\\\]gradle\\'"
-                 "[/\\\\]logs\\'"
-                 "[/\\\\]mongodb\\'"
-                 "[/\\\\]mysql\\'"))
-  (push dir lsp-file-watch-ignored-directories)))
-
-(use-package lsp-java
-  :ensure t
-  :hook ((java-mode . lsp-deferred)
-         ;; (before-save lsp-organize-imports) ;; Only if google-java-format disabled
-         )
-  :bind (("C-c j b" . lsp-java-build-project)
-         ("C-c j m" . dap-java-run-test-method)
-         ("C-c j c" . dap-java-run-test-class))
-  :config
-  ;; Gradle version we use in most projects
-  (setq lsp-java-import-gradle-version "6.8.3")
-  (setq lsp-java-import-gradle-wrapper-enabled nil)
-  ;; Eclipse JDT Language Server
-  (setq lsp-java-jdt-download-url "https://download.eclipse.org/jdtls/milestones/1.9.0/jdt-language-server-1.9.0-202203031534.tar.gz")
-  ;; This is so Lombok works, otherwise java can't find definitions.
-  (setq path-to-lombok (expand-file-name "~/.emacs.d/lsp-extras/lombok-1.18.12.jar"))
-
-  ;; Java VM
-  (add-to-list 'lsp-java-vmargs
-               (concat "-javaagent:" path-to-lombok))
-  (add-to-list 'lsp-java-vmargs
-               (concat "-Xbootclasspath/a:" path-to-lombok))
-
-  ;; Fixing a modeline issue (only terminal).
-  ;; See https://github.com/emacs-lsp/lsp-java/issues/276
-  (unless (window-system)
-    (setq lsp-modeline-code-actions-segments '(count)))
-
-  ;; Format code automatically
-  (setq google-java-format-executable "/usr/local/bin/google-java-format")
-  (add-to-list 'load-path (expand-file-name "google-java-format/" emacs-packages-dir))
-  (require 'google-java-format)
-
-  ;; Only if google-java-format is disabled.
-  ;; (setq lsp-java-save-actions-organize-imports t)
-)
-
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp-deferred))))  ; or lsp
-
-(use-package lsp-ui
-  :ensure t
-  :bind (([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-         ([remap xref-find-references] . lsp-ui-peek-find-references))
-  :config
-  ;; Don't show sidelines
-  (setq lsp-ui-sideline-enable nil))
-
-(use-package lsp-treemacs
-  :ensure t
-  :after treemacs lsp-mode
-  :bind ("C-x t" . treemacs-select-window)
-  :config
-  ;; Synchronize lsp-mode and treemacs
-  (setq lsp-treemacs-sync-mode 1))
 
 (use-package marginalia
   :ensure t
@@ -533,17 +441,20 @@
    (scheme-mode . paredit-mode)))
 
 (use-package prettier
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package restclient
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package ripgrep
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package rustic
   :ensure t
-  :hook (rust-mode . lsp-deferred))
+  :hook (rust-mode . eglot-ensure))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
@@ -561,7 +472,7 @@
 
 (use-package typescript-mode
   :ensure t
-  :hook (typescript-mode . lsp-deferred)
+  :hook (typescript-mode . eglot-ensure)
   :mode ("\\.ts\\'" "\\.tsx\\'"))
 
 ;; Enable vertico
