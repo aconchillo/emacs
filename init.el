@@ -82,6 +82,8 @@
   (show-paren-mode 1)
   ;; Disables tool bar
   (tool-bar-mode -1)
+  ;; Highlight line
+  (hl-line-mode 1)
   :config
   ;; Initialize Emacs server
   (server-start)
