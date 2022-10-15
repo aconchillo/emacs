@@ -285,8 +285,7 @@
          ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
          ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
          ("M-s L" . consult-line-multi))           ;; needed by consult-line to detect isearch
-  :config
-  (setq consult-project-root-function #'projectile-project-root))
+  )
 
 (use-package corfu
   :ensure t
@@ -340,8 +339,7 @@
   ;; General Scheme mode
   (setq scheme-program-name "guile")
   ;; Geiser
-  (setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
-  (setq geiser-repl-current-project-function 'projectile-project-root))
+  (setq geiser-repl-history-filename "~/.emacs.d/geiser-history"))
 
 (use-package geiser-guile
   :ensure t
@@ -537,17 +535,6 @@
 (use-package prettier
   :ensure t)
 
-(use-package projectile
-  :ensure t
-  :bind-keymap
-  ;; Global key binding for projectile
-  ("C-c p" . projectile-command-map)
-  :init
-  (projectile-mode)
-  :config
-  ;; Ignore cquery files in projectile
-  (add-to-list 'projectile-globally-ignored-directories ".cquery_cached_index"))
-
 (use-package restclient
   :ensure t)
 
@@ -571,10 +558,6 @@
 (use-package treemacs-magit
   :ensure t
   :after treemacs)
-
-(use-package treemacs-projectile
-  :ensure t
-  :after treemacs projectile)
 
 (use-package typescript-mode
   :ensure t
