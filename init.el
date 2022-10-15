@@ -159,11 +159,6 @@
      (set-face-attribute 'default nil :family "MesloLGS NF")
      (set-face-attribute 'default nil :height 130)))
 
-  ;; Recommended settings for LSP to work better.
-  ;; See https://emacs-lsp.github.io/lsp-mode/page/performance/
-  (setq gc-cons-threshold 100000000)
-  (setq read-process-output-max (* 1024 1024))
-
   ;; Ensure tabs are spaces
   (setq indent-tabs-mode nil)
 
