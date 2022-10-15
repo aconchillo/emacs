@@ -379,7 +379,8 @@
          ("C-c C-<" . mc/mark-all-like-this)))
 
 (use-package ob-restclient
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package orderless
   :ensure t
