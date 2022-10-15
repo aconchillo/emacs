@@ -83,7 +83,7 @@
   ;; Disables tool bar
   (tool-bar-mode -1)
   ;; Highlight line
-  (hl-line-mode 1)
+  (global-hl-line-mode 1)
   :config
   ;; Initialize Emacs server
   (server-start)
@@ -602,6 +602,7 @@
 (use-package vterm
   :ensure t
   :defer t
+  :hook (vterm-mode . (lambda () (setq-local global-hl-line-mode nil)))
   :config
   (setq vterm-timer-delay 0.01))
 
