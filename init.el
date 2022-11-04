@@ -300,7 +300,8 @@
                           (bookmarks . 5)
                           (projects . 5)
                           (agenda . 5)
-                          (registers . 5)))
+                          (registers . 5))
+        dashboard-projects-backend 'project-el)
   :config
   (dashboard-setup-startup-hook))
 
