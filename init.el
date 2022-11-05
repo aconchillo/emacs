@@ -296,12 +296,12 @@
   :init
   (setq dashboard-set-heading-icons t
         dashboard-set-file-icons t
+        dashboard-projects-backend 'project-el
         dashboard-items '((recents  . 10)
                           (bookmarks . 5)
                           (projects . 5)
                           (agenda . 5)
-                          (registers . 5))
-        dashboard-projects-backend 'project-el)
+                          (registers . 5)))
   :config
   (dashboard-setup-startup-hook))
 
@@ -451,7 +451,9 @@
 
 (use-package rustic
   :ensure t
-  :hook (rust-mode . eglot-ensure))
+  :hook (rust-mode . eglot-ensure)
+  :config
+  (setq rustic-lsp-client 'eglot))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
