@@ -461,7 +461,8 @@
   :ensure t
   :hook (rust-mode . eglot-ensure)
   :config
-  (setq rustic-lsp-client 'eglot))
+  (setq rustic-lsp-client 'eglot)
+  (setq rustic-format-on-save t))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
