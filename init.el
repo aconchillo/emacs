@@ -136,14 +136,12 @@
   ;; Keyboard input method
   (setq default-input-method "catalan-prefix")
 
-  ;; OS X
-  (setq mac-option-key-is-meta nil)
-  (setq mac-command-key-is-meta t)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier nil)
-
   (pcase system-type
     ('darwin
+     ;; (setq mac-option-key-is-meta nil)
+     ;; (setq mac-command-key-is-meta t)
+     ;; (setq mac-command-modifier 'meta)
+     ;; (setq mac-option-modifier nil)
      (set-face-attribute 'default nil :family "MesloLGS NF")
      (set-face-attribute 'default nil :height 155))
     ('gnu/linux
@@ -162,6 +160,15 @@
           (width . 135)
           (height . 42)))
 
+  ;; Use objc-mode for objective-c files
+  (add-to-list 'auto-mode-alist '("\\.h$" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+
+  ;; Use objc-mode for objective-c++ files
+  (add-to-list 'auto-mode-alist '("\\.mm$" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.pch$" . objc-mode))
+
+  ;; Show ANSI colors on compilation buffers
   (add-hook 'compilation-filter-hook 'my-colorized-log-buffer)
 
   ;; Automatically use text mode unless stated otherwise
@@ -329,7 +336,13 @@
 (use-package eglot
   :ensure t
   :defer t
-  :bind (:map eglot-mode-map ("M-." . xref-find-definitions)))
+  :hook (c++-mode-hook . eglot-ensure)
+  :bind (:map eglot-mode-map ("M-." . xref-find-definitions))
+  :config
+  (pcase system-type
+    ('darwin
+     (add-to-list 'eglot-server-programs
+		  '(c++-mode "/opt/homebrew/opt/llvm@14/bin/clangd")))))
 
 (use-package geiser
   :ensure t
@@ -448,6 +461,11 @@
 (use-package prettier
   :ensure t
   :defer t)
+
+(use-package python
+  :ensure t
+  :hook (python-mode . eglot-ensure)
+  :mode "\\.py\\'")
 
 (use-package restclient
   :ensure t
