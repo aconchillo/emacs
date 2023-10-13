@@ -45,8 +45,12 @@
    ((eq major-mode 'dap-server-log-mode)
     (ansi-color-apply-on-region (point-min) (point-max)))))
 
-(use-package solarized-theme
-  :ensure t)
+(require 'project)
+
+(defun my-project-try-cargo-toml (dir)
+  "Try to locate a Rust project above DIR."
+  (let ((found (locate-dominating-file dir "Cargo.toml")))
+    (if (stringp found) `(transient . ,found) nil)))
 
 (use-package emacs
   :bind (("C-c o" . ff-find-other-file)
@@ -114,13 +118,6 @@
   ;; Text editing
   (setq default-major-mode 'text-mode)
 
-  (add-hook 'compilation-filter-hook 'my-colorized-log-buffer)
-
-;; Automatically use text mode unless stated otherwise
-  (add-hook 'text-mode-hook 'text-mode-hook-identify)
-  ;; Automatically break lines
-  (add-hook 'text-mode-hook 'turn-on-auto-fill)
-
   ;; Fill column
   (setq-default fill-column 80)
 
@@ -145,12 +142,6 @@
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil)
 
-  ;; Delete trailing whitespaces
-  (add-hook 'write-file-hooks 'delete-trailing-whitespace)
-
-  ;; Update copyright notice automagically
-  (add-hook 'write-file-hooks 'copyright-update)
-
   (pcase system-type
     ('darwin
      (set-face-attribute 'default nil :family "MesloLGS NF")
@@ -170,6 +161,23 @@
           (left . 50)
           (width . 135)
           (height . 42)))
+
+  (add-hook 'compilation-filter-hook 'my-colorized-log-buffer)
+
+  ;; Automatically use text mode unless stated otherwise
+  (add-hook 'text-mode-hook 'text-mode-hook-identify)
+
+  ;; Automatically break lines
+  (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+  ;; Delete trailing whitespaces
+  (add-hook 'write-file-hooks 'delete-trailing-whitespace)
+
+  ;; Update copyright notice automagically
+  (add-hook 'write-file-hooks 'copyright-update)
+
+  ;; Try to find the closest Cargo.toml to the file we are editing
+  (add-hook 'project-find-functions 'my-project-try-cargo-toml)
 
   ;; Spell checking for text mode
   ;; (dolist (hook '(text-mode-hook))
@@ -460,6 +468,9 @@
   :ensure t
   :init
   (savehist-mode))
+
+(use-package solarized-theme
+  :ensure t)
 
 (use-package treemacs
   :ensure t
