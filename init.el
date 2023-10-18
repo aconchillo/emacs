@@ -336,7 +336,8 @@
 (use-package eglot
   :ensure t
   :defer t
-  :hook (c++-mode-hook . eglot-ensure)
+  :hook ((c++-mode-hook . eglot-ensure)
+         (python-mode . eglot-ensure))
   :bind (:map eglot-mode-map ("M-." . xref-find-definitions))
   :config
   (pcase system-type
@@ -462,10 +463,10 @@
   :ensure t
   :defer t)
 
-(use-package python
+(use-package pyvenv-auto
   :ensure t
-  :hook (python-mode . eglot-ensure)
-  :mode "\\.py\\'")
+  :defer t
+  :hook ((python-mode . pyvenv-auto-run)))
 
 (use-package restclient
   :ensure t
