@@ -455,6 +455,13 @@
   :ensure t
   :defer t)
 
+(use-package py-autopep8
+  :ensure t
+  :defer t
+  :hook ((python-mode . py-autopep8-mode))
+  :config
+  (setq py-autopep8-options '("-a" "-a")))
+
 (use-package pyvenv-auto
   :ensure t
   :defer t
