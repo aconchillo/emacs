@@ -445,14 +445,6 @@
   :init
   (osx-clipboard-mode 1))
 
-(use-package paradox
-  :ensure t
-  :defer t
-  :config
-  ;; Paradox GitHub token
-  (setq paradox-github-token t)
-  (setq paradox-automatically-star nil))
-
 (use-package paredit
   :ensure t
   :hook
