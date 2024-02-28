@@ -520,8 +520,15 @@
 
 (use-package typescript-mode
   :ensure t
-  :hook (typescript-mode . eglot-ensure)
-  :mode ("\\.ts\\'" "\\.tsx\\'"))
+  :hook ((typescript-mode typescript-react-mode) . eglot-ensure)
+  :config
+  ;; we choose this instead of tsx-mode so that eglot can automatically figure out language for server
+  ;; see https://github.com/joaotavora/eglot/issues/624 and https://github.com/joaotavora/eglot#handling-quirky-servers
+  (define-derived-mode typescript-react-mode typescript-mode
+    "TypeScript TSX")
+
+  ;; use our derived mode for tsx files
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-react-mode)))
 
 ;; Enable vertico
 (use-package vertico
