@@ -409,6 +409,11 @@
   :init
   (marginalia-mode))
 
+(use-package markdown-mode
+  :ensure t
+  :defer t
+  :mode ("\\.md\\'" "\\.mdx\\'"))
+
 (use-package multiple-cursors
   :ensure t
   :bind (("C->" . mc/mark-next-like-this)
@@ -565,7 +570,6 @@
 (use-package gitlab-ci-mode :ensure t :defer t)
 (use-package json-mode :ensure t :defer t)
 (use-package magit :ensure t :defer t)
-(use-package markdown-mode :ensure t :defer t)
 (use-package protobuf-mode :ensure t :defer t)
 (use-package terraform-mode :ensure t :defer t)
 (use-package yaml-mode :ensure t :defer t)
