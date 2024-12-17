@@ -410,9 +410,10 @@
   :hook ((python-mode . lazy-ruff-mode))
   :config
   (setq lazy-ruff-format-command "ruff format --config line-length=100")
-  (setq lazy-ruff-only-format-block t)
-  (setq lazy-ruff-only-format-region t)
-  (setq lazy-ruff-only-format-buffer t))
+  (setq lazy-ruff-check-command "ruff check --select I --fix")
+  (setq lazy-ruff-only-format-block nil)
+  (setq lazy-ruff-only-format-region nil)
+  (setq lazy-ruff-only-format-buffer nil))
 
 (use-package marginalia
   :ensure t
