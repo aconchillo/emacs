@@ -233,6 +233,10 @@
   :ensure t
   :hook (dired-mode . all-the-icons-dired-mode))
 
+(use-package async
+  :ensure t
+  :defer t)
+
 (defun blamer-callback-show-commit-diff (commit-info)
   (interactive)
   (let ((commit-hash (plist-get commit-info :commit-hash)))
@@ -349,6 +353,10 @@
   :ensure t
   :defer t)
 
+(use-package docker-compose-mode
+  :ensure t
+  :defer t)
+
 (use-package forge
   :ensure t
   :after magit)
@@ -378,6 +386,10 @@
   :ensure t
   :after geiser)
 
+(use-package gitlab-ci-mode
+  :ensure t
+  :defer t)
+
 (use-package graphql-mode
   :ensure t
   :defer t
@@ -392,10 +404,18 @@
   :ensure t
   :after go)
 
+(use-package gptel
+  :ensure t
+  :defer t)
+
 (use-package js2-mode
   :ensure t
   :hook (js2-mode . eglot-ensure)
   :mode ("\\.js\\'" "\\.jsx\\'"))
+
+(use-package json-mode
+  :ensure t
+  :defer t)
 
 (use-package kind-icon
   :ensure t
@@ -414,6 +434,10 @@
   (setq lazy-ruff-only-format-block nil)
   (setq lazy-ruff-only-format-region nil)
   (setq lazy-ruff-only-format-buffer nil))
+
+(use-package magit
+  :ensure t
+  :defer t)
 
 (use-package marginalia
   :ensure t
@@ -490,6 +514,10 @@
   :ensure t
   :defer t)
 
+(use-package protobuf-mode
+  :ensure t
+  :defer t)
+
 (use-package pyvenv-auto
   :ensure t
   :defer t
@@ -518,6 +546,10 @@
 
 (use-package solarized-theme
   :ensure t)
+
+(use-package terraform-mode
+  :ensure t
+  :defer t)
 
 (use-package treemacs
   :ensure t
@@ -564,26 +596,21 @@
   :config
   (setq vterm-timer-delay 0.01))
 
+(use-package yaml-mode
+  :ensure t
+  :defer t)
+
 (use-package yasnippet
   :ensure t
   :init
   (yas-global-mode 1))
-
-(use-package async :ensure t :defer t)
-(use-package docker-compose-mode :ensure t :defer t)
-(use-package gitlab-ci-mode :ensure t :defer t)
-(use-package json-mode :ensure t :defer t)
-(use-package magit :ensure t :defer t)
-(use-package protobuf-mode :ensure t :defer t)
-(use-package terraform-mode :ensure t :defer t)
-(use-package yaml-mode :ensure t :defer t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
