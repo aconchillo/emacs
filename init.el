@@ -518,11 +518,6 @@
   :ensure t
   :defer t)
 
-(use-package pyvenv-auto
-  :ensure t
-  :defer t
-  :hook ((python-mode . pyvenv-auto-run)))
-
 (use-package restclient
   :ensure t
   :defer t)
@@ -570,6 +565,11 @@
 
   ;; use our derived mode for tsx files
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-react-mode)))
+
+(use-package uv-mode
+  :ensure t
+  :defer t
+  :hook ((python-mode . uv-mode-auto-activate-hook)))
 
 ;; Enable vertico
 (use-package vertico
