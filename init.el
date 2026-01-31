@@ -38,6 +38,11 @@
   (prin1 (eval (read (current-kill 0)))
          (current-buffer)))
 
+(defun unfill-paragraph ()
+  (interactive)
+  (let ((fill-column most-positive-fixnum))
+    (fill-paragraph nil)))
+
 (defun my-colorized-log-buffer ()
   (cond
    ((eq major-mode 'compilation-mode)
@@ -66,6 +71,7 @@
          ("C-c u" . insert-uuid)
          ("C-c d" . insert-date)
          ("C-c e" . fc-eval-and-replace)
+         ("C-c q" . unfill-paragraph)
          ("C-x C-b" . electric-buffer-list)
          ("<mouse-4>" . scroll-down-line)
          ("<mouse-5>" . scroll-up-line))
