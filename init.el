@@ -380,6 +380,11 @@
      (add-to-list 'eglot-server-programs
 		  '(c++-mode "/opt/homebrew/opt/llvm@14/bin/clangd")))))
 
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
 (use-package geiser
   :ensure t
   :defer t
