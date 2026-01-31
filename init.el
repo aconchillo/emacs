@@ -461,6 +461,9 @@
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
 
+(use-package multi-vterm
+  :ensure t)
+
 (use-package ob-restclient
   :ensure t
   :defer t)
