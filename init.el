@@ -374,6 +374,7 @@
          (python-mode . eglot-ensure))
   :bind (:map eglot-mode-map ("M-." . xref-find-definitions))
   :config
+  (setq eglot-autoshutdown t)
   (pcase system-type
     ('darwin
      (add-to-list 'eglot-server-programs
