@@ -363,10 +363,6 @@
   :ensure t
   :defer t)
 
-(use-package forge
-  :ensure t
-  :after magit)
-
 (use-package eglot
   :ensure t
   :defer t
