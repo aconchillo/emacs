@@ -334,7 +334,10 @@
   (corfu-auto t)
   (corfu-quit-no-match t)
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  (corfu-popupinfo-mode 1)
+  (corfu-history-mode)
+  (savehist-mode))
 
 (use-package dashboard
   :ensure t
