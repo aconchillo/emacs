@@ -57,6 +57,12 @@
   (let ((found (locate-dominating-file dir "Cargo.toml")))
     (if (stringp found) `(transient . ,found) nil)))
 
+(defun aleix/vterm-copy-mode-cursor-fix ()
+  "Make sure cursors is visible (e.g. Claude Code hides it)."
+  (if vterm-copy-mode
+      (setq-local cursor-type 'box)
+    (setq-local cursor-type nil)))
+
 (use-package emacs
   :bind (("C-c o" . ff-find-other-file)
          ("C-c c" . compile)
@@ -606,7 +612,8 @@
 (use-package vterm
   :ensure t
   :defer t
-  :hook (vterm-mode . (lambda () (setq-local global-hl-line-mode nil)))
+  :hook ((vterm-mode . (lambda () (setq-local global-hl-line-mode nil)))
+         (vterm-copy-mode . aleix/vterm-copy-mode-cursor-fix))
   :config
   (setq vterm-timer-delay 0.01))
 
