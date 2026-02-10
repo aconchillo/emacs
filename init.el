@@ -21,29 +21,31 @@
 (defconst emacs-packages-dir (expand-file-name "elisp/" emacs-init-dir)
   "Directory for elisp packages")
 
-(defun insert-date ()
+(defun aleix/insert-date ()
   "Insert date at point."
   (interactive)
   (insert (format-time-string "%a %b %d, %Y %H:%M")))
 
-(defun insert-uuid()
+(defun aleix/insert-uuid()
   "Insert UUID at point."
   (interactive)
   (insert (downcase (uuidgen-4))))
 
-(defun fc-eval-and-replace ()
+(defun aleix/fc-eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
   (backward-kill-sexp)
   (prin1 (eval (read (current-kill 0)))
          (current-buffer)))
 
-(defun unfill-paragraph ()
+(defun aleix/unfill-paragraph ()
+  "Unwrap a multi-line into a single line."
   (interactive)
   (let ((fill-column most-positive-fixnum))
     (fill-paragraph nil)))
 
-(defun my-colorized-log-buffer ()
+(defun aleix/colorized-log-buffer ()
+  "Show ANSI colors in compilation buffers."
   (cond
    ((eq major-mode 'compilation-mode)
     (ansi-color-apply-on-region compilation-filter-start (point-max)))
@@ -52,7 +54,7 @@
 
 (require 'project)
 
-(defun my-project-try-cargo-toml (dir)
+(defun aleix/project-try-cargo-toml (dir)
   "Try to locate a Rust project above DIR."
   (let ((found (locate-dominating-file dir "Cargo.toml")))
     (if (stringp found) `(transient . ,found) nil)))
@@ -74,13 +76,30 @@
          ("C-0" . text-scale-adjust)
          ("C-+" . text-scale-increase)
          ("C--" . text-scale-decrease)
-         ("C-c u" . insert-uuid)
-         ("C-c d" . insert-date)
-         ("C-c e" . fc-eval-and-replace)
-         ("C-c q" . unfill-paragraph)
+         ("C-c u" . aleix/insert-uuid)
+         ("C-c d" . aleix/insert-date)
+         ("C-c e" . aleix/fc-eval-and-replace)
+         ("C-c q" . aleix/unfill-paragraph)
          ("C-x C-b" . electric-buffer-list)
+         ("C-x p t" . multi-vterm-project)
          ("<mouse-4>" . scroll-down-line)
          ("<mouse-5>" . scroll-up-line))
+  :hook (;; Show ANSI colors on compilation buffers
+         (compilation-filter-hook . aleix/colorized-log-buffer)
+         ;; Automatically use text mode unless stated otherwise
+         (text-mode . text-mode-hook-identify)
+         ;; Automatically break lines
+         (text-mode . turn-on-auto-fill)
+         ;; Spell checking for text mode
+         (text-mode . (lambda () (flyspell-mode 1)))
+         (change-log-mode . (lambda () (flyspell-mode 1)))
+         (log-edit-mode . (lambda () (flyspell-mode 1)))
+         ;; Delete trailing whitespaces
+         (write-file-hooks . delete-trailing-whitespace)
+         ;; Update copyright notice automagically
+         (write-file-hooks . copyright-update)
+         ;; Try to find the closest Cargo.toml to the file we are editing
+         (project-find-functions . aleix/project-try-cargo-toml))
   :init
   ;; Auto insert
   (auto-insert-mode t)
@@ -180,30 +199,6 @@
   (add-to-list 'auto-mode-alist '("\\.mm$" . objc-mode))
   (add-to-list 'auto-mode-alist '("\\.pch$" . objc-mode))
 
-  ;; Show ANSI colors on compilation buffers
-  (add-hook 'compilation-filter-hook 'my-colorized-log-buffer)
-
-  ;; Automatically use text mode unless stated otherwise
-  (add-hook 'text-mode-hook 'text-mode-hook-identify)
-
-  ;; Automatically break lines
-  (add-hook 'text-mode-hook 'turn-on-auto-fill)
-
-  ;; Delete trailing whitespaces
-  (add-hook 'write-file-hooks 'delete-trailing-whitespace)
-
-  ;; Update copyright notice automagically
-  (add-hook 'write-file-hooks 'copyright-update)
-
-  ;; Try to find the closest Cargo.toml to the file we are editing
-  (add-hook 'project-find-functions 'my-project-try-cargo-toml)
-
-  ;; Spell checking for text mode
-  ;; (dolist (hook '(text-mode-hook))
-  ;;   (add-hook hook (lambda () (flyspell-mode 1))))
-  ;; (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
-  ;;   (add-hook hook (lambda () (flyspell-mode -1))))
-
   (setq treesit-language-source-alist
         '((bash "https://github.com/tree-sitter/tree-sitter-bash")
           (c "https://github.com/tree-sitter/tree-sitter-c")
@@ -275,7 +270,6 @@
                      ("<mouse-3>" . blamer-callback-show-commit-diff)))
   :custom-face
   (blamer-face ((t :foreground "#7a88cf"
-                   :background nil
                    :height 110
                    :italic t))))
 
@@ -375,7 +369,7 @@
 (use-package eglot
   :ensure t
   :defer t
-  :hook ((c++-mode-hook . eglot-ensure)
+  :hook ((c++-mode . eglot-ensure)
          (python-mode . eglot-ensure))
   :bind (:map eglot-mode-map ("M-." . xref-find-definitions))
   :config
