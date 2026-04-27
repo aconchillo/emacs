@@ -75,6 +75,26 @@
   (interactive)
   (claude-code-ide-mcp-start (project-root (project-current t))))
 
+(defun aleix/claude-mcp-auto-shutdown ()
+  "Stop the MCP server when killing the last file buffer of a project."
+  (when-let* ((file (buffer-file-name))
+              (proj (project-current nil (file-name-directory file)))
+              (root (project-root proj))
+              (sessions (bound-and-true-p claude-code-ide-mcp--sessions))
+              ((gethash root sessions))
+              (dying (current-buffer))
+              (others (cl-loop for buf in (buffer-list)
+                               when (and (not (eq buf dying))
+                                         (buffer-file-name buf)
+                                         (when-let ((p (project-current
+                                                        nil
+                                                        (file-name-directory
+                                                         (buffer-file-name buf)))))
+                                           (string= (project-root p) root)))
+                               return buf)))
+    (unless others
+      (claude-code-ide-mcp-stop-session root))))
+
 (use-package emacs
   :bind (("C-c o" . ff-find-other-file)
          ("C-c c" . compile)
@@ -292,6 +312,7 @@
   :init
   (advice-add 'project-switch-project :after #'aleix/claude-mcp-auto-start)
   (add-hook 'find-file-hook #'aleix/claude-mcp-auto-start)
+  (add-hook 'kill-buffer-hook #'aleix/claude-mcp-auto-shutdown)
   :config
   (claude-code-ide-emacs-tools-setup))
 
