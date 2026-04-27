@@ -65,6 +65,11 @@
       (setq-local cursor-type 'box)
     (setq-local cursor-type nil)))
 
+(defun aleix/claude-mcp-start ()
+  "Start the IDE-mode MCP server for the current project, no terminal."
+  (interactive)
+  (claude-code-ide-mcp-start (project-root (project-current t))))
+
 (use-package emacs
   :bind (("C-c o" . ff-find-other-file)
          ("C-c c" . compile)
@@ -272,6 +277,15 @@
   (blamer-face ((t :foreground "#7a88cf"
                    :height 110
                    :italic t))))
+
+(use-package claude-code-ide
+  :ensure t
+  :defer t
+  :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
+  :commands (claude-code-ide-mcp-start)
+  :bind ("C-x p i" . aleix/claude-mcp-start)
+  :config
+  (claude-code-ide-emacs-tools-setup))
 
 (use-package cmake-mode
   :ensure t
