@@ -458,10 +458,6 @@
   :ensure t
   :after go)
 
-(use-package gptel
-  :ensure t
-  :defer t)
-
 (use-package js2-mode
   :ensure t
   :hook (js2-mode . eglot-ensure)
