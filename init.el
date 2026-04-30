@@ -314,7 +314,8 @@
   (add-hook 'find-file-hook #'aleix/claude-mcp-auto-start)
   (add-hook 'kill-buffer-hook #'aleix/claude-mcp-auto-shutdown)
   :config
-  (claude-code-ide-emacs-tools-setup))
+  (claude-code-ide-emacs-tools-setup)
+  (setq claude-code-ide-use-ide-diff nil))
 
 (use-package cmake-mode
   :ensure t
