@@ -656,8 +656,14 @@
 (use-package vterm
   :ensure t
   :defer t
-  :hook ((vterm-mode . (lambda () (setq-local global-hl-line-mode nil)))
+  :hook ((vterm-mode . (lambda () (hl-line-mode -1)))
          (vterm-copy-mode . aleix/vterm-copy-mode-cursor-fix))
+  :bind (:map vterm-mode-map
+         ;; Bind mouse wheel scroll to send Up/Down keys to tmux
+         ([mouse-4] . (lambda () (interactive) (vterm-send-key "<prior>")))
+         ([mouse-5] . (lambda () (interactive) (vterm-send-key "<next>")))
+         ([wheel-up] . (lambda () (interactive) (vterm-send-key "<prior>")))
+         ([wheel-down] . (lambda () (interactive) (vterm-send-key "<next>"))))
   :config
   (setq vterm-timer-delay 0.01))
 
