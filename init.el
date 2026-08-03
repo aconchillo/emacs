@@ -95,6 +95,15 @@
     (unless others
       (claude-code-ide-mcp-stop-session root))))
 
+(defun aleix/copy-current-file-path ()
+  "Copy the absolute path of the current buffer's file to the clipboard."
+  (interactive)
+  (if-let ((filename (buffer-file-name)))
+      (progn
+        (kill-new filename)
+        (message "Copied file path: %s" filename))
+    (message "Current buffer is not visiting a file!")))
+
 (use-package emacs
   :bind (("C-c o" . ff-find-other-file)
          ("C-c c" . compile)
@@ -109,6 +118,7 @@
          ("C-c u" . aleix/insert-uuid)
          ("C-c d" . aleix/insert-date)
          ("C-c e" . aleix/fc-eval-and-replace)
+         ("C-c f" . aleix/copy-current-file-path)
          ("C-c q" . aleix/unfill-paragraph)
          ("C-x C-b" . electric-buffer-list)
          ("C-x p t" . multi-vterm-project)
