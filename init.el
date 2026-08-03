@@ -207,16 +207,16 @@
   ;; Keyboard input method
   (setq default-input-method "catalan-prefix")
 
+  ;;(set-face-attribute 'default nil :family "MesloLGS NF")
+  (set-face-attribute 'default nil :family "JetBrainsMono Nerd Font")
   (pcase system-type
     ('darwin
      ;; (setq mac-option-key-is-meta nil)
      ;; (setq mac-command-key-is-meta t)
      ;; (setq mac-command-modifier 'meta)
      ;; (setq mac-option-modifier nil)
-     (set-face-attribute 'default nil :family "MesloLGS NF")
      (set-face-attribute 'default nil :height 155))
     ('gnu/linux
-     (set-face-attribute 'default nil :family "MesloLGS NF")
      (set-face-attribute 'default nil :height 130)))
 
   ;; Ensure tabs are spaces
