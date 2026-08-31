@@ -679,7 +679,7 @@ call there fails."
 (use-package vterm
   :ensure t
   :defer t
-  :hook ((vterm-mode . (lambda () (hl-line-mode -1)))
+  :hook ((vterm-mode . (lambda () (setq-local global-hl-line-mode nil)))
          (vterm-copy-mode . aleix/vterm-copy-mode-cursor-fix))
   :bind (:map vterm-mode-map
          ;; Bind mouse wheel scroll to send Up/Down keys to tmux
