@@ -68,40 +68,60 @@
       (setq-local cursor-type 'box)
     (setq-local cursor-type nil)))
 
-(defun aleix/claude-mcp-auto-start (&rest _)
-  "Start the Claude Code IDE MCP server for the current project."
-  (when-let ((proj (project-current)))
-    (claude-code-ide-mcp-start (project-root proj))))
+(defvar aleix/claude-mcp-port 9919
+  "Port for the Emacs MCP tools server (xref, imenu, treesit).")
 
-(defun aleix/claude-mcp-start ()
-  "Start the IDE-mode MCP server for the current project, no terminal."
+(defvar aleix/claude--tools-ready nil
+  "Non-nil once the MCP tools have been registered.")
+
+(defun aleix/claude-ide-connect (&rest _)
+  "Make the current project visible to Claude Code running in a terminal.
+
+Starts an IDE WebSocket server for the project, which drops a lockfile in
+~/.claude/ide/.  An external `claude' started under this project picks it
+up with \\=`/ide\\=', after which it sees the region, point and current
+file, and \\[claude-code-ide-insert-at-mentioned] sends the selection to
+its prompt.  One server per project; calling this again is a no-op."
   (interactive)
-  (claude-code-ide-mcp-start (project-root (project-current t))))
+  (when-let* ((proj (project-current))
+              (root (project-root proj)))
+    (require 'claude-code-ide)
+    (unless (claude-code-ide-mcp--sessions-for-project root)
+      (claude-code-ide-mcp-create-session
+       root (format "emacs-%s" (file-name-nondirectory
+                                (directory-file-name root)))))))
 
-(defun aleix/claude-mcp-auto-shutdown ()
-  "Stop the MCP server when killing the last file buffer of a project."
-  (when-let* ((file (buffer-file-name))
-              (proj (project-current nil (file-name-directory file)))
+(defun aleix/claude-mcp-register (&rest _)
+  "Register the current project with the Emacs MCP tools server.
+
+Starts the HTTP server on `aleix/claude-mcp-port' if needed and registers
+each project under its own directory name, so Claude Code reaches a given
+project at http://127.0.0.1:9919/mcp/<project-name>.  The session id has
+to be in the URL: a bare /mcp carries no project context and every tool
+call there fails."
+  (interactive)
+  (when-let* ((proj (project-current))
               (root (project-root proj))
-              (sessions (bound-and-true-p claude-code-ide-mcp--sessions))
-              ((gethash root sessions))
-              (dying (current-buffer))
-              (others (cl-loop for buf in (buffer-list)
-                               when (and (not (eq buf dying))
-                                         (buffer-file-name buf)
-                                         (when-let ((p (project-current
-                                                        nil
-                                                        (file-name-directory
-                                                         (buffer-file-name buf)))))
-                                           (string= (project-root p) root)))
-                               return buf)))
-    (unless others
-      (claude-code-ide-mcp-stop-session root))))
+              (id (file-name-nondirectory (directory-file-name root))))
+    (unless aleix/claude--tools-ready
+      ;; Autoloaded; pulls in claude-code-ide-mcp-server and sets
+      ;; claude-code-ide-enable-mcp-server.  Must precede ensure-server.
+      (claude-code-ide-emacs-tools-setup)
+      (setq claude-code-ide-mcp-server-port aleix/claude-mcp-port
+            aleix/claude--tools-ready t))
+    (claude-code-ide-mcp-server-ensure-server)
+    (claude-code-ide-mcp-server-register-session id root (current-buffer))
+    (claude-code-ide-mcp-server-update-last-active-buffer id (current-buffer))))
+
+(defun aleix/claude-setup (&rest _)
+  "Set up both Claude Code servers for the current project."
+  (aleix/claude-ide-connect)
+  (aleix/claude-mcp-register))
 
 (defun aleix/copy-current-file-path ()
   "Copy the absolute path of the current buffer's file to the clipboard."
   (interactive)
-  (if-let ((filename (buffer-file-name)))
+  (if-let* ((filename (buffer-file-name)))
       (progn
         (kill-new filename)
         (message "Copied file path: %s" filename))
@@ -317,18 +337,18 @@
                    :italic t))))
 
 (use-package claude-code-ide
+  ;; Claude Code itself runs in an external terminal; Emacs only serves it.
+  ;; The IDE WebSocket server gives it the region/point/file, the MCP tools
+  ;; server gives it xref and imenu.  No Claude terminal buffer in Emacs.
   :ensure t
   :defer t
   :vc (:url "https://github.com/manzaltu/claude-code-ide.el" :rev :newest)
-  :commands (claude-code-ide-mcp-start)
-  :bind ("C-x p i" . aleix/claude-mcp-start)
+  :commands (claude-code-ide-emacs-tools-setup)
+  :bind (("C-x p i" . aleix/claude-ide-connect)
+         ("C-c a" . claude-code-ide-insert-at-mentioned))
   :init
-  (advice-add 'project-switch-project :after #'aleix/claude-mcp-auto-start)
-  (add-hook 'find-file-hook #'aleix/claude-mcp-auto-start)
-  (add-hook 'kill-buffer-hook #'aleix/claude-mcp-auto-shutdown)
-  :config
-  (claude-code-ide-emacs-tools-setup)
-  (setq claude-code-ide-use-ide-diff nil))
+  (advice-add 'project-switch-project :after #'aleix/claude-setup)
+  (add-hook 'find-file-hook #'aleix/claude-setup))
 
 (use-package cmake-mode
   :ensure t
