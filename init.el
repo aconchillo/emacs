@@ -1,4 +1,4 @@
-;;; init.el --- Emacs Configuration
+;;; init.el --- Emacs Configuration  -*- lexical-binding: t; -*-
 
 (require 'package)
 
