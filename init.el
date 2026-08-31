@@ -682,6 +682,7 @@ call there fails."
   :hook ((vterm-mode . (lambda () (setq-local global-hl-line-mode nil)))
          (vterm-copy-mode . aleix/vterm-copy-mode-cursor-fix))
   :bind (:map vterm-mode-map
+         ("C-c x" . (lambda () (interactive) (vterm-send-key "C-x")))
          ;; Bind mouse wheel scroll to send Up/Down keys to tmux
          ([mouse-4] . (lambda () (interactive) (vterm-send-key "<prior>")))
          ([mouse-5] . (lambda () (interactive) (vterm-send-key "<next>")))
