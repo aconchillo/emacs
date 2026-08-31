@@ -1,5 +1,8 @@
 ;;; init.el --- Emacs Configuration  -*- lexical-binding: t; -*-
 
+(let ((env (shell-command-to-string "zsh -l -c 'printenv'")))
+  (setq process-environment (split-string env "\n" t)))
+
 (require 'package)
 
 (add-to-list 'package-archives
