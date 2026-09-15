@@ -262,26 +262,13 @@ call there fails."
   (add-to-list 'auto-mode-alist '("\\.mm$" . objc-mode))
   (add-to-list 'auto-mode-alist '("\\.pch$" . objc-mode))
 
-  (setq treesit-language-source-alist
-        '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-          (c "https://github.com/tree-sitter/tree-sitter-c")
-          (cmake "https://github.com/uyha/tree-sitter-cmake")
-          (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
-          (css "https://github.com/tree-sitter/tree-sitter-css")
-          (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-          (go "https://github.com/tree-sitter/tree-sitter-go")
-          (html "https://github.com/tree-sitter/tree-sitter-html")
-          (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-          (json "https://github.com/tree-sitter/tree-sitter-json")
-          (make "https://github.com/alemuller/tree-sitter-make")
-          (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-          (python "https://github.com/tree-sitter/tree-sitter-python")
-          (rust "https://github.com/tree-sitter/tree-sitter-rust")
-          (toml "https://github.com/tree-sitter/tree-sitter-toml")
-          (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-          (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-          (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
-  )
+  (setq project-vc-extra-root-markers '("pyrightconfig.json"))
+
+  ;; Automatically download and compile missing grammars
+  (setq treesit-auto-install-grammar 'ask) ; Options: 'ask, 'always, or nil
+
+  ;; Automatically prefer tree-sitter major modes when grammars are available
+  (setq treesit-enabled-modes t))
 
 (use-package ansi-color
   :ensure t
